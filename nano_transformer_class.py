@@ -97,7 +97,7 @@ class transformer(nn.Module):
         self.config = config                                                                                            # Configuration for the transformer   
 
         self.token_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                              # Token embedding layer
-        self.positional_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                         # Positional embedding layer
+        self.positional_embedding_layer = nn.Embedding(config.max_seq_len, config.embedding_dim)                         # Positional embedding layer
         self.transformer_blocks = nn.ModuleList([transformerBlock(config) for _ in range(config.num_layers)])           # List of transformer blocks
         self.norm_layer = nn.LayerNorm(config.embedding_dim)                                                            # Normalization layer
         self.output_layer = nn.Linear(config.embedding_dim, config.vocab_size, bias=False)                              # Output layer
@@ -123,21 +123,20 @@ class transformer(nn.Module):
         """
 
     def forward(self, x, targets=None):
-        batch_size, seq_len = x.size()                                                          # Get the batch size and sequence length
+        batch_size, seq_len = x.size()                                                                                  # Get the batch size and sequence length
         assert seq_len <= self.config.max_seq_len, f"Input sequence length = {seq_len} exceeds the maximum sequence length = {self.config.max_seq_len}"
-
-        positions = torch.arange(seq_len, device=x.device).expand(batch_size, seq_len)          # Generate positions tensor
-        positional_embedding = self.positional_embedding_layer(positions)                       # Get positional embeddings for the input sequence (batch_size, seq_len, embedding_dim)
-        token_embedding = self.token_embedding_layer(x)                                         # Get token embeddings for the input sequence (batch_size, seq_len, embedding_dim)
-        x = token_embedding + positional_embedding                                              # Add token and positional embeddings 
-        for block in self.transformer_blocks:
-            x = block(x)                                                                        # Pass through the transformer blocks
-        x = self.norm_layer(x)                                                                  # Apply normalization
-        x = self.output_layer(x)                                                                # Apply output layer
-        loss = None                                                                             # Initialize loss to None
-        if targets is not None:
-            loss = F.cross_entropy(x.view(-1, x.size(-1)), targets.view(-1))                    # Calculate the cross entropy loss
-        return x, loss                                                                          # Return the output(logits) and loss
+        positions = torch.arange(0, seq_len, dtype=torch.long, device=x.device).expand(batch_size, seq_len)             # Generate positions tensor for the input sequence
+        positional_embedding = self.positional_embedding_layer(positions)                                               # Get positional embeddings for the input sequence (batch_size, seq_len, embedding_dim)
+        token_embedding = self.token_embedding_layer(x)                                                                 # Get token embeddings for the input sequence (batch_size, seq_len, embedding_dim)
+        x = token_embedding + positional_embedding                                                                      # Add token and positional embeddings 
+        for block in self.transformer_blocks:                       
+            x = block(x)                                                                                                # Pass through the transformer blocks
+        x = self.norm_layer(x)                                                                                          # Apply normalization
+        x = self.output_layer(x)                                                                                        # Apply output layer
+        loss = None                                                                                                     # Initialize loss to None
+        if targets is not None:                     
+            loss = F.cross_entropy(x.view(-1, x.size(-1)), targets.view(-1))                                            # Calculate the cross entropy loss
+        return x, loss                                                                                                  # Return the output(logits) and loss
 
     def init_optimizers(self, weight_decay, learning_rate, device):
         parameter_dict = {param_name : param for param_name, param in self.named_parameters() if param.requires_grad}   # Get the parameters that require gradients

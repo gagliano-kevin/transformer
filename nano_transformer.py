@@ -102,7 +102,7 @@ class transformer(nn.Module):
         self.config = config                                                                                            # Configuration for the transformer   
 
         self.token_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                              # Token embedding layer
-        self.positional_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                         # Positional embedding layer
+        self.positional_embedding_layer = nn.Embedding(config.max_seq_len, config.embedding_dim)                        # Positional embedding layer
         self.transformer_blocks = nn.ModuleList([transformerBlock(config) for _ in range(config.num_layers)])           # List of transformer blocks
         self.norm_layer = nn.LayerNorm(config.embedding_dim)                                                            # Normalization layer
         self.output_layer = nn.Linear(config.embedding_dim, config.vocab_size, bias=False)                              # Output layer
