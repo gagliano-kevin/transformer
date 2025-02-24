@@ -8,20 +8,20 @@ import torch.nn as nn
 from torch.nn import functional as F
 import tiktoken
 import numpy as np
-from hellaswag import render_example, iterate_examples
+#from hellaswag import render_example, iterate_examples
 
 """
 Configurations for the transformer architecture
 """
 @dataclass
 class transformerConfig:
-    num_layers: int = 6             # Number of layers in the transformer
-    num_heads: int = 8              # Number of heads in the multiheadattention blocks
-    embedding_dim: int = 512        # Embedding dimension of the model
-    feed_forward_dim: int = 2048    # Feed forward dimension of the model
-    max_seq_len: int = 512          # Maximum length of the input sequence
-    vocab_size: int = 50257         # Number of tokens: 50,000 BPE merges + 256 bytes tokens + 1 <|endoftext|> token
-    dropout: float = 0.1            # Dropout rate
+    num_layers: int = 6                                     # Number of layers in the transformer
+    num_heads: int = 8                                      # Number of heads in the multiheadattention blocks
+    embedding_dim: int = 512                                # Embedding dimension of the model
+    feed_forward_dim: int = 2048                            # Feed forward dimension of the model
+    max_seq_len: int = 512                                  # Maximum length of the input sequence
+    vocab_size: int = 50257                                 # Number of tokens: 50,000 BPE merges + 256 bytes tokens + 1 <|endoftext|> token
+    dropout: float = 0.1                                    # Dropout rate
 
 
 """
@@ -30,13 +30,13 @@ Feed forward neural network with GELU activation
 class mlp(nn.Module):
     def __init__(self, config: transformerConfig):
         super(mlp, self).__init__()
-        self.linear1 = nn.Linear(config.embedding_dim, config.feed_forward_dim)         # First linear layer
-        self.linear2 = nn.Linear(config.feed_forward_dim, config.embedding_dim)         # Second linear layer
-        self.linear2.SCALE = True                                                       # Flag to scale the weights of the second linear layer
-        #self.dropout = nn.Dropout(config.dropout)
-    
-    def forward(self, x):
-        x = nn.GELU(self.linear1(x))                                                    # Apply GELU activation to the first linear layer
+        self.linear1 = nn.Linear(config.embedding_dim, config.feed_forward_dim)             # First linear layer
+        self.linear2 = nn.Linear(config.feed_forward_dim, config.embedding_dim)             # Second linear layer
+        self.linear2.SCALE = True                                                           # Flag to scale the weights of the second linear layer
+        #self.dropout = nn.Dropout(config.dropout)  
+
+    def forward(self, x):   
+        x = F.gelu(self.linear1(x))                                                         # Apply GELU activation to the first linear layer
         #x = self.dropout(x)
         x = self.linear2(x)                                                             
         return x
@@ -102,12 +102,12 @@ class transformer(nn.Module):
         self.config = config                                                                                            # Configuration for the transformer   
 
         self.token_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                              # Token embedding layer
-        self.positional_embedding_layer = nn.Parameter(torch.randn(config.max_seq_len, config.embedding_dim))           # Positional embedding layer
+        self.positional_embedding_layer = nn.Embedding(config.vocab_size, config.embedding_dim)                         # Positional embedding layer
         self.transformer_blocks = nn.ModuleList([transformerBlock(config) for _ in range(config.num_layers)])           # List of transformer blocks
         self.norm_layer = nn.LayerNorm(config.embedding_dim)                                                            # Normalization layer
         self.output_layer = nn.Linear(config.embedding_dim, config.vocab_size, bias=False)                              # Output layer
 
-        self.token_embedding.weight = self.output_layer.weight                                                          # Tie the weights of the token embedding and output layer
+        self.token_embedding_layer.weight = self.output_layer.weight                                                    # Tie the weights of the token embedding and output layer
     
         self.apply(self.init_weights)                                                                                   # Initialize the weights of the model
     
@@ -120,7 +120,7 @@ class transformer(nn.Module):
             if module.bias is not None:
                 torch.nn.init.constant_(module.bias, 0)                                       # Initialize the bias of the linear layer with constant value 0
         elif isinstance(module, nn.Embedding):
-            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)                           # Initialize the weights of the embedding layer with normal distribution
+            torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)                          # Initialize the weights of the embedding layer with normal distribution
         """
         elif isinstance(module, nn.LayerNorm):
             torch.nn.init.constant_(module.bias, 0)                                           # Initialize the bias of the layer normalization layer with constant value 0
@@ -250,24 +250,21 @@ import torch.distributed as dist
 
 # set up DDP (distributed data parallel).
 # torchrun command sets the env variables RANK, LOCAL_RANK, and WORLD_SIZE
-ddp = int(os.environ.get('RANK', -1)) != -1                                            # check if we are running in DDP mode (DistributedDataParallel)
-if ddp:
-    # use of DDP atm demands CUDA, we set the device appropriately according to rank
+ddp = int(os.environ.get('RANK', -1)) != -1                                             # Check if we are running in DDP mode (DistributedDataParallel)
+if ddp:                                                                                 # Running in DDP mode
     assert torch.cuda.is_available(), "torch.cuda is not available"
-    init_process_group(backend='nccl')                                                  # initialize the process group
-    ddp_rank = int(os.environ['RANK'])                                                  # global rank
-    ddp_local_rank = int(os.environ['LOCAL_RANK'])                                      # local rank within the node
-    ddp_world_size = int(os.environ['WORLD_SIZE'])                                      # number of processes
-    device = f'cuda:{ddp_local_rank}'                                                   # device to use
+    init_process_group(backend='nccl')                                                  # Initialize the process group
+    ddp_rank = int(os.environ['RANK'])                                                  # Global rank
+    ddp_local_rank = int(os.environ['LOCAL_RANK'])                                      # Local rank within the node
+    ddp_world_size = int(os.environ['WORLD_SIZE'])                                      # Number of processes
+    device = f'cuda:{ddp_local_rank}'                                                   # Device to use
     torch.cuda.set_device(device)
     master_process = ddp_rank == 0                                                      # This process will do logging, checkpointing etc.
-else:
-    # vanilla, non-DDP run
+else:                                                                                   # Not running in DDP mode
     ddp_rank = 0
     ddp_local_rank = 0
     ddp_world_size = 1
     master_process = True
-    # attempt to autodetect device
     device = "cpu"
     if torch.cuda.is_available():
         device = "cuda"
@@ -292,9 +289,8 @@ grad_accum_steps = total_batch_size // (B * T * ddp_world_size)                 
 if master_process:
     print(f"total desired batch size: {total_batch_size}")
     print(f"=> calculated gradient accumulation steps: {grad_accum_steps}")
-
-train_data_loader = dataLoader(B=B, T=T, process_rank=ddp_rank, num_processes=ddp_world_size, split="train")                    # Data loader for training data
-val_data_loader = dataLoader(B=B, T=T, process_rank=ddp_rank, num_processes=ddp_world_size, split="val")                        # Data loader for validation data
+train_data_loader = dataLoader(batch_size=B, seq_len=T, process_rank=ddp_rank, num_processes=ddp_world_size, split="train")                    # Data loader for training data
+val_data_loader = dataLoader(batch_size=B, seq_len=T, process_rank=ddp_rank, num_processes=ddp_world_size, split="val")                        # Data loader for validation data
 
 torch.set_float32_matmul_precision('high')                                                                                      # Set the precision for matmul operations to high
 
