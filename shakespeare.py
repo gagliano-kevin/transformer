@@ -66,8 +66,22 @@ config = transformerConfig(
 )
 
 # Initialize model, loss, and optimizer
+
+def load_model():
+    model = transformer(config)
+    model.load_state_dict(torch.load("tiny_text_model.pth"))
+    return model
+
+# Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = transformer(config).to(device)
+model_path = "tiny_shaespeare_model.pth"
+if os.path.exists(model_path):
+    model = load_model()
+else:
+    model = transformer(config)
+
+model.to(device)
+
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
@@ -87,6 +101,9 @@ for epoch in range(num_epochs):
             print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(dataloader)}, Loss: {loss.item():.4f}")
         batch_idx += 1
     print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
+
+# Save model
+torch.save(model.state_dict(), "tiny_shakespeare_model.pth")
 
 # Text generation function
 def generate_text(prompt, max_len=200):
