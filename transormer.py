@@ -1,7 +1,13 @@
+import os
+import math
+import time
+import inspect
 from dataclasses import dataclass
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+import tiktoken
+import numpy as np
 
 """
 Configurations for the transformer architecture
@@ -160,3 +166,47 @@ class transformer(nn.Module):
             print(f"using fused AdamW: {use_fused}")
         optimizer = torch.optim.AdamW(optim_param_group, lr=learning_rate, betas=(0.9, 0.95), eps=1e-8, fused=use_fused)
         return optimizer
+
+
+"""
+Data loader for the transformer model - GPT2 version
+"""
+class dataLoader:
+    def __init__(self, batch_size, seq_len, process_rank, num_processes, split):
+        self.barch_size = batch_size
+        self.seq_len = seq_len
+        self.process_rank = process_rank
+        self.num_processes = num_processes
+        assert split in ["train", "val"], "Split must be either 'train' or 'val'"
+
+        data_root = "edu_fineweb10B"                                        # Path to the data
+        shards = os.listdir(data_root)                                      # List of shards
+        shards = [shard for shard in shards if split in shards]             # Filter the shards based on the split (train/val)
+        shards = sorted(shards)                                             # Sort the shards
+        shards = [os.path.join(data_root, shard) for shard in shards]       # Get the full path of the shards
+        self.shards = shards
+        assert len(shards) > 0, f"No shards found for split {split}"        # Check if any shards are found for the split
+        if master_process:                                                  
+            print(f"Found {len(shards)} shards for split {split}")  
+        self.reset()
+
+    def load_tokens(filename):
+        tokens = np.load(filename).astype(np.int32)                         # Load the tokens from the file in numpy format
+        return torch.tensor(tokens, dtype=torch.long)                       # Convert the tokens to torch tensor
+
+    def reset(self):
+        self.current_shard = 0                                                          # Initialize the current shard to 0
+        self.tokens = self.load_tokens(self.shards[self.current_shard])                 # Load the tokens from the current shard
+        self.current_position = self.barch_size * self.seq_len * self.process_rank      # Initialize the current position to the start of the shard based on the process rank
+
+    def next_batch(self):
+        B, T = self.barch_size, self.seq_len
+        token_buf = self.tokens[self.current_position : (self.current_position + B * T) + 1]   # Get the tokens for the current batch (+1 ensures that the last target token is included)
+        x = token_buf[:-1].view(B, T)                                                          # Get the input tokens
+        y = token_buf[1:].view(B, T)                                                           # Get the target tokens
+        self.current_position += B * T * self.num_processes                                    # Update the current position
+        if self.current_position + (B * T * self.num_processes + 1) > len(self.tokens):        # If loading the next batch would be out of bounds, advance to next shard
+            self.current_shard = (self.current_shard + 1) % len(self.shards)                   # Move to the next shard
+            self.tokens = self.load_tokens(self.shards[self.current_shard])                    # Load the tokens from the next shard
+            self.current_position = B * T * self.process_rank                                  # Update the current position
+        return x, y
