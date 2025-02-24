@@ -84,8 +84,7 @@ for epoch in range(num_epochs):
         optimizer.step()
         total_loss += loss.item()
         if batch_idx % 20 == 0:
-            print(f"Batch {batch_idx}/{len(dataloader)}, Loss: {loss.item():.4f}")
-            print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
+            print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(dataloader)}, Loss: {loss.item():.4f}")
         batch_idx += 1
     print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
 

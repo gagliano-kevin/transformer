@@ -49,7 +49,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
 # Training loop
-num_epochs = 20
+num_epochs = 5
 for epoch in range(num_epochs):
     total_loss = 0
     for x, y in dataloader:
