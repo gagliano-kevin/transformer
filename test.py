@@ -1,3 +1,4 @@
+import os
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -42,14 +43,26 @@ config = transformerConfig(
     dropout=0.1
 )
 
+def load_model():
+    model = transformer(config)
+    model.load_state_dict(torch.load("tiny_text_model.pth"))
+    return model
+
 # Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = transformer(config).to(device)
+model_path = "tiny_text_model.pth"
+if os.path.exists(model_path):
+    model = load_model()
+else:
+    model = transformer(config)
+
+model.to(device)
+
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
 # Training loop
-num_epochs = 5
+num_epochs = 1
 for epoch in range(num_epochs):
     total_loss = 0
     for x, y in dataloader:
@@ -60,6 +73,10 @@ for epoch in range(num_epochs):
         optimizer.step()
         total_loss += loss.item()
     print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
+
+# Save model
+torch.save(model.state_dict(), "tiny_text_model.pth")
+
 
 # Test generation function
 def generate_text(prompt, max_len=10):
