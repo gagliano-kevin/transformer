@@ -30,19 +30,25 @@ gpt_encoding = tiktoken.get_encoding("cl100k_base")  # Correct tokenizer for GPT
 tokenized_text = torch.tensor(gpt_encoding.encode(text), dtype=torch.long)
 vocab_size = gpt_encoding.n_vocab
 
-# Define a dataset class
+# Define a custom dataset class
 class ShakespeareDataset(Dataset):
     def __init__(self, data, seq_len=100):
         self.data = data
         self.seq_len = seq_len
-    
+
+        # Ensure we only keep valid starting indices
+        self.valid_indices = [i for i in range(len(self.data) - self.seq_len - 1)]
+
     def __len__(self):
-        return len(self.data)
+        return len(self.valid_indices)
     
     def __getitem__(self, idx):
+        idx = self.valid_indices[idx]                   # Get a valid index
         x = self.data[idx:idx + self.seq_len]
         y = self.data[idx + 1:idx + self.seq_len + 1]
         return x, y
+
+
 
 # Create dataset and dataloader
 seq_len = 100
@@ -94,6 +100,11 @@ else:
 
 model.to(device)
 
+# CPU: avg time per batch ~ 3.05s without torch.compile, token efficiency ~ 1050 tokens/s
+
+# Torch compile the model
+model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
+
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
@@ -102,11 +113,14 @@ optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 # Training loop method with validation
 def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path="tiny_shakespeare_model.pth", checkpoints_per_epoch=10):
     checkpoint_batches = len(train_loader) // checkpoints_per_epoch
+    print(f"Training model for {num_epochs} epochs with {len(train_loader)} batches per epoch.")
     print(f"Chepoints will be saved every {checkpoint_batches} batches.")
     for epoch in range(num_epochs):
         total_loss = 0
         batch_idx = 0
         model.train()
+        avg_batch_time = 0
+        token_efficiency = 0
         for x, y in train_loader:
             t0 = time.time()
             x, y = x.to(device), y.to(device)
@@ -115,9 +129,14 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
-            t1 = time.time() - t0
+            avg_batch_time += time.time() - t0
+            token_efficiency += x.size(0) * x.size(1)
             if batch_idx % log_freq == 0:
-                print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Time/batch: {t1:.4f}")
+                token_efficiency /= avg_batch_time
+                avg_batch_time /= log_freq if batch_idx > 0 else avg_batch_time
+                print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Avg Time/batch: {avg_batch_time:.4f}, Avg Token Efficiency: {token_efficiency:.2f} tokens/s")
+                avg_batch_time = 0
+                token_efficiency = 0
 
             if (batch_idx+1) % checkpoint_batches == 0:
                 torch.save(model.state_dict(), model_path)
