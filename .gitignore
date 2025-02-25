@@ -1,2 +1,3 @@
 __pycache__
 tiny_shakespeare.txt
+tiny_shakespeare_model.pth
