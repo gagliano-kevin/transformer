@@ -4,6 +4,7 @@ import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 import urllib.request
 import os
+import time
 from nano_transformer_class import transformer, transformerConfig
 
 import tiktoken 
@@ -12,6 +13,7 @@ import tiktoken
 DATA_PATH = "tiny_shakespeare.txt"
 URL = "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
 
+# Check if the dataset exists
 if not os.path.exists(DATA_PATH):
     print("Downloading Tiny Shakespeare dataset...")
     urllib.request.urlretrieve(URL, DATA_PATH)
@@ -20,30 +22,13 @@ if not os.path.exists(DATA_PATH):
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     text = f.read()
 
-# Character-level vocabulary
-chars = sorted(set(text))
-vocab_size = len(chars)
-char_to_idx = {ch: i for i, ch in enumerate(chars)}
-idx_to_char = {i: ch for ch, i in char_to_idx.items()}
+# Use the tokenizer from the tiktoken library
+#gpt_encoding = tiktoken.encoding_for_model("gpt2")
+gpt_encoding = tiktoken.get_encoding("cl100k_base")  # Correct tokenizer for GPT-4
 
 # Tokenize the text
-tokenized_text = torch.tensor([char_to_idx[c] for c in text], dtype=torch.long)
-
-# Use the tokenizer from the tiktoken library
-#gpt2_encoding = tiktoken.encoding_for_model("gpt2")
-gpt2_encoding = tiktoken.get_encoding("cl100k_base")  # Correct tokenizer for GPT-4
-
-
-encoded = gpt2_encoding.encode("Hello, I'm a language model,")     
-print("Encoded tokens:", encoded)
-decoded = gpt2_encoding.decode(encoded)
-print("Decoded text:", decoded)
-
-
-gpt2_tokenized_text = torch.tensor(gpt2_encoding.encode(text), dtype=torch.long)
-gpt2_vocab_size = gpt2_encoding.n_vocab
-
-
+tokenized_text = torch.tensor(gpt_encoding.encode(text), dtype=torch.long)
+vocab_size = gpt_encoding.n_vocab
 
 # Define a dataset class
 class ShakespeareDataset(Dataset):
@@ -52,7 +37,7 @@ class ShakespeareDataset(Dataset):
         self.seq_len = seq_len
     
     def __len__(self):
-        return len(self.data) - self.seq_len
+        return len(self.data)
     
     def __getitem__(self, idx):
         x = self.data[idx:idx + self.seq_len]
@@ -62,15 +47,23 @@ class ShakespeareDataset(Dataset):
 # Create dataset and dataloader
 seq_len = 100
 batch_size = 32
-dataset = ShakespeareDataset(gpt2_tokenized_text, seq_len)
-dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+dataset = ShakespeareDataset(tokenized_text, seq_len)
 
-dataset_len = len(dataset)
-print(f"Dataset length: {dataset_len}")
-print(f"Number of batches: {len(dataloader)}")
-print(f"{dataset_len//batch_size} batches of size {batch_size} and 1 batch of size {dataset_len % batch_size}")
-print(f"Number of unique characters: {vocab_size}")
-print(f"Sample input shape: {next(iter(dataloader))[0].shape}")
+# Create a validation set
+val_size = len(dataset) // 10
+train_size = len(dataset) - val_size
+train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
+
+# Build the training dataloader
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+
+# Build the validation dataloader
+val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+
+print("Dataset and Dataloaders created successfully.")
+print("Vocab size:", vocab_size)
+print("Number of training samples:", len(train_dataset))
+print("Number of validation samples:", len(val_dataset))
 
 # Transformer configuration
 config = transformerConfig(
@@ -79,23 +72,22 @@ config = transformerConfig(
     embedding_dim=128,
     feed_forward_dim=256,
     max_seq_len=seq_len,
-    vocab_size=gpt2_vocab_size,
+    vocab_size=vocab_size,
     dropout=0.1
 )
 
 # Initialize model, loss, and optimizer
 model_path = "tiny_shakespeare_model.pth"
-model_path2 = "tiny_shakespeare_model2.pth"
 
 def load_model():
     model = transformer(config)
-    model.load_state_dict(torch.load(model_path2, weights_only=True))
+    model.load_state_dict(torch.load(model_path, weights_only=True))
     print("Model loaded successfully.")
     return model
 
 # Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-if os.path.exists(model_path2):
+if os.path.exists(model_path):
     model = load_model()
 else:
     model = transformer(config)
@@ -105,33 +97,57 @@ model.to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
-# Training loop
-num_epochs = 1
-for epoch in range(num_epochs):
-    total_loss = 0
-    batch_idx = 0
-    for x, y in dataloader:
-        x, y = x.to(device), y.to(device)
-        optimizer.zero_grad()
-        output, loss = model(x, y)
-        loss.backward()
-        optimizer.step()
-        total_loss += loss.item()
-        if batch_idx % 20 == 0:
-            print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(dataloader)}, Loss: {loss.item():.4f}")
-        batch_idx += 1
-        if batch_idx == 40:
-            break
-    print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
 
-# Save model
-torch.save(model.state_dict(), model_path2)
-print("Model saved successfully.")
+
+# Training loop method with validation
+def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path="tiny_shakespeare_model.pth", checkpoints_per_epoch=10):
+    checkpoint_batches = len(train_loader) // checkpoints_per_epoch
+    print(f"Chepoints will be saved every {checkpoint_batches} batches.")
+    for epoch in range(num_epochs):
+        total_loss = 0
+        batch_idx = 0
+        model.train()
+        for x, y in train_loader:
+            t0 = time.time()
+            x, y = x.to(device), y.to(device)
+            optimizer.zero_grad()
+            output, loss = model(x, y)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+            t1 = time.time() - t0
+            if batch_idx % log_freq == 0:
+                print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Time/batch: {t1:.4f}")
+
+            if (batch_idx+1) % checkpoint_batches == 0:
+                torch.save(model.state_dict(), model_path)
+                print(f"Model checkpoint saved at batch {batch_idx+1} in epoch {epoch+1}.")
+
+            batch_idx += 1
+
+        print(f"Epoch {epoch+1}, Training Loss: {total_loss / len(train_loader):.4f}")
+        
+        # Validation
+        model.eval()
+        val_loss = 0
+        with torch.no_grad():
+            for x, y in val_loader:
+                x, y = x.to(device), y.to(device)
+                output, loss = model(x, y)
+                val_loss += loss.item()
+                if batch_idx % log_freq == 0:
+                    print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(val_loader)}, Validation Loss: {loss.item():.4f}")
+        print(f"Epoch {epoch+1}, Validation Loss: {val_loss / len(val_loader):.4f}")
+
+    # Save model at the end of training
+    torch.save(model.state_dict(), model_path)
+    print("Model saved successfully.")
+
 
 # Text generation function
 def generate_text(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor(gpt2_encoding.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(gpt_encoding.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
     
     with torch.no_grad():
         for _ in range(max_len):
@@ -141,8 +157,11 @@ def generate_text(prompt, max_len=200):
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)
             tokens = torch.cat((tokens, next_token), dim=1)
     
-    return gpt2_encoding.decode(tokens.squeeze(0).tolist())
+    return gpt_encoding.decode(tokens.squeeze(0).tolist())
 
 
-# Generate text
-print("Generated Text:", generate_text("ROMEO:"))
+# main entry point
+if __name__ == "__main__":
+    train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=10, model_path=model_path, checkpoints_per_epoch=100)
+    print("Generated Text:", generate_text("ROMEO:"))
+    print("Generated Text:", generate_text("JULIET:"))
