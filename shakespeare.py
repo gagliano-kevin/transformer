@@ -6,6 +6,8 @@ import urllib.request
 import os
 from nano_transformer_class import transformer, transformerConfig
 
+import tiktoken 
+
 # Download the Tiny Shakespeare dataset if not already present
 DATA_PATH = "tiny_shakespeare.txt"
 URL = "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
@@ -27,6 +29,22 @@ idx_to_char = {i: ch for ch, i in char_to_idx.items()}
 # Tokenize the text
 tokenized_text = torch.tensor([char_to_idx[c] for c in text], dtype=torch.long)
 
+# Use the tokenizer from the tiktoken library
+#gpt2_encoding = tiktoken.encoding_for_model("gpt2")
+gpt2_encoding = tiktoken.get_encoding("cl100k_base")  # Correct tokenizer for GPT-4
+
+
+encoded = gpt2_encoding.encode("Hello, I'm a language model,")     
+print("Encoded tokens:", encoded)
+decoded = gpt2_encoding.decode(encoded)
+print("Decoded text:", decoded)
+
+
+gpt2_tokenized_text = torch.tensor(gpt2_encoding.encode(text), dtype=torch.long)
+gpt2_vocab_size = gpt2_encoding.n_vocab
+
+
+
 # Define a dataset class
 class ShakespeareDataset(Dataset):
     def __init__(self, data, seq_len=100):
@@ -44,7 +62,7 @@ class ShakespeareDataset(Dataset):
 # Create dataset and dataloader
 seq_len = 100
 batch_size = 32
-dataset = ShakespeareDataset(tokenized_text, seq_len)
+dataset = ShakespeareDataset(gpt2_tokenized_text, seq_len)
 dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
 dataset_len = len(dataset)
@@ -61,22 +79,23 @@ config = transformerConfig(
     embedding_dim=128,
     feed_forward_dim=256,
     max_seq_len=seq_len,
-    vocab_size=vocab_size,
+    vocab_size=gpt2_vocab_size,
     dropout=0.1
 )
 
 # Initialize model, loss, and optimizer
 model_path = "tiny_shakespeare_model.pth"
+model_path2 = "tiny_shakespeare_model2.pth"
 
 def load_model():
     model = transformer(config)
-    model.load_state_dict(torch.load(model_path, weights_only=True))
+    model.load_state_dict(torch.load(model_path2, weights_only=True))
     print("Model loaded successfully.")
     return model
 
 # Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-if os.path.exists(model_path):
+if os.path.exists(model_path2):
     model = load_model()
 else:
     model = transformer(config)
@@ -101,18 +120,18 @@ for epoch in range(num_epochs):
         if batch_idx % 20 == 0:
             print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(dataloader)}, Loss: {loss.item():.4f}")
         batch_idx += 1
-        if batch_idx == 100:
+        if batch_idx == 40:
             break
     print(f"Epoch {epoch+1}, Loss: {total_loss / len(dataloader):.4f}")
 
 # Save model
-torch.save(model.state_dict(), model_path)
+torch.save(model.state_dict(), model_path2)
 print("Model saved successfully.")
 
 # Text generation function
 def generate_text(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor([char_to_idx[c] for c in prompt], dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(gpt2_encoding.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
     
     with torch.no_grad():
         for _ in range(max_len):
@@ -122,7 +141,8 @@ def generate_text(prompt, max_len=200):
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)
             tokens = torch.cat((tokens, next_token), dim=1)
     
-    return "".join([idx_to_char[idx] for idx in tokens.squeeze(0).tolist()])
+    return gpt2_encoding.decode(tokens.squeeze(0).tolist())
+
 
 # Generate text
 print("Generated Text:", generate_text("ROMEO:"))
