@@ -45,7 +45,7 @@ config = transformerConfig(
 
 def load_model():
     model = transformer(config)
-    model.load_state_dict(torch.load("tiny_text_model.pth"))
+    model.load_state_dict(torch.load("tiny_text_model.pth", weights_only=True))
     return model
 
 # Initialize model, loss, and optimizer
@@ -62,7 +62,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
 # Training loop
-num_epochs = 1
+num_epochs = 100
 for epoch in range(num_epochs):
     total_loss = 0
     for x, y in dataloader:
