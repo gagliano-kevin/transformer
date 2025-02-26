@@ -140,8 +140,8 @@ class transformer(nn.Module):
 
     def init_optimizers(self, weight_decay, learning_rate, device):
         parameter_dict = {param_name : param for param_name, param in self.named_parameters() if param.requires_grad}   # Get the parameters that require gradients
-        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim >= 2]                   # Get the parameters that require weight decay (only for bidiemensional tensors)
-        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim < 2]                 # Get the parameters that do not require weight decay
+        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() >= 2]                   # Get the parameters that require weight decay (only for bidiemensional tensors)
+        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() < 2]                 # Get the parameters that do not require weight decay
         optim_param_group = [
             {"params": weight_decay_parameters, "weight_decay": weight_decay},
             {"params": no_weight_decay_parameters, "weight_decay": 0.0}
@@ -151,13 +151,11 @@ class transformer(nn.Module):
         no_decay_param_tensor_num = len(no_weight_decay_parameters)                                                     # Number of tensors that do not require weight decay
         no_decay_param_num = sum(param.numel() for param in no_weight_decay_parameters)                                 # Number of parameters that do not require weight decay
         
-        if master_process:
-            print(f"number of decayed parameter tensors: {decay_param_tensor_num}, with {decay_param_num} parameters")
-            print(f"number of non-decayed parameter tensors: {no_decay_param_tensor_num}, with {no_decay_param_num} parameters")
+        print(f"number of decayed parameter tensors: {decay_param_tensor_num}, with {decay_param_num} parameters")
+        print(f"number of non-decayed parameter tensors: {no_decay_param_tensor_num}, with {no_decay_param_num} parameters")
         
         fused_available = 'fused' in inspect.signature(torch.optim.AdamW).parameters
         use_fused = fused_available and device == "cuda"
-        if master_process:
-            print(f"using fused AdamW: {use_fused}")
+        print(f"using fused AdamW: {use_fused}")
         optimizer = torch.optim.AdamW(optim_param_group, lr=learning_rate, betas=(0.9, 0.95), eps=1e-8, fused=use_fused)
         return optimizer

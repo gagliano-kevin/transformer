@@ -111,7 +111,8 @@ model.to(device)
 #model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(model.parameters(), lr=1e-3)
+#optimizer = optim.AdamW(model.parameters(), lr=1e-3)
+optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                         # Initialize the optimizer
 
 
 

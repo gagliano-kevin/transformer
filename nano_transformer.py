@@ -146,8 +146,8 @@ class transformer(nn.Module):
 
     def init_optimizers(self, weight_decay, learning_rate, device):
         parameter_dict = {param_name : param for param_name, param in self.named_parameters() if param.requires_grad}   # Get the parameters that require gradients
-        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim >= 2]                   # Get the parameters that require weight decay (only for bidiemensional tensors)
-        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim < 2]                 # Get the parameters that do not require weight decay
+        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() >= 2]                   # Get the parameters that require weight decay (only for bidiemensional tensors)
+        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() < 2]                 # Get the parameters that do not require weight decay
         optim_param_group = [
             {"params": weight_decay_parameters, "weight_decay": weight_decay},
             {"params": no_weight_decay_parameters, "weight_decay": 0.0}
@@ -174,7 +174,7 @@ Data loader for the transformer model - GPT2 version
 """
 class dataLoader:
     def __init__(self, batch_size, seq_len, process_rank, num_processes, split):
-        self.barch_size = batch_size
+        self.batch_size = batch_size
         self.seq_len = seq_len
         self.process_rank = process_rank
         self.num_processes = num_processes
@@ -198,10 +198,10 @@ class dataLoader:
     def reset(self):
         self.current_shard = 0                                                          # Initialize the current shard to 0
         self.tokens = self.load_tokens(self.shards[self.current_shard])                 # Load the tokens from the current shard
-        self.current_position = self.barch_size * self.seq_len * self.process_rank      # Initialize the current position to the start of the shard based on the process rank
+        self.current_position = self.batch_size * self.seq_len * self.process_rank      # Initialize the current position to the start of the shard based on the process rank
 
     def next_batch(self):
-        B, T = self.barch_size, self.seq_len
+        B, T = self.batch_size, self.seq_len
         token_buf = self.tokens[self.current_position : (self.current_position + B * T) + 1]   # Get the tokens for the current batch (+1 ensures that the last target token is included)
         x = token_buf[:-1].view(B, T)                                                          # Get the input tokens
         y = token_buf[1:].view(B, T)                                                           # Get the target tokens
@@ -468,7 +468,7 @@ for step in range(max_steps):                                                   
     t1 = time.time()                                                                                                        # End time
 
     dt = t1 - t0                                                                                                            # Time taken for the step
-    tokens_processed = train_data_loader.barch_size * train_data_loader.seq_len * grad_accum_steps * ddp_world_size         # Number of tokens processed in the step
+    tokens_processed = train_data_loader.batch_size * train_data_loader.seq_len * grad_accum_steps * ddp_world_size         # Number of tokens processed in the step
     tokens_per_sec = tokens_processed / dt                                                                                  # Tokens processed per second
 
     if master_process:
