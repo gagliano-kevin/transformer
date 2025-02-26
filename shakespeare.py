@@ -10,7 +10,7 @@ from nano_transformer_class import transformer, transformerConfig
 import tiktoken 
 
 # Download the Tiny Shakespeare dataset if not already present
-DATA_PATH = "tiny_shakespeare.txt"
+DATA_PATH = "tiny_tiny_shakespeare.txt"
 URL = "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
 
 # Check if the dataset exists
@@ -83,27 +83,32 @@ config = transformerConfig(
 )
 
 # Initialize model, loss, and optimizer
-model_path = "tiny_shakespeare_model.pth"
+model_path = "tiny_tiny_shakespeare_model.pth"
 
 def load_model():
     model = transformer(config)
+    model = torch.compile(model)
     model.load_state_dict(torch.load(model_path, weights_only=True))
     print("Model loaded successfully.")
     return model
 
 # Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("Using device:", device)
+torch.set_float32_matmul_precision('high')
+
 if os.path.exists(model_path):
     model = load_model()
 else:
     model = transformer(config)
+    model = torch.compile(model)
 
 model.to(device)
 
 # CPU: avg time per batch ~ 3.05s without torch.compile, token efficiency ~ 1050 tokens/s
 
 # Torch compile the model
-model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
+#model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
 
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-3)
@@ -111,10 +116,10 @@ optimizer = optim.AdamW(model.parameters(), lr=1e-3)
 
 
 # Training loop method with validation
-def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path="tiny_shakespeare_model.pth", checkpoints_per_epoch=10):
+def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path=model_path, checkpoints_per_epoch=10):
     checkpoint_batches = len(train_loader) // checkpoints_per_epoch
     print(f"Training model for {num_epochs} epochs with {len(train_loader)} batches per epoch.")
-    print(f"Chepoints will be saved every {checkpoint_batches} batches.")
+    print(f"Checkpoints will be saved every {checkpoint_batches} batches.")
     for epoch in range(num_epochs):
         total_loss = 0
         batch_idx = 0
@@ -125,7 +130,8 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
             t0 = time.time()
             x, y = x.to(device), y.to(device)
             optimizer.zero_grad()
-            output, loss = model(x, y)
+            with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+                _, loss = model(x, y)
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
@@ -149,13 +155,16 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
         # Validation
         model.eval()
         val_loss = 0
+        batch_idx = 0
         with torch.no_grad():
             for x, y in val_loader:
                 x, y = x.to(device), y.to(device)
-                output, loss = model(x, y)
+                with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+                    _, loss = model(x, y)
                 val_loss += loss.item()
                 if batch_idx % log_freq == 0:
                     print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(val_loader)}, Validation Loss: {loss.item():.4f}")
+                batch_idx += 1
         print(f"Epoch {epoch+1}, Validation Loss: {val_loss / len(val_loader):.4f}")
 
     # Save model at the end of training
@@ -181,6 +190,6 @@ def generate_text(prompt, max_len=200):
 
 # main entry point
 if __name__ == "__main__":
-    train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=10, model_path=model_path, checkpoints_per_epoch=100)
+    train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=10, model_path=model_path, checkpoints_per_epoch=10)
     print("Generated Text:", generate_text("ROMEO:"))
     print("Generated Text:", generate_text("JULIET:"))
