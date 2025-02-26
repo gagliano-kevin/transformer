@@ -9,6 +9,12 @@ from nano_transformer_class import transformer, transformerConfig
 
 import tiktoken 
 
+# Suppress errors from the dynamo library (devices with CUDA capability < 7.0 will throw an error, e.g. GTX 980m)
+import torch._dynamo
+torch._dynamo.config.suppress_errors = True  # Suppress TorchDynamo errors
+#torch._dynamo.config.verbose = False  # Disable verbose logging
+#torch.compile(backend="eager")  # Use the eager backend (disable inductor)
+
 # Download the Tiny Shakespeare dataset if not already present
 DATA_PATH = "tiny_tiny_shakespeare.txt"
 URL = "https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt"
@@ -52,7 +58,7 @@ class ShakespeareDataset(Dataset):
 
 # Create dataset and dataloader
 seq_len = 100
-batch_size = 32
+batch_size = 8                                              # Batch size for training reduced to fit GPU 980m memory 4GB
 dataset = ShakespeareDataset(tokenized_text, seq_len)
 
 # Create a validation set
@@ -111,10 +117,12 @@ model.to(device)
 #model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
 
 criterion = nn.CrossEntropyLoss()
-#optimizer = optim.AdamW(model.parameters(), lr=1e-3)
-optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                         # Initialize the optimizer
+optimizer = optim.AdamW(model.parameters(), lr=1e-3)
+#optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                         # Initialize the optimizer
 
-
+# Precision settings
+dtype = torch.float32                   # Set the default data type to float32 for old GPUs (comment out for newer GPUs)
+#dtype = torch.bfloat16                  # Set the default data type to bfloat16 for newer GPUs (comment out for older GPUs)
 
 # Training loop method with validation
 def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path=model_path, checkpoints_per_epoch=10):
@@ -131,7 +139,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
             t0 = time.time()
             x, y = x.to(device), y.to(device)
             optimizer.zero_grad()
-            with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+            with torch.autocast(device_type=device.type, dtype=dtype):
                 _, loss = model(x, y)
             loss.backward()
             optimizer.step()
@@ -160,7 +168,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
         with torch.no_grad():
             for x, y in val_loader:
                 x, y = x.to(device), y.to(device)
-                with torch.autocast(device_type=device.type, dtype=torch.bfloat16):
+                with torch.autocast(device_type=device.type, dtype=dtype):
                     _, loss = model(x, y)
                 val_loss += loss.item()
                 if batch_idx % log_freq == 0:
