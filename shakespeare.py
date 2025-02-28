@@ -58,7 +58,7 @@ class ShakespeareDataset(Dataset):
 
 # Create dataset and dataloader
 seq_len = 100
-batch_size = 8                                              # Batch size for training reduced to fit GPU 980m memory 4GB
+batch_size = 16                                              # Batch size for training reduced to fit GPU 980m memory 4GB (3.35 GiB used)
 dataset = ShakespeareDataset(tokenized_text, seq_len)
 
 # Create a validation set
@@ -117,8 +117,8 @@ model.to(device)
 #model = torch.compile(model)        # CPU: avg time per batch ~ 2.8s with torch.compile, token efficiency ~ 1100 tokens/s
 
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(model.parameters(), lr=1e-3)
-#optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                         # Initialize the optimizer
+#optimizer = optim.AdamW(model.parameters(), lr=1e-3)
+optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                         # Initialize the optimizer
 
 # Precision settings
 dtype = torch.float32                   # Set the default data type to float32 for old GPUs (comment out for newer GPUs)
@@ -149,7 +149,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
             if batch_idx % log_freq == 0:
                 token_efficiency /= avg_batch_time
                 avg_batch_time /= log_freq if batch_idx > 0 else avg_batch_time
-                print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Avg Time/batch: {avg_batch_time:.4f}, Avg Token Efficiency: {token_efficiency:.2f} tokens/s")
+                print(f"Epoch {epoch+1}/{num_epochs}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Avg Time/batch: {avg_batch_time:.4f}, Avg Token Efficiency: {token_efficiency:.2f} tokens/s")
                 avg_batch_time = 0
                 token_efficiency = 0
 
