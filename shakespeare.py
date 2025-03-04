@@ -93,7 +93,7 @@ model_path = "tiny_tiny_shakespeare_model.pth"
 
 def load_model():
     model = transformer(config)
-    model = torch.compile(model)
+    #model = torch.compile(model)
     model.load_state_dict(torch.load(model_path, weights_only=True))
     print("Model loaded successfully.")
     return model
@@ -101,13 +101,14 @@ def load_model():
 # Initialize model, loss, and optimizer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
-torch.set_float32_matmul_precision('high')
+
+#torch.set_float32_matmul_precision('high')
 
 if os.path.exists(model_path):
     model = load_model()
 else:
     model = transformer(config)
-    model = torch.compile(model)
+    #model = torch.compile(model)
 
 model.to(device)
 
@@ -139,8 +140,11 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
             t0 = time.time()
             x, y = x.to(device), y.to(device)
             optimizer.zero_grad()
-            with torch.autocast(device_type=device.type, dtype=dtype):
-                _, loss = model(x, y)
+            if torch.cuda.is_available():
+                with torch.autocast(device_type="cuda", dtype=dtype):
+                    _, loss = model(x, y)
+            else:
+                _, loss = model(x, y)  # Direct computation on CPU
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
@@ -168,8 +172,11 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
         with torch.no_grad():
             for x, y in val_loader:
                 x, y = x.to(device), y.to(device)
-                with torch.autocast(device_type=device.type, dtype=dtype):
-                    _, loss = model(x, y)
+                if torch.cuda.is_available():
+                    with torch.autocast(device_type="cuda", dtype=dtype):
+                        _, loss = model(x, y)
+                else:
+                    _, loss = model(x, y)  # Direct computation on CPU
                 val_loss += loss.item()
                 if batch_idx % log_freq == 0:
                     print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(val_loader)}, Validation Loss: {loss.item():.4f}")
@@ -195,6 +202,8 @@ def generate_text(prompt, max_len=200):
             tokens = torch.cat((tokens, next_token), dim=1)
     
     return gpt_encoding.decode(tokens.squeeze(0).tolist())
+
+
 
 
 # main entry point
