@@ -30,7 +30,7 @@ with open(DATA_PATH, "r", encoding="utf-8") as f:
 
 # Use the tokenizer from the tiktoken library
 #gpt_encoding = tiktoken.encoding_for_model("gpt2")
-gpt_encoding = tiktoken.get_encoding("cl100k_base")  # Correct tokenizer for GPT-4
+gpt_encoding = tiktoken.  # Correct tokenizer for GPT-4
 
 # Tokenize the text
 tokenized_text = torch.tensor(gpt_encoding.encode(text), dtype=torch.long)
@@ -208,6 +208,6 @@ def generate_text(prompt, max_len=200):
 
 # main entry point
 if __name__ == "__main__":
-    train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=10, model_path=model_path, checkpoints_per_epoch=10)
+    train_model(model, train_loader, val_loader, optimizer, num_epochs=1, log_freq=10, model_path=model_path, checkpoints_per_epoch=10)
     print("Generated Text:", generate_text("ROMEO:"))
     print("Generated Text:", generate_text("JULIET:"))
