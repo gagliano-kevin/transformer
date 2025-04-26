@@ -30,7 +30,7 @@ with open(DATA_PATH, "r", encoding="utf-8") as f:
 
 # Use the tokenizer from the tiktoken library
 #gpt_encoding = tiktoken.encoding_for_model("gpt2")
-gpt_encoding = tiktoken.  # Correct tokenizer for GPT-4
+gpt_encoding = tiktoken.get_encoding("clk100k_base")    #gpt4 tokenizer
 
 # Tokenize the text
 tokenized_text = torch.tensor(gpt_encoding.encode(text), dtype=torch.long)
