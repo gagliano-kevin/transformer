@@ -101,8 +101,9 @@ config = transformerConfig(
 )
 
 # Initialize model, loss, and optimizer
-model_path = "dracula_model.pth"
+model_path = "dracula_model_256_64_BPE.pth"
 """
+
 def load_model():
     model = transformer(config)
     #model = torch.compile(model)
@@ -114,7 +115,7 @@ def load_model():
 
 def load_model():
     model = transformer(config)
-    state_dict = torch.load(model_path, weights_only=True)
+    state_dict = torch.load(model_path, weights_only=True, map_location=torch.device('cpu'))
 
     # Fix the keys: remove "_orig_mod." prefix
     new_state_dict = {}
