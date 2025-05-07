@@ -16,7 +16,7 @@ import unicodedata
 
 class tokenizer:
     def __init__(self, vocab_size=256):
-        # check if vocab_size is greater than 256
+        # check if vocab_size is greater than 256 because the first 256 tokens are reserved for single byte tokens
         if vocab_size <= 256:
             raise ValueError("vocab_size should be greater than 256")
         # check if vocab_size is integer
@@ -27,7 +27,8 @@ class tokenizer:
             raise ValueError("vocab_size should be positive")
         self.vocab_size = vocab_size
         self.num_merges = vocab_size - 256
-        self.vocab = self.build_vocab_T2B()
+        #self.vocab = self.build_vocab_T2B() it will be built in the train method so it is not needed here
+        self.vocab = {}
         self.merges = {}
         self.pattern = ""
         self.special_tokens = {}
@@ -80,17 +81,19 @@ class tokenizer:
                 idx += 1
         return new_token_list
 
-    """token id two bytes"""
+    """token id to bytes mapping"""
     def build_vocab_T2B(self):
         """
         Function to build vocab dictionary, a mapping from token id to bytes.
         The function takes a list of token ids and returns a dictionary with token ids as keys (integers) and their corresponding bytes as values (bytes).
         """
         self.vocab = {token_id : bytes([token_id]) for token_id in range(256)}
+        
         for (p0, p1), token_id in self.merges.items():
             self.vocab[token_id] = self.vocab[p0] + self.vocab[p1]
+        
 
-
+        # check if log in enabled to print vocab
     def train(self, text):
         """
         Function to train the tokenizer on a given text.
@@ -114,7 +117,6 @@ class tokenizer:
 
         self.build_vocab_T2B()
 
-    
     def encode(self, text):
         """
         Function to encode a given text into tokens.
@@ -129,13 +131,12 @@ class tokenizer:
         tokens = list(text.encode("utf-8"))
         while len(tokens) >= 2:
             freq_dict = self.get_freq_dict(tokens)
-            pair = min(freq_dict, key = lambda pair: self.merges.get(pair, float("inf")))
+            pair = min(freq_dict, key = lambda pair: self.merges.get(pair, float("inf"))) 
             if pair not in self.merges:
                 break
             new_token_id = self.merges[pair]
             tokens =self.merge(tokens, pair, new_token_id)
         return tokens
-
 
     def decode(self, tokens):
         """
@@ -150,9 +151,9 @@ class tokenizer:
         text: string of text decoded from the tokens
         """
         tokens = b"".join([self.vocab[token] for token in tokens])
+        
         text = tokens.decode("utf-8", errors="replace")
         return text
-
 
     def replace_control_characters(self,text):
         chars = []
@@ -163,12 +164,10 @@ class tokenizer:
                 chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digit hexadecimal zero left padding
         return "".join(chars)
 
-
     def render_token(self, token_byte):
         token_string = token_byte.decode("utf-8", errors="replace")
         token_string = self.replace_control_characters(token_string)
         return token_string
-
 
     def save(self, file_prefix):
         model_file = file_prefix + ".model"
@@ -201,13 +200,18 @@ class tokenizer:
 
 
 
-tok = tokenizer(vocab_size=1000)
-f = open("train_text.txt", "r")
+tok = tokenizer(vocab_size=500)
+f = open("dracula_piece.txt", "r")
 text = f.read()
 tok.train(text)
-enc = tok.encode("dog bark at the door")
+enc = tok.encode("Transilvania")
 print(enc)
 dec = tok.decode(enc)
 print(dec)
+
+test_var="Transilvania"
+print(list(test_var.encode(("utf-8"))))
+
 #print(tok.vocab)
 #print(tok.merges)
+
