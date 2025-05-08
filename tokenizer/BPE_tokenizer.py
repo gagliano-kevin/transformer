@@ -13,8 +13,9 @@ To do:
 """
 
 import unicodedata
+import json
 
-class tokenizer:
+class CustomBPETokenizer:
     def __init__(self, vocab_size=256):
         # check if vocab_size is greater than 256 because the first 256 tokens are reserved for single byte tokens
         if vocab_size <= 256:
@@ -33,6 +34,16 @@ class tokenizer:
         self.pattern = ""
         self.special_tokens = {}
 
+        self.file_name_vocab = None
+        self.file_name_merges = None
+    
+
+    def get_vocab_size(self):
+        """
+        Function to get the size of the vocabulary.
+        The function returns the size of the vocabulary.
+        """
+        return self.vocab_size
 
     def get_freq_dict(self, tokens):
         """
@@ -108,7 +119,7 @@ class tokenizer:
         tokens = list(text.encode("utf-8"))
         for i in range(self.num_merges):
             freq_dict = self.get_freq_dict(tokens)
-            most_frequent_pair = max(freq_dict, key = freq_dict.get)
+            most_frequent_pair = max(freq_dict, key = freq_dict.get)        # get the most frequent pair taking the max of the frequency dictionary
             new_token_id = 256 + i
             # check if log in enabled to print merges
             print(f"merge {i+1}/{self.num_merges}:", most_frequent_pair, "->", new_token_id)
@@ -192,15 +203,56 @@ class tokenizer:
                 else:
                     f.write(f"[{token_string}] {id}\n")
 
-
-    def save(self, model_file):
-        pass
+    def save_model(self, file_prefix):
+        """
+        Save the tokenizer vocabulary and merges to separate files.
+        
+        Arguments:
+        file_prefix: prefix for the output files
+        
+        Outputs:
+        - {file_prefix}_vocab.json: JSON file containing the vocabulary
+        - {file_prefix}_merges.txt: Text file containing the merges
+        """
+        # Save vocabulary to JSON file
+        vocab_file = f"{file_prefix}_vocab.json"
+        self.file_name_vocab = vocab_file
+        vocab_dict = {}
+        for token_id, token_bytes in self.vocab.items():
+            # Convert bytes to string representation
+            token_string = self.render_token(token_bytes)
+            vocab_dict[token_string] = token_id
+        
+        with open(vocab_file, "w", encoding="utf-8") as f:
+            json.dump(vocab_dict, f, indent=2, ensure_ascii=False)
+        
+        # Save merges to text file
+        merges_file = f"{file_prefix}_merges.txt"
+        self.file_name_merges = merges_file
+        with open(merges_file, "w", encoding="utf-8") as f:
+            f.write(f"# Total merges: {len(self.merges)}\n")
+            
+            for (id1, id2), new_id in self.merges.items():
+                # Get string representations
+                s1 = self.render_token(self.vocab[id1])
+                s2 = self.render_token(self.vocab[id2])
                 
+                # Write both IDs and human-readable forms
+                f.write(f"{s1} {s2}\n")
+        
+        print(f"Vocabulary saved to {vocab_file}")
+        print(f"Merges saved to {merges_file}")
+
+    def load(self, model_file):
+        pass
+
+    #def save(self, model_file):
+    #    pass
+                
+            
 
 
-
-
-tok = tokenizer(vocab_size=500)
+tok = CustomBPETokenizer(vocab_size=500)
 f = open("dracula_piece.txt", "r")
 text = f.read()
 tok.train(text)
@@ -214,4 +266,5 @@ print(list(test_var.encode(("utf-8"))))
 
 #print(tok.vocab)
 #print(tok.merges)
+tok.save_model("dracula_piece_tokenizer")
 
