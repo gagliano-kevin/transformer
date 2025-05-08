@@ -29,7 +29,7 @@ if not tokenizer_files_exist:
     bpe_tokenizer = ByteLevelBPETokenizer()
     
     # Train it on Dracula (adjust vocab_size as needed)
-    bpe_tokenizer.train(files=[DATA_PATH], vocab_size=8000, min_frequency=2) 
+    bpe_tokenizer.train(files=[DATA_PATH], vocab_size=8000, min_frequency=2)    #min frequency means that the token must appear at least twice in the training data to be included in the vocabulary
     
     # Save the tokenizer
     bpe_tokenizer.save_model(".", "dracula_tokenizer")
@@ -45,7 +45,7 @@ bpe_tokenizer = ByteLevelBPETokenizer(
 
 # Tokenize the text
 encodings = bpe_tokenizer.encode(text)
-tokenized_text = torch.tensor(encodings.ids, dtype=torch.long)
+tokenized_text = torch.tensor(encodings.ids, dtype=torch.long) #tensor 
 vocab_size = bpe_tokenizer.get_vocab_size()
 
 # Define a custom dataset class
@@ -63,7 +63,7 @@ class DraculaDataset(Dataset):
     def __getitem__(self, idx):
         idx = self.valid_indices[idx]                   # Get a valid index
         x = self.data[idx:idx + self.seq_len]
-        y = self.data[idx + 1:idx + self.seq_len + 1]
+        y = self.data[idx + 1:idx + self.seq_len + 1]   
         return x, y
 
 
@@ -79,15 +79,15 @@ train_size = len(dataset) - val_size
 train_dataset, val_dataset = torch.utils.data.random_split(dataset, [train_size, val_size])
 
 # Build the training dataloader
-train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-
-# Build the validation dataloader
+train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True) 
 val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
 print("Dataset and Dataloaders created successfully.")
 print("Vocab size:", vocab_size)
 print("Number of training samples:", len(train_dataset))
 print("Number of validation samples:", len(val_dataset))
+
+
 
 # Transformer configuration
 config = transformerConfig(
@@ -102,20 +102,19 @@ config = transformerConfig(
 
 # Initialize model, loss, and optimizer
 model_path = "dracula_model_256_64_BPE.pth"
-"""
+
+#def load_model():
+#    model = transformer(config)
+#    #model = torch.compile(model)
+
+#    model.load_state_dict(torch.load(model_path, weights_only=True))
+#    print("Model loaded successfully.")
+#    return model
+
 
 def load_model():
     model = transformer(config)
-    #model = torch.compile(model)
-
-    model.load_state_dict(torch.load(model_path, weights_only=True))
-    print("Model loaded successfully.")
-    return model
-"""
-
-def load_model():
-    model = transformer(config)
-    state_dict = torch.load(model_path, weights_only=True, map_location=torch.device('cpu'))
+    state_dict = torch.load(model_path, weights_only=True, map_location=device)
 
     # Fix the keys: remove "_orig_mod." prefix
     new_state_dict = {}
@@ -166,7 +165,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
     for epoch in range(num_epochs):
         total_loss = 0
         batch_idx = 0
-        model.train()
+        model.train()       
         avg_batch_time = 0
         token_efficiency = 0
         for x, y in train_loader:
@@ -224,11 +223,13 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
 # Text generation function
 def generate_text(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
     
     with torch.no_grad():
         for _ in range(max_len):
             if tokens.size(1) >= config.max_seq_len:
+                #let the window slide take the last 256 tokens of the sequence
+                #tokens = tokens[:, -config.max_seq_len:]
                 break
             output, _ = model(tokens)
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)
@@ -236,6 +237,7 @@ def generate_text(prompt, max_len=200):
     
     return bpe_tokenizer.decode(tokens.squeeze(0).tolist())
 
+#function that creates a stream of text, one token at a time untill it reaches the max_len=256 or the end of the sequence
 def stream_text(prompt, max_len=200):
     model.eval()
     tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device)
@@ -244,6 +246,8 @@ def stream_text(prompt, max_len=200):
     with torch.no_grad():
         for _ in range(max_len):
             if tokens.size(1) >= config.max_seq_len:
+                #let the window slide take the last 256 tokens of the sequence
+                #tokens = tokens[:, -config.max_seq_len:]
                 break
             output, _ = model(tokens)
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
@@ -255,6 +259,31 @@ def stream_text(prompt, max_len=200):
             generated_text = new_text
             yield new_piece
 
+#function that creates a stream of text, one token at a time untill it reaches the end of the sequence or the max_len>256
+def stream_text2(prompt, max_len=200):
+    model.eval()
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device)
+    all_tokens = tokens.clone()  # Keep track of ALL tokens
+    generated_text = prompt
+    
+    with torch.no_grad():
+        for _ in range(max_len):
+            if tokens.size(1) >= config.max_seq_len:
+                # Slide window only for model input
+                tokens = tokens[:, -config.max_seq_len:]
+            
+            output, _ = model(tokens)
+            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
+            
+            # Update both collections
+            tokens = torch.cat((tokens, next_token), dim=1)
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            
+            # Decode from all tokens for consistency
+            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())
+            new_piece = new_text[len(generated_text):]
+            generated_text = new_text
+            yield new_piece
 
 # main entry point
 if __name__ == "__main__":
@@ -270,5 +299,5 @@ if __name__ == "__main__":
 
     prompt = "DIARIO DEL DOTTOR SEWARD."
     print(prompt, end="", flush=True)   # live stream output
-    for token in stream_text(prompt, max_len=200):
+    for token in stream_text2(prompt, max_len=1000):
         print(token, end="", flush=True)   # live stream output
