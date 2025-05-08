@@ -12,8 +12,10 @@ To do:
 - add logging logic
 """
 
+# Module used for handling unicode characters, explicitly used in the replace_control_characters function
 import unicodedata
 import json
+import os
 
 class CustomBPETokenizer:
     def __init__(self, vocab_size=256):
@@ -167,15 +169,36 @@ class CustomBPETokenizer:
         return text
 
     def replace_control_characters(self,text):
+        """
+        Function to replace control characters (newline, tab, etc.) in a string with their unicode code points.
+        The function takes a string and returns a new string with control characters replaced by their unicode code points (represented as a 4 digit hexadecimal number).
+        The function iterates through the string and checks if each character is a control character using the unicodedata module.
+        Arguments:
+        text: string to replace control characters in
+        Returns:
+        new_text: string with control characters replaced by their unicode code points
+        """
         chars = []
         for ch in text:
+            # check if the character is not a control character
+            # if it is not a control character, append it to the list
             if unicodedata.category(ch)[0] != "C":
                 chars.append(ch)
             else:
-                chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digit hexadecimal zero left padding
+                # if it is a control character, replace it with its unicode code point (represetented as a 4 digit hexadecimal number)
+                chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digits hexadecimal zero left padding (format: \uXXXX)
         return "".join(chars)
 
     def render_token(self, token_byte):
+        """
+        Function to render a token as a string.
+        The function takes a token (bytes obj) and returns a string representation of the token.
+        The function first decodes the token into a string using utf-8 encoding, then replaces control characters with their unicode code points.
+        Arguments:
+        token_byte: token (bytes) to render
+        Returns:
+        token_string: string representation of the token
+        """
         token_string = token_byte.decode("utf-8", errors="replace")
         token_string = self.replace_control_characters(token_string)
         return token_string
@@ -238,20 +261,72 @@ class CustomBPETokenizer:
                 s2 = self.render_token(self.vocab[id2])
                 
                 # Write both IDs and human-readable forms
-                f.write(f"{s1} {s2}\n")
+                f.write(f"\"{s1}\" , \"{s2}\" -> {new_id}\n")
         
         print(f"Vocabulary saved to {vocab_file}")
         print(f"Merges saved to {merges_file}")
 
-    def load(self, model_file):
-        pass
 
-    #def save(self, model_file):
-    #    pass
                 
+
+    def load_model(self, file_prefix):
+        """
+        Load the tokenizer vocabulary and merges from the saved files.
+
+        Arguments:
+        file_prefix: prefix of the vocabulary and merges files
+
+        Outputs:
+        None. Updates the self.vocab and self.merges attributes.
+        """
+        vocab_file = f"{file_prefix}_vocab.json"
+        merges_file = f"{file_prefix}_merges.txt"
+
+        if not os.path.exists(vocab_file):
+            raise FileNotFoundError(f"Vocabulary file not found: {vocab_file}")
+        if not os.path.exists(merges_file):
+            raise FileNotFoundError(f"Merges file not found: {merges_file}")
+
+    # Load vocabulary from JSON file
+        with open(vocab_file, "r", encoding="utf-8") as f:
+            vocab_data = json.load(f)
+            self.vocab = {int(token_id): token_string.encode('utf-8', errors='replace') for token_string, token_id in vocab_data.items()}
+            self.file_name_vocab = vocab_file
+
+        # Load merges from text file
+        self.merges = {}
+        with open(merges_file, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+            for line in lines[1:]:
+                parts = line.strip().split(" -> ")
+                if len(parts) == 2:
+                    merge_tokens_str, new_id_str = parts
+                    merge_tokens = merge_tokens_str.strip().split(" , ")
+                    if len(merge_tokens) == 2:
+                        s1_quoted, s2_quoted = merge_tokens
+                        s1_rendered = s1_quoted.strip().strip('"')
+                        s2_rendered = s2_quoted.strip().strip('"')
+                        try:
+                            new_id = int(new_id_str)
+                            id1 = next((token_id for token_id, token_bytes in self.vocab.items() if token_bytes.decode('utf-8', errors='replace') == s1_rendered), None)
+                            id2 = next((token_id for token_id, token_bytes in self.vocab.items() if token_bytes.decode('utf-8', errors='replace') == s2_rendered), None)
+                            if id1 is not None and id2 is not None:
+                                self.merges[(id1, id2)] = new_id
+                            else:
+                                print(f"Warning: Could not find token IDs for merge: '{s1_rendered}', '{s2_rendered}' in the loaded vocabulary.")
+                        except ValueError:
+                            print(f"Warning: Invalid new_id in merges file: {new_id_str}")
+                    else:
+                        print(f"Warning: Invalid merge format in line: {line.strip()}")
+                else:
+                    print(f"Warning: Invalid line format in merges file: {line.strip()}")
+            self.file_name_merges = merges_file
+
+        print(f"Vocabulary loaded from {vocab_file}")
+        print(f"Merges loaded from {merges_file}")
             
 
-
+"""
 tok = CustomBPETokenizer(vocab_size=500)
 f = open("dracula_piece.txt", "r")
 text = f.read()
@@ -268,3 +343,17 @@ print(list(test_var.encode(("utf-8"))))
 #print(tok.merges)
 tok.save_model("dracula_piece_tokenizer")
 
+"""
+
+tokenizer = CustomBPETokenizer(vocab_size=500)
+f = open("dracula_piece.txt", "r")
+text = f.read()
+tokenizer.train(text)
+tokenizer.save_model("save_test")
+tokenizer.load_model("save_test")
+#print(tokenizer.vocab)
+#print(tokenizer.merges)
+enc = tokenizer.encode("Transilvania")
+print(enc)
+dec = tokenizer.decode(enc)
+print(dec)
