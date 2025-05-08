@@ -15,11 +15,11 @@ if parent_dir not in sys.path:
 from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 
 
-tokenizer = BPE_tokenizer(vocab_size=260, log=True)
+tokenizer = BPE_tokenizer(vocab_size=300, log=True)
 tokenizer.train_from_file("../datasets/dracula-stoker.txt")
-tokenizer.save_model("test")
+tokenizer.save_model("dracula_tokenizer")
 
 tokenizer = BPE_tokenizer(vocab_size=1000)
-tokenizer.load_model("test")
+tokenizer.load_model("dracula_tokenizer")
 print(tokenizer.encode("This is a test sentence."))
 print(tokenizer.decode(tokenizer.encode("This is a test sentence.")))
