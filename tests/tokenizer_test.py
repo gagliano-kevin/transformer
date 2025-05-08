@@ -4,10 +4,14 @@ File to test the tokenizer module.
 
 import sys
 import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Get the absolute path to the parent directory 
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Add the parent directory to the system path if it is not already there
 if parent_dir not in sys.path:
     sys.path.append(parent_dir)
+
 from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 
 
