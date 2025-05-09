@@ -26,7 +26,7 @@ class CustomBPETokenizer:
         self.pattern = ""
         self.special_tokens = {}
 
-        self.tokenizer_params_dir = "tokenizer_params"
+        self.tokenizer_params_dir = "tests/tokenizer_params"
 
         self.log = log
     
@@ -189,21 +189,75 @@ class CustomBPETokenizer:
                 chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digits hexadecimal zero left padding (format: \uXXXX)
         return "".join(chars)
 
-
+    """
     def render_token(self, token_byte):
-        """
-        Function to render a token as a string.
-        The function takes a token (bytes obj) and returns a string representation of the token.
-        The function first decodes the token into a string using utf-8 encoding, then replaces control characters with their unicode code points.
-        Arguments:
-        token_byte: token (bytes) to render
-        Returns:
-        token_string: string representation of the token
-        """
+        
+        #Function to render a token as a string.
+        #The function takes a token (bytes obj) and returns a string representation of the token.
+        #The function first decodes the token into a string using utf-8 encoding, then replaces control characters with their unicode code points.
+        #Arguments:
+        #token_byte: token (bytes) to render
+        #Returns:
+        #token_string: string representation of the token
+        
         token_string = token_byte.decode("utf-8", errors="replace")
         token_string = self.replace_control_characters(token_string)
         return token_string
-    
+    """
+
+    def render_token_all_chars(self, token_byte):
+        """
+        Enhanced token rendering function that properly displays all characters including
+        the extended ASCII range (128-254).
+        
+        Arguments:
+        token_byte: token (bytes) to render
+        
+        Returns:
+        token_string: descriptive string representation of the token
+        """
+        # For single byte tokens, use a special representation based on the byte value
+        if len(token_byte) == 1:
+            byte_val = token_byte[0]
+            
+            # ASCII control characters (0-31) and DEL (127)
+            if byte_val < 32 or byte_val == 127:
+                return f"\\u{byte_val:04x}"
+                
+            # Extended ASCII (128-255)
+            elif byte_val >= 128:
+                # Try different encodings to get the best representation
+                try:
+                    # Try Latin-1 which has a 1:1 mapping for all byte values 0-255
+                    char_repr = token_byte.decode('latin-1')
+                    # Still escape control characters
+                    if unicodedata.category(char_repr)[0] == "C":
+                        return f"\\x{byte_val:02x}"
+                    return char_repr
+                except:
+                    return f"\\x{byte_val:02x}"
+                    
+            # Printable ASCII (32-126)
+            else:
+                return token_byte.decode('utf-8')
+        
+        # For multi-byte tokens, use the standard rendering
+        else:
+            token_string = token_byte.decode("utf-8", errors="replace")
+            token_string = self.replace_control_characters(token_string)
+            return token_string
+
+    def display_vocab(self):
+        """
+        Display a complete representation of the vocabulary with all characters.
+        
+        Returns:
+        display_dict: dictionary mapping token IDs to readable representations
+        """
+        display_dict = {}
+        for token_id, token_bytes in sorted(self.vocab.items()):
+            display_dict[token_id] = self.render_token_all_chars(token_bytes)
+        return display_dict
 
     def save_model(self, file_prefix):
         """
@@ -232,7 +286,8 @@ class CustomBPETokenizer:
         vocab_dict = {}
         for token_id, token_bytes in self.vocab.items():
             # Convert bytes to string representation
-            token_string = self.render_token(token_bytes)
+            #token_string = self.render_token(token_bytes)
+            token_string = self.render_token_all_chars(token_bytes)
             vocab_dict[token_string] = token_id
 
         # Save vocab dictionary to JSON file
@@ -248,8 +303,11 @@ class CustomBPETokenizer:
                 # (id1, id2) is a tuple of integers
                 # self.vocab[id1] and self.vocab[id2] are bytes
                 # self.render_token(self.vocab[id1]) and self.render_token(self.vocab[id2]) are strings
-                s1 = self.render_token(self.vocab[id1])
-                s2 = self.render_token(self.vocab[id2])
+                
+                #s1 = self.render_token(self.vocab[id1])
+                s1 = self.render_token_all_chars(self.vocab[id1])
+                #s2 = self.render_token(self.vocab[id2])
+                s2 = self.render_token_all_chars(self.vocab[id2])
                 
                 # Write to file string representations of the token pair and the new token id
                 f.write(f"\"{s1}\" , \"{s2}\" -> {new_id}\n")

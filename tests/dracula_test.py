@@ -18,14 +18,15 @@ from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 from nano_transformer_class import transformer, transformerConfig
 
 # Path to the dataset
-DATA_PATH = "../datasets/dracula-stoker.txt"
+DATA_PATH = "datasets/dracula-stoker.txt"
 
 # Load the dataset
 with open(DATA_PATH, "r", encoding="utf-8") as f:
     text = f.read()
 
 # Check if a pre-trained tokenizer exists
-pretrained_tokenizer = os.path.exists("tokenizer_params/dracula_tokenizer_vocab.json") and os.path.exists("tokenizer_params/dracula_tokenizer_merges.txt")
+pretrained_tokenizer = os.path.exists("tests/tokenizer_params/dracula_test_tokenizer_vocab.json") and os.path.exists("tests/tokenizer_params/dracula_test_tokenizer_merges.txt")
+print("Pre-trained tokenizer exists:", pretrained_tokenizer)
 
 if pretrained_tokenizer:
     # Load the pre-trained tokenizer
@@ -34,9 +35,10 @@ if pretrained_tokenizer:
     print("Pre-trained BPE tokenizer loaded.")
 else:
     # Create a new untrained tokenizer
-    bpe_tokenizer = BPE_tokenizer()
-    print("Creating a new BPE tokenizer.")
-    
+    bpe_tokenizer = BPE_tokenizer(vocab_size=500, log=True)
+    bpe_tokenizer.train_from_file(DATA_PATH)  # Train the tokenizer on the dataset
+    bpe_tokenizer.save_model("dracula_test_tokenizer")
+    print("Pre-trained BPE tokenizer not found. A new one has been created and saved.")
 
 # Tokenize the text
 encoded_text = bpe_tokenizer.encode(text)
@@ -94,7 +96,12 @@ config = transformerConfig(
 )
 
 # Path to save/load the model
-model_path = "../pretrained_models/dracula_model_test_new_tokenizer.pth"
+model_path = "pretrained_models/dracula_model_test_new_tokenizer.pth"
+
+if os.path.exists(model_path):
+    print("Model checkpoint found. Loading model...")
+else:
+    print("No model checkpoint found. A new model will be created.")
 
 
 def load_model():
@@ -121,18 +128,18 @@ print("Using device:", device)
 
 
 # Temporary commented for testing
-"""
+
 if os.path.exists(model_path):
     model = load_model()
 else:
     model = transformer(config)
-"""
+
 model = transformer(config)
 model.to(device)
 
 
 # Torch compile the model
-model = torch.compile(model)        
+#model = torch.compile(model)        
 
 criterion = nn.CrossEntropyLoss()
 optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                      
@@ -245,7 +252,7 @@ def stream_text(prompt, max_len=200):
 #function that creates a stream of text, one token at a time untill it reaches the end of the sequence or the max_len>256
 def stream_text2(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
     all_tokens = tokens.clone()  # Keep track of ALL tokens
     generated_text = prompt
     
@@ -280,9 +287,9 @@ if __name__ == "__main__":
     #print("Generated text:")
     #print(generated_text)
 
-    """
+    
     prompt = "DIARIO DEL DOTTOR SEWARD."
     print(prompt, end="", flush=True)   # live stream output
     for token in stream_text2(prompt, max_len=1000):
         print(token, end="", flush=True)   # live stream output
-    """
+    
