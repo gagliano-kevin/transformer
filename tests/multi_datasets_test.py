@@ -75,7 +75,7 @@ class MultipleBooksDataset(Dataset):
 
 # Create dataset and dataloader
 seq_len = 256
-batch_size = 64                                              
+batch_size = 2  #<-------- BATCH SIZE LIMITED TO VALUE = 2 FOR GTX980M, IF GREATER IT WILL SHUT DOWN THE COMPUTER!!!!! ( **** REMINDER FOR KEVIN **** )                                             
 dataset = MultipleBooksDataset(tokenized_text, seq_len)
 
 # Create a validation set
@@ -220,7 +220,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
 # Text generation function
 def generate_text(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
     
     with torch.no_grad():
         for _ in range(max_len):
@@ -237,7 +237,7 @@ def generate_text(prompt, max_len=200):
 #function that creates a stream of text, one token at a time untill it reaches the max_len=256 or the end of the sequence
 def stream_text(prompt, max_len=200):
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt).ids, dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
     generated_text = prompt
     
     with torch.no_grad():
@@ -287,5 +287,10 @@ if __name__ == "__main__":
 
     train_model(model, train_loader, val_loader, optimizer, num_epochs=1, log_freq=10, model_path=model_path, checkpoints_per_epoch=891)
 
-
-    
+    # Example usage of the text generation function
+    """
+    prompt = "Once upon a time"
+    generated_text = generate_text(prompt, max_len=100)
+    print("Generated text:")
+    print(generated_text)
+    """

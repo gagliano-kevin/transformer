@@ -68,7 +68,7 @@ class DraculaDataset(Dataset):
 
 # Create dataset and dataloader
 seq_len = 256
-batch_size = 64                                              
+batch_size = 8                                              
 dataset = DraculaDataset(tokenized_text, seq_len)
 
 # Create a validation set
