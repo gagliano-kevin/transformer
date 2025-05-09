@@ -18,7 +18,6 @@ from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 from nano_transformer_class import transformer, transformerConfig
 
 # Path to the datasets
-# lsit all the files in the datasets directory
 DATASETS_DIR = "../datasets"
 filenames = os.listdir(DATASETS_DIR)
 
