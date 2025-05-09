@@ -8,7 +8,7 @@ import time
 
 
 # Get the absolute path to the parent directory 
-parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 
 # Add the parent directory to the system path if it is not already there
 if parent_dir not in sys.path:
@@ -18,7 +18,7 @@ from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 from nano_transformer_class import transformer, transformerConfig
 
 # Path to the datasets
-DATASETS_DIR = "../datasets"
+DATASETS_DIR = "../../datasets"
 filenames = os.listdir(DATASETS_DIR)
 
 # Remove the file datasets_source.txt if from the filenames list
@@ -105,7 +105,7 @@ config = transformerConfig(
 )
 
 # Path to save/load the model
-model_path = "../pretrained_models/multidatasets_training_test.pth"
+model_path = "../../pretrained_models/multidatasets_training_test.pth"
 
 if os.path.exists(model_path):
     print("Model checkpoint found. Loading model...")
