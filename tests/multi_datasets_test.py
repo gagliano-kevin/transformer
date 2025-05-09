@@ -19,7 +19,7 @@ from nano_transformer_class import transformer, transformerConfig
 
 # Path to the datasets
 # lsit all the files in the datasets directory
-DATASETS_DIR = "datasets"
+DATASETS_DIR = "../datasets"
 filenames = os.listdir(DATASETS_DIR)
 
 # Remove the file datasets_source.txt if from the filenames list
@@ -43,10 +43,10 @@ if pretrained_tokenizer:
     print("Pre-trained BPE tokenizer loaded.")
 else:
     # Create a new untrained tokenizer
-    bpe_tokenizer = BPE_tokenizer(vocab_size=1000, log=True)
+    bpe_tokenizer = BPE_tokenizer(vocab_size=260, log=True)
     bpe_tokenizer.train(text)  # Train the tokenizer on the datasets
     bpe_tokenizer.save_model("multi_datasets_test_tokenizer")
-    print("Pre-trained BPE tokenizer not found. A new one has been created and saved.")
+    print("Pre-trained BPE tokenizer not found. A new one has been trained and saved.")
 
 # Tokenize the text
 encoded_text = bpe_tokenizer.encode(text)
