@@ -32,17 +32,19 @@ for filename in filenames:
 
 
 # Check if a pre-trained tokenizer exists
-pretrained_tokenizer = os.path.exists("tests/tokenizer_params/multi_datasets_test_tokenizer_vocab.json") and os.path.exists("tests/tokenizer_params/multi_datasets_test_tokenizer_merges.txt")
+pretrained_tokenizer = os.path.exists("./multidatasets_tokenizer_params/multi_datasets_test_tokenizer_vocab.json") and os.path.exists("./multidatasets_tokenizer_params/multi_datasets_test_tokenizer_merges.txt")
 print("Pre-trained tokenizer exists:", pretrained_tokenizer)
 
 if pretrained_tokenizer:
     # Load the pre-trained tokenizer
     bpe_tokenizer = BPE_tokenizer(vocab_size=300)
+    bpe_tokenizer.tokenizer_params_dir = "./multidatasets_tokenizer_params"
     bpe_tokenizer.load_model("multi_datasets_test_tokenizer")
     print("Pre-trained BPE tokenizer loaded.")
 else:
     # Create a new untrained tokenizer
     bpe_tokenizer = BPE_tokenizer(vocab_size=260, log=True)
+    bpe_tokenizer.tokenizer_params_dir = "./multidatasets_tokenizer_params"
     bpe_tokenizer.train(text)  # Train the tokenizer on the datasets
     bpe_tokenizer.save_model("multi_datasets_test_tokenizer")
     print("Pre-trained BPE tokenizer not found. A new one has been trained and saved.")
@@ -103,7 +105,7 @@ config = transformerConfig(
 )
 
 # Path to save/load the model
-model_path = "pretrained_models/dracula_model_test_new_tokenizer.pth"
+model_path = "../pretrained_models/multidatasets_training_test.pth"
 
 if os.path.exists(model_path):
     print("Model checkpoint found. Loading model...")
@@ -134,8 +136,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
 
-# Temporary commented for testing
-
 if os.path.exists(model_path):
     model = load_model()
 else:
@@ -152,7 +152,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                      
 
 # Precision settings
-dtype = torch.float32                   # Set the default data type to float32 for old GPUs (comment out for newer GPUs)
+dtype = torch.float32                   # Set the default data type to float32 for old GPUs 
 
 # Training loop method with validation
 def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_path=model_path, checkpoints_per_epoch=10):

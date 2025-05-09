@@ -18,7 +18,7 @@ from BPE_tokenizer import CustomBPETokenizer as BPE_tokenizer
 from nano_transformer_class import transformer, transformerConfig
 
 # Path to the dataset
-DATA_PATH = "datasets/dracula-stoker.txt"
+DATA_PATH = "../datasets/dracula-stoker.txt"
 
 # Load the dataset
 with open(DATA_PATH, "r", encoding="utf-8") as f:
@@ -31,12 +31,14 @@ print("Pre-trained tokenizer exists:", pretrained_tokenizer)
 if pretrained_tokenizer:
     # Load the pre-trained tokenizer
     bpe_tokenizer = BPE_tokenizer(vocab_size=300)
+    bpe_tokenizer.tokenizer_params_dir = "./dracula_tokenizer_params"
     bpe_tokenizer.load_model("dracula_tokenizer")
     print("Pre-trained BPE tokenizer loaded.")
 else:
     # Create a new untrained tokenizer
-    bpe_tokenizer = BPE_tokenizer(vocab_size=500, log=True)
+    bpe_tokenizer = BPE_tokenizer(vocab_size=300, log=True)
     bpe_tokenizer.train_from_file(DATA_PATH)  # Train the tokenizer on the dataset
+    bpe_tokenizer.tokenizer_params_dir = "./dracula_tokenizer_params"
     bpe_tokenizer.save_model("dracula_test_tokenizer")
     print("Pre-trained BPE tokenizer not found. A new one has been created and saved.")
 
