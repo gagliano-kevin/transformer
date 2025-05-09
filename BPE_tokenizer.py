@@ -247,6 +247,7 @@ class CustomBPETokenizer:
             token_string = self.replace_control_characters(token_string)
             return token_string
 
+
     def display_vocab(self):
         """
         Display a complete representation of the vocabulary with all characters.
@@ -258,6 +259,7 @@ class CustomBPETokenizer:
         for token_id, token_bytes in sorted(self.vocab.items()):
             display_dict[token_id] = self.render_token_all_chars(token_bytes)
         return display_dict
+
 
     def save_model(self, file_prefix):
         """
