@@ -285,12 +285,12 @@ def stream_text2(prompt, max_len=200):
 # main entry point
 if __name__ == "__main__":
 
-    train_model(model, train_loader, val_loader, optimizer, num_epochs=1, log_freq=10, model_path=model_path, checkpoints_per_epoch=891)
+    #train_model(model, train_loader, val_loader, optimizer, num_epochs=1, log_freq=10, model_path=model_path, checkpoints_per_epoch=891)
 
     # Example usage of the text generation function
-    """
+    #"""
     prompt = "Once upon a time"
     generated_text = generate_text(prompt, max_len=100)
     print("Generated text:")
     print(generated_text)
-    """
+    #"""
