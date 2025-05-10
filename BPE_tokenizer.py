@@ -8,6 +8,7 @@ import unicodedata
 import json
 import os
 
+
 class CustomBPETokenizer:
     def __init__(self, vocab_size=256, log=False):
         # check if vocab_size is greater than 256 because the first 256 tokens are reserved for single byte tokens
@@ -149,6 +150,8 @@ class CustomBPETokenizer:
                 break
             new_token_id = self.merges[pair]
             tokens =self.merge(tokens, pair, new_token_id)
+            if self.log:
+                print(f"Encoding: {pair} -> {new_token_id}")
         return tokens
 
 

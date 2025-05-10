@@ -40,5 +40,5 @@ text_len = len(text)
 print(f"\n\nlen of thext: {text_len}\n\n")
 
 # Test on 1/10 of the text
-#print(tokenizer.encode(text[:text_len//10]))
-#print(tokenizer.decode(tokenizer.encode(text[:text_len//10])))
+print(tokenizer.encode(text[:text_len//10]))
+print(tokenizer.decode(tokenizer.encode(text[:text_len//10])))

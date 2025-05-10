@@ -216,18 +216,84 @@ def load_model(transformer_config, model_name="", device=None):
 
 
 # Text generation function
-def generate_text(prompt, max_len=200):
+def generate_text(prompt, max_len=200, model=None, tokenizer=None, device=None, log=False):
+    """
+    Generate text using a pretrained transformer model.
+    Args:
+        prompt (str): Input text prompt for generation.
+        max_len (int): Maximum length of generated text.
+        model (transformer): Pretrained transformer model.
+        tokenizer (BPE_tokenizer): Tokenizer for encoding and decoding text.
+        device (torch.device): Device to run the model on (CPU or GPU).
+    Returns:
+        str: Generated text.
+    """
+    if model is None or tokenizer is None:
+        raise ValueError("Model and tokenizer must be provided for text generation.")
+    if device is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if log:
+        print("Using device:", device)
+        print("Generating text with prompt:", prompt)
+        print("Max length:", max_len)
+
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
+    tokens = torch.tensor(tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
     
     with torch.no_grad():
         for _ in range(max_len):
-            if tokens.size(1) >= config.max_seq_len:
-                #let the window slide take the last 256 tokens of the sequence
-                #tokens = tokens[:, -config.max_seq_len:]
+            if tokens.size(1) >= model.config.max_seq_len:
                 break
             output, _ = model(tokens)
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)
             tokens = torch.cat((tokens, next_token), dim=1)
     
-    return bpe_tokenizer.decode(tokens.squeeze(0).tolist())
+    return tokenizer.decode(tokens.squeeze(0).tolist())
+
+
+#function that creates a stream of text, one token at a time untill it reaches the end of the sequence or the max_len>256
+def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, log=False):
+    """
+    Stream text generation using a pretrained transformer model.
+    Args:
+        prompt (str): Input text prompt for generation.
+        max_len (int): Maximum length of generated text.
+        model (transformer): Pretrained transformer model.
+        bpe_tokenizer (BPE_tokenizer): Tokenizer for encoding and decoding text.
+        device (torch.device): Device to run the model on (CPU or GPU).
+    Yields:
+        str: Generated text piece by piece.
+    """
+    if model is None or bpe_tokenizer is None:
+        raise ValueError("Model and tokenizer must be provided for text generation.")
+    if device is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    if log:
+        print("Using device:", device)
+        print("Generating text with prompt:", prompt)
+        print("Max length:", max_len)
+
+    model.eval()
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    all_tokens = tokens.clone()  # Keep track of ALL tokens
+    generated_text = prompt
+    
+    with torch.no_grad():
+        for _ in range(max_len):
+            if tokens.size(1) >= model.config.max_seq_len:
+                # Slide window only for model input
+                tokens = tokens[:, -model.config.max_seq_len:]
+            
+            output, _ = model(tokens)
+            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
+            
+            # Update both collections
+            tokens = torch.cat((tokens, next_token), dim=1)
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            
+            # Decode from all tokens for consistency
+            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())
+            new_piece = new_text[len(generated_text):]
+            generated_text = new_text
+            yield new_piece
