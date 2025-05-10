@@ -103,6 +103,21 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
     if model_name == "":
         raise ValueError("Model name cannot be empty.")
     model_path="../../pretrained_models/" + model_name + ".pth"
+    print("Model path:", model_path)
+
+    config_path = os.path.join(os.path.dirname(model_path), model_name + "_config.txt")
+    if not os.path.exists(os.path.dirname(model_path)):
+        os.makedirs(os.path.dirname(model_path))
+    with open(config_path, 'w') as f:
+        f.write(f"model_name={model_name}\n")
+        f.write(f"num_layers={model.config.num_layers}\n")
+        f.write(f"num_heads={model.config.num_heads}\n")
+        f.write(f"embedding_dim={model.config.embedding_dim}\n")
+        f.write(f"feed_forward_dim={model.config.feed_forward_dim}\n")
+        f.write(f"max_seq_len={model.config.max_seq_len}\n")
+        f.write(f"vocab_size={model.config.vocab_size}\n")
+        f.write(f"dropout={model.config.dropout}")
+    print("Model configuration saved to:", config_path)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)

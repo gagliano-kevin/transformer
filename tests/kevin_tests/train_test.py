@@ -60,7 +60,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True) 
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
-    #model = load_model(config, model_name="test_load")
+    #model = load_model(config, model_name="test_transformer")
     model = transformer(config)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         optimizer=optimizer,
         num_epochs=1,
         log_freq=100,
-        model_name="test_transofrmer",
+        model_name="test_transformer",
         checkpoints_per_epoch=1000,
     )
 
