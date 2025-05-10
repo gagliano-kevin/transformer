@@ -20,19 +20,19 @@ from nano_transformer_class import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=260, log=True)
+    tokenizer = init_tokenizer(vocab_size=5000, tokenizer_name="bpe_tok_5k", log=True)
 
     text = load_data_from_directory()
 
     encoded_text = tokenizer.encode(text)
 
     #save encoded text to a file separated by spaces
-    with open('encoded_text.txt', 'w') as f:
+    with open('bpe_5k_encoded_text.txt', 'w') as f:
         f.write(' '.join(map(str, encoded_text)))
     
     """
     # Load the encoded text from the file
-    with open('encoded_text.txt', 'r') as f:
+    with open('bpe_5k_encoded_text.txt', 'r') as f:
         loaded_encoded_text = list(map(int, f.read().split()))
     """
 
