@@ -20,7 +20,7 @@ from nano_transformer_class import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=1000, log=True)
+    tokenizer = init_tokenizer(vocab_size=260, log=True)
 
     text = load_data_from_directory()
 
