@@ -135,20 +135,20 @@ def load_model():
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
-
+model = None                        #<----------------- SUBSTITUTION FOR THE LINE BELOW, MUST BE TESTED
 if os.path.exists(model_path):
     model = load_model()
 else:
     model = transformer(config)
 
-model = transformer(config)
-model.to(device)
+#model = transformer(config)         #<----------------- WRONG ????, substituted a few lines above with None instance 
+model.to(device)                    # <------------------ in train.py the model is moved to device in train_model function (need to check if it's correct)
 
 
 # Torch compile the model
 #model = torch.compile(model)        
 
-criterion = nn.CrossEntropyLoss()
+#criterion = nn.CrossEntropyLoss()          #<----------------- NOT NEEDED, LOSS IS COMPUTED INSIDE THE MODEL
 optimizer = model.init_optimizers(weight_decay=0.01, learning_rate=6e-4, device=device)                      
 
 # Precision settings
