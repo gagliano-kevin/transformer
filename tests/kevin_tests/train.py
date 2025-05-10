@@ -275,7 +275,7 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
         print("Max length:", max_len)
 
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)       # used as a token sliding window of context size dimension
     all_tokens = tokens.clone()  # Keep track of ALL tokens
     generated_text = prompt
     
@@ -289,11 +289,11 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
             
             # Update both collections
-            tokens = torch.cat((tokens, next_token), dim=1)
-            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            tokens = torch.cat((tokens, next_token), dim=1)                     # tokens is the sliding window of context size dimension
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)             # all_tokens is the whole sequence of tokens generated so far (prompt + all generated tokens)
             
             # Decode from all tokens for consistency
-            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())
-            new_piece = new_text[len(generated_text):]
-            generated_text = new_text
+            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())             # new_text is equivalent to all_text (prompt + all generated tokens)
+            new_piece = new_text[len(generated_text):]                          # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
+            generated_text = new_text                                           # generated_text is now the whole text (prompt + all the generated tokens)                
             yield new_piece
