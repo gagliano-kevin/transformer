@@ -191,13 +191,14 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
     print("Model saved successfully.")
 
 
-def load_model(transformer_config, model_name="", device=None):
+def load_model(transformer_config, model_name="", device=None, log=False):  
     """
     Load a pretrained transformer model.
     Args:
         transformer_config (transformerConfig): Configuration object for the transformer model.
         model_name (str): Name of the pretrained model to load.
         device (torch.device): Device to load the model on (CPU or GPU).
+        log (bool): Whether to log the loading process.
     Returns:
         model (transformer): Loaded transformer model.
     """
@@ -207,9 +208,9 @@ def load_model(transformer_config, model_name="", device=None):
 
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print("Using device:", device)
+    if log: print("Using device:", device)
 
-    print("Loading model from:", model_path)
+    if log: print("Loading model from:", model_path)
     if not os.path.exists(model_path):
         raise FileNotFoundError(f"Model file {model_path} does not exist.")
 
@@ -226,7 +227,7 @@ def load_model(transformer_config, model_name="", device=None):
         new_state_dict[new_k] = v
 
     model.load_state_dict(new_state_dict)
-    print("Model loaded successfully.")
+    if log: print("Model loaded successfully.")
     return model
 
 

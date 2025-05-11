@@ -370,7 +370,7 @@ class CustomBPETokenizer:
                             if id1 is not None and id2 is not None:
                                 self.merges[(id1, id2)] = new_id
                             else:
-                                print(f"Warning: Could not find token IDs for merge: '{s1_rendered}', '{s2_rendered}' in the loaded vocabulary.")
+                                if self.log: print(f"Warning: Could not find token IDs for merge: '{s1_rendered}', '{s2_rendered}' in the loaded vocabulary.")
                         except ValueError:
                             print(f"Warning: Invalid new_id in merges file: {new_id_str}")
                     else:
