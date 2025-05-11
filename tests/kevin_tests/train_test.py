@@ -20,7 +20,7 @@ from nano_transformer_class import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=5000, pretrained=True, tokenizer_name="bpe_tok_5k", log=True)
+    tokenizer = init_tokenizer(vocab_size=1000, pretrained=True, tokenizer_name="bpe_tok_1k", log=True)
 
     #text = load_data_from_directory()
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     """
     #"""
     # Load the encoded text from the file
-    with open('bpe_5k_encoded_text.txt', 'r') as f:
+    with open('bpe_1k_encoded_text.txt', 'r') as f:
         encoded_text = list(map(int, f.read().split()))
     #"""
 
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         optimizer=optimizer,
         num_epochs=1,
         log_freq=100,
-        model_name="nano_transformer_bpe_5k",
+        model_name="nano_transformer_bpe_1k",
         checkpoints_per_epoch=1000,
     )
 
