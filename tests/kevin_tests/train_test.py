@@ -20,21 +20,21 @@ from nano_transformer_class import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=1000, tokenizer_name="bpe_tok_1k", log=True)
+    tokenizer = init_tokenizer(vocab_size=5000, tokenizer_name="bpe_tok_5k", log=True)
 
-    text = load_data_from_directory()
+    #text = load_data_from_directory()
 
-    encoded_text = tokenizer.encode(text)
-
+    #encoded_text = tokenizer.encode(text)
+    """
     #save encoded text to a file separated by spaces
     with open('bpe_1k_encoded_text.txt', 'w') as f:
         f.write(' '.join(map(str, encoded_text)))
-    
     """
+    #"""
     # Load the encoded text from the file
     with open('bpe_5k_encoded_text.txt', 'r') as f:
-        loaded_encoded_text = list(map(int, f.read().split()))
-    """
+        encoded_text = list(map(int, f.read().split()))
+    #"""
 
     torch_tokens = torch.tensor(encoded_text, dtype=torch.long)
 
@@ -75,11 +75,11 @@ if __name__ == "__main__":
         optimizer=optimizer,
         num_epochs=1,
         log_freq=100,
-        model_name="test_transofrmer_bpe_1k",
+        model_name="nano_transformer_bpe_5k",
         checkpoints_per_epoch=1000,
     )
 
-    prompt = "This is a test sentence, can you tokenize it? , yes, I can! , thank you! , I am happy to help! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! "
+    #prompt = "This is a test sentence, can you tokenize it? , yes, I can! , thank you! , I am happy to help! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! "
 
     # stream_text
-    stream_text(prompt=prompt, model=model, bpe_tokenizer=tokenizer, device=device)
+    #stream_text(prompt=prompt, model=model, bpe_tokenizer=tokenizer, device=device)

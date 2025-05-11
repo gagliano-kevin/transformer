@@ -116,7 +116,8 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
         f.write(f"feed_forward_dim={model.config.feed_forward_dim}\n")
         f.write(f"max_seq_len={model.config.max_seq_len}\n")
         f.write(f"vocab_size={model.config.vocab_size}\n")
-        f.write(f"dropout={model.config.dropout}")
+        f.write(f"dropout={model.config.dropout}\n")
+        f.write(f"num_epochs={num_epochs}\n")
     print("Model configuration saved to:", config_path)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
