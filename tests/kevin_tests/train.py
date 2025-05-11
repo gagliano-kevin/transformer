@@ -103,6 +103,21 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
     if model_name == "":
         raise ValueError("Model name cannot be empty.")
     model_path="../../pretrained_models/" + model_name + ".pth"
+    print("Model path:", model_path)
+
+    config_path = os.path.join(os.path.dirname(model_path), model_name + "_config.txt")
+    if not os.path.exists(os.path.dirname(model_path)):
+        os.makedirs(os.path.dirname(model_path))
+    with open(config_path, 'w') as f:
+        f.write(f"model_name={model_name}\n")
+        f.write(f"num_layers={model.config.num_layers}\n")
+        f.write(f"num_heads={model.config.num_heads}\n")
+        f.write(f"embedding_dim={model.config.embedding_dim}\n")
+        f.write(f"feed_forward_dim={model.config.feed_forward_dim}\n")
+        f.write(f"max_seq_len={model.config.max_seq_len}\n")
+        f.write(f"vocab_size={model.config.vocab_size}\n")
+        f.write(f"dropout={model.config.dropout}")
+    print("Model configuration saved to:", config_path)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
@@ -275,7 +290,7 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
         print("Max length:", max_len)
 
     model.eval()
-    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)       # used as a token sliding window of context size dimension
     all_tokens = tokens.clone()  # Keep track of ALL tokens
     generated_text = prompt
     
@@ -289,11 +304,11 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
             next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
             
             # Update both collections
-            tokens = torch.cat((tokens, next_token), dim=1)
-            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            tokens = torch.cat((tokens, next_token), dim=1)                     # tokens is the sliding window of context size dimension
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)             # all_tokens is the whole sequence of tokens generated so far (prompt + all generated tokens)
             
             # Decode from all tokens for consistency
-            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())
-            new_piece = new_text[len(generated_text):]
-            generated_text = new_text
+            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())             # new_text is equivalent to all_text (prompt + all generated tokens)
+            new_piece = new_text[len(generated_text):]                          # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
+            generated_text = new_text                                           # generated_text is now the whole text (prompt + all the generated tokens)                
             yield new_piece
