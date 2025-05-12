@@ -229,7 +229,7 @@ def load_model(transformer_config, model_name="", device=None, log=False):
     """
     if model_name == "":
         raise ValueError("Model name cannot be empty.")
-    model_path = + model_name + ".pth"
+    model_path = model_name + ".pth"
 
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
