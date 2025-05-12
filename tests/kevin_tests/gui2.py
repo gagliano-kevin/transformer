@@ -24,7 +24,7 @@ config = transformerConfig(
     dropout=0.1
 )
 
-model = load_model(config, model_name="test_transofrmer_bpe_5k")
+model = load_model(config, model_name="nano_transformer_bpe_5k")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
