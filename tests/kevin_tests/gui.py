@@ -12,7 +12,7 @@ from train import init_tokenizer, load_model, stream_text
 from nano_transformer_class import transformerConfig
 
 # Load tokenizer and model
-tokenizer = init_tokenizer(vocab_size=5000, pretrained=True, tokenizer_name="bpe_tok_5k", log=False)
+tokenizer = init_tokenizer(vocab_size=5000, pretrained=True, tokenizer_name="bpe_tok_1k", log=False)
 
 config = transformerConfig(
     num_layers=4,
@@ -24,7 +24,7 @@ config = transformerConfig(
     dropout=0.1
 )
 
-model = load_model(config, model_name="test_transformer_bpe_5k")
+model = load_model(config, model_name="nano_transformer_bpe_1k")
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
