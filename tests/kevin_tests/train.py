@@ -313,3 +313,114 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
             new_piece = new_text[len(generated_text):]                          # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
             generated_text = new_text                                           # generated_text is now the whole text (prompt + all the generated tokens)                
             yield new_piece
+
+
+def reg_train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_freq=20, model_name="", checkpoints_per_epoch=100):
+    """
+    Train a transformer model.
+    Args:
+        model (transformer): Transformer model to train.
+        train_loader (DataLoader): DataLoader for training data.
+        val_loader (DataLoader): DataLoader for validation data.
+        optimizer (torch.optim.Optimizer): Optimizer for training.
+        num_epochs (int): Number of epochs to train the model.
+        log_freq (int): Frequency of logging training progress.
+        model_name (str): Name of the model to save.
+        checkpoints_per_epoch (int): Number of checkpoints to save per epoch.
+    """
+    if model_name == "":
+        raise ValueError("Model name cannot be empty.")
+    model_path="../../pretrained_models/" + model_name + ".pth"
+    print("Model path:", model_path)
+
+    config_path = os.path.join(os.path.dirname(model_path), model_name + "_config.txt")
+    if not os.path.exists(os.path.dirname(model_path)):
+        os.makedirs(os.path.dirname(model_path))
+    with open(config_path, 'w') as f:
+        f.write(f"model_name={model_name}\n")
+        f.write(f"num_layers={model.config.num_layers}\n")
+        f.write(f"num_heads={model.config.num_heads}\n")
+        f.write(f"embedding_dim={model.config.embedding_dim}\n")
+        f.write(f"feed_forward_dim={model.config.feed_forward_dim}\n")
+        f.write(f"max_seq_len={model.config.max_seq_len}\n")
+        f.write(f"vocab_size={model.config.vocab_size}\n")
+        f.write(f"dropout={model.config.dropout}\n")
+        f.write(f"num_epochs={num_epochs}\n")
+    print("Model configuration saved to:", config_path)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print("Using device:", device)
+
+    dtype = torch.float16
+    print("Using dtype:", dtype)
+
+    if torch.cuda.is_available():
+        model = model.to(device)
+
+    checkpoint_batches = len(train_loader) // checkpoints_per_epoch
+    print(f"Training model for {num_epochs} epochs with {len(train_loader)} batches per epoch.")
+
+    print(f"Checkpoints will be saved every {checkpoint_batches} batches.")
+    for epoch in range(num_epochs):
+        total_loss = 0
+        batch_idx = 0
+        model.train()       
+        avg_batch_time = 0
+        token_efficiency = 0
+        for x, y in train_loader:
+            t0 = time.time()
+            x, y = x.to(device), y.to(device)
+            optimizer.zero_grad()
+            if torch.cuda.is_available():
+                with torch.autocast(device_type="cuda", dtype=dtype):
+                    _, loss = model(x, y)
+            else:
+                _, loss = model(x, y)  # Direct computation on CPU
+            if torch.isnan(loss):                               # Check for NaN loss
+                print(f"NaN loss encountered in batch index: {batch_idx}. Saving batch.")
+                print(f"X: {x}")
+                print(f"Y: {y}")
+                torch.save((x, y), "bad_batch.pt")
+                break
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)    # Gradient clipping
+            optimizer.step()
+            total_loss += loss.item()
+            avg_batch_time += time.time() - t0
+            token_efficiency += x.size(0) * x.size(1)
+            if batch_idx % log_freq == 0:
+                token_efficiency /= avg_batch_time
+                avg_batch_time /= log_freq if batch_idx > 0 else avg_batch_time
+                print(f"Epoch {epoch+1}/{num_epochs}, Batch {batch_idx+1}/{len(train_loader)}, Loss: {loss.item():.4f}, Avg Time/batch: {avg_batch_time:.4f} s, Avg Token Efficiency: {token_efficiency:.2f} tokens/s")
+                avg_batch_time = 0
+                token_efficiency = 0
+
+            if (batch_idx+1) % checkpoint_batches == 0:
+                torch.save(model.state_dict(), model_path)
+                print(f"Model checkpoint saved at batch {batch_idx+1} in epoch {epoch+1}.")
+
+            batch_idx += 1
+
+        print(f"Epoch {epoch+1}, Training Loss: {total_loss / len(train_loader):.4f}")
+
+        # Validation
+        model.eval()
+        val_loss = 0
+        batch_idx = 0
+        with torch.no_grad():
+            for x, y in val_loader:
+                x, y = x.to(device), y.to(device)
+                if torch.cuda.is_available():
+                    with torch.autocast(device_type="cuda", dtype=dtype):
+                        _, loss = model(x, y)
+                else:
+                    _, loss = model(x, y)  # Direct computation on CPU
+                val_loss += loss.item()
+                if batch_idx % log_freq == 0:
+                    print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(val_loader)}, Validation Loss: {loss.item():.4f}")
+                batch_idx += 1
+        print(f"Epoch {epoch+1}, Validation Loss: {val_loss / len(val_loader):.4f}")
+
+    # Save model at the end of training
+    torch.save(model.state_dict(), model_path)
+    print("Model saved successfully.")
