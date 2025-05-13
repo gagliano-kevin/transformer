@@ -15,7 +15,7 @@ if parent_dir not in sys.path:
     sys.path.append(parent_dir)
 
 from train import init_tokenizer, load_data_from_directory, CustomDataset, load_model, reg_train_model, stream_text
-from nano_transformer_class import transformer, transformerConfig
+from reg_nano_transformer import transformer, transformerConfig
 
 
 if __name__ == "__main__":
