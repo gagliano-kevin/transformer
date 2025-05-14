@@ -20,21 +20,21 @@ from reg_nano_transformer import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=5000, pretrained=True, tokenizer_name="bpe_tok_5k", log=True)
+    tokenizer = init_tokenizer(vocab_size=10000, pretrained=False, tokenizer_name="bpe_tok_10k_no_monte_cristo", log=True)
 
-    #text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
+    text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
 
-    #encoded_text = tokenizer.encode(text)
-    """
-    #save encoded text to a file separated by spaces
-    with open('bpe_1k_encoded_text_no_monte_cristo.txt', 'w') as f:
-        f.write(' '.join(map(str, encoded_text)))
-    """
+    encoded_text = tokenizer.encode(text)
     #"""
+    #save encoded text to a file separated by spaces
+    with open('bpe_10k_encoded_text_no_monte_cristo.txt', 'w') as f:
+        f.write(' '.join(map(str, encoded_text)))
+    #"""
+    """
     # Load the encoded text from the file
     with open('bpe_5k_encoded_text.txt', 'r') as f:
         encoded_text = list(map(int, f.read().split()))
-    #"""
+    """
 
     torch_tokens = torch.tensor(encoded_text, dtype=torch.long)
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     dropout=0.1
     )
 
-    batch_size = 2
+    batch_size = 64
 
     dataset = CustomDataset(torch_tokens, seq_len=config.max_seq_len)
 
@@ -74,9 +74,9 @@ if __name__ == "__main__":
         val_loader=val_loader,
         optimizer=optimizer,
         num_epochs=1,
-        log_freq=100,
-        model_name="reg_nano_transformer_bpe_5k",
-        checkpoints_per_epoch=1000,
+        log_freq=10,
+        model_name="reg_nano_transformer_bpe_10k_no_monte_cristo",
+        checkpoints_per_epoch=100,
     )
 
     #prompt = "This is a test sentence, can you tokenize it? , yes, I can! , thank you! , I am happy to help! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! "

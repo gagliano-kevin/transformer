@@ -415,6 +415,8 @@ def reg_train_model(model, train_loader, val_loader, optimizer, num_epochs=10, l
                         _, loss = model(x, y)
                 else:
                     _, loss = model(x, y)  # Direct computation on CPU
+                if torch.isnan(loss):
+                    break
                 val_loss += loss.item()
                 if batch_idx % log_freq == 0:
                     print(f"Epoch {epoch+1}, Batch {batch_idx+1}/{len(val_loader)}, Validation Loss: {loss.item():.4f}")
