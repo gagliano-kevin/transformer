@@ -16,7 +16,7 @@ from nano_transformer_class import transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=5000, pretrained=True, tokenizer_name="bpe_tok_5k", log=False)
+    tokenizer = init_tokenizer(vocab_size=6000, pretrained=True, tokenizer_name="j_tokenizer", log=True)
 
 
     config = transformerConfig(
@@ -29,7 +29,7 @@ if __name__ == "__main__":
     dropout=0.1
     )
 
-    model = load_model(config, model_name="test_transofrmer_bpe_5k")
+    model = load_model(config, model_name="no_monte_cristo_6k_transformer")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)    
@@ -37,8 +37,8 @@ if __name__ == "__main__":
 
     prompt = "This is a test sentence, can you tokenize it? , yes, I can! , thank you! , I am happy to help! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! "
 
-    
-    print(prompt, end="", flush=True)   # live stream output
+    prompt = "how are you"
+    #print(prompt, end="", flush=True)   # live stream output
 
-    for token in stream_text(prompt=prompt, max_len=512, model=model, bpe_tokenizer=tokenizer, device=device):
+    for token in stream_text(prompt=prompt, max_len=128, model=model, bpe_tokenizer=tokenizer, device=device):
         print(token, end="", flush=True)
