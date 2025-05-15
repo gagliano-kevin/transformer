@@ -56,7 +56,9 @@ def load_data_from_directory(directory_path="../../datasets", exclude_files=["da
     for filename in os.listdir(directory_path):
         if filename.endswith(f".{file_extension}") and filename not in exclude_files:
             with open(os.path.join(directory_path, filename), 'r', encoding='utf-8') as file:
+                print(f"Loading file: {filename} in {directory_path}")
                 text += file.read() + "\n"
+                print(f"Loaded {len(text)} characters from {filename}")
     return text
 
 
