@@ -8,7 +8,7 @@ import time
 
 
 
-from train import simple_init_tokenizer, load_data_from_files, CustomDataset, load_model, train_model, stream_text
+from train_log import simple_init_tokenizer, load_data_from_files, CustomDataset, load_model, train_model, stream_text
 from nano_transformer_class import transformer, transformerConfig
 
 
@@ -55,7 +55,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True) 
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
-    model = load_model(config, model_name="model_name")
+    #model = load_model(config, model_name="model_name")
     model = transformer(config)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
