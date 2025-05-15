@@ -43,7 +43,7 @@ if __name__ == "__main__":
     dropout=0.1
     )
 
-    batch_size = 64
+    batch_size = 32
 
     dataset = CustomDataset(torch_tokens, seq_len=config.max_seq_len)
 
@@ -70,9 +70,9 @@ if __name__ == "__main__":
         val_loader=val_loader,
         optimizer=optimizer,
         num_epochs=1,
-        log_freq=100,
+        log_freq=10,
         model_name="test_j_train",
-        checkpoints_per_epoch=1000,
+        checkpoints_per_epoch=100,
     )
     #"""
     # Test the model

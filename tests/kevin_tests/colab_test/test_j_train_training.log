@@ -1,0 +1,1480 @@
+Model path: test_j_train.pth
+Log path: test_j_train_training.log
+Model configuration saved to: test_j_train_config.txt
+Using device: cuda
+Using dtype: torch.float32
+Training model for 1 epochs with 12330 batches per epoch.
+Checkpoints will be saved every 123 batches.
+Epoch 1/1, Batch 1/12330, Loss: 8.8028, Avg Time/batch: 0.8114 s, Avg Token Efficiency: 10095.95 tokens/s
+Epoch 1/1, Batch 11/12330, Loss: 7.9864, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24191.76 tokens/s
+Epoch 1/1, Batch 21/12330, Loss: 7.9928, Avg Time/batch: 0.3363 s, Avg Token Efficiency: 24362.20 tokens/s
+Epoch 1/1, Batch 31/12330, Loss: 7.9592, Avg Time/batch: 0.3348 s, Avg Token Efficiency: 24469.08 tokens/s
+Epoch 1/1, Batch 41/12330, Loss: 7.9933, Avg Time/batch: 0.3359 s, Avg Token Efficiency: 24390.35 tokens/s
+Epoch 1/1, Batch 51/12330, Loss: 7.9778, Avg Time/batch: 0.3355 s, Avg Token Efficiency: 24414.93 tokens/s
+Epoch 1/1, Batch 61/12330, Loss: 7.9848, Avg Time/batch: 0.3356 s, Avg Token Efficiency: 24413.03 tokens/s
+Epoch 1/1, Batch 71/12330, Loss: 7.9877, Avg Time/batch: 0.3365 s, Avg Token Efficiency: 24342.22 tokens/s
+Epoch 1/1, Batch 81/12330, Loss: 7.9606, Avg Time/batch: 0.3370 s, Avg Token Efficiency: 24307.43 tokens/s
+Epoch 1/1, Batch 91/12330, Loss: 7.9442, Avg Time/batch: 0.3364 s, Avg Token Efficiency: 24351.22 tokens/s
+Epoch 1/1, Batch 101/12330, Loss: 7.9677, Avg Time/batch: 0.3366 s, Avg Token Efficiency: 24340.62 tokens/s
+Epoch 1/1, Batch 111/12330, Loss: 7.9041, Avg Time/batch: 0.3368 s, Avg Token Efficiency: 24324.83 tokens/s
+Epoch 1/1, Batch 121/12330, Loss: 7.8165, Avg Time/batch: 0.3379 s, Avg Token Efficiency: 24240.44 tokens/s
+Model checkpoint saved at batch 123 in epoch 1.
+Epoch 1/1, Batch 131/12330, Loss: 7.6346, Avg Time/batch: 0.3382 s, Avg Token Efficiency: 24224.72 tokens/s
+Epoch 1/1, Batch 141/12330, Loss: 7.5111, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24178.27 tokens/s
+Epoch 1/1, Batch 151/12330, Loss: 7.3450, Avg Time/batch: 0.3381 s, Avg Token Efficiency: 24232.31 tokens/s
+Epoch 1/1, Batch 161/12330, Loss: 7.2974, Avg Time/batch: 0.3377 s, Avg Token Efficiency: 24257.37 tokens/s
+Epoch 1/1, Batch 171/12330, Loss: 7.1841, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24206.51 tokens/s
+Epoch 1/1, Batch 181/12330, Loss: 7.1071, Avg Time/batch: 0.3376 s, Avg Token Efficiency: 24261.83 tokens/s
+Epoch 1/1, Batch 191/12330, Loss: 7.0215, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24215.57 tokens/s
+Epoch 1/1, Batch 201/12330, Loss: 6.9491, Avg Time/batch: 0.3374 s, Avg Token Efficiency: 24279.91 tokens/s
+Epoch 1/1, Batch 211/12330, Loss: 6.8603, Avg Time/batch: 0.3371 s, Avg Token Efficiency: 24304.84 tokens/s
+Epoch 1/1, Batch 221/12330, Loss: 6.7754, Avg Time/batch: 0.3382 s, Avg Token Efficiency: 24222.92 tokens/s
+Epoch 1/1, Batch 231/12330, Loss: 6.7172, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24191.96 tokens/s
+Epoch 1/1, Batch 241/12330, Loss: 6.6587, Avg Time/batch: 0.3380 s, Avg Token Efficiency: 24236.83 tokens/s
+Model checkpoint saved at batch 246 in epoch 1.
+Epoch 1/1, Batch 251/12330, Loss: 6.5529, Avg Time/batch: 0.3375 s, Avg Token Efficiency: 24270.82 tokens/s
+Epoch 1/1, Batch 261/12330, Loss: 6.5837, Avg Time/batch: 0.3381 s, Avg Token Efficiency: 24232.25 tokens/s
+Epoch 1/1, Batch 271/12330, Loss: 6.4544, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24211.15 tokens/s
+Epoch 1/1, Batch 281/12330, Loss: 6.5335, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24213.04 tokens/s
+Epoch 1/1, Batch 291/12330, Loss: 6.4049, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24205.44 tokens/s
+Epoch 1/1, Batch 301/12330, Loss: 6.3892, Avg Time/batch: 0.3377 s, Avg Token Efficiency: 24258.07 tokens/s
+Epoch 1/1, Batch 311/12330, Loss: 6.3345, Avg Time/batch: 0.3378 s, Avg Token Efficiency: 24249.60 tokens/s
+Epoch 1/1, Batch 321/12330, Loss: 6.2897, Avg Time/batch: 0.3376 s, Avg Token Efficiency: 24263.62 tokens/s
+Epoch 1/1, Batch 331/12330, Loss: 6.3220, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24193.90 tokens/s
+Epoch 1/1, Batch 341/12330, Loss: 6.1879, Avg Time/batch: 0.3377 s, Avg Token Efficiency: 24255.94 tokens/s
+Epoch 1/1, Batch 351/12330, Loss: 6.2159, Avg Time/batch: 0.3387 s, Avg Token Efficiency: 24188.44 tokens/s
+Epoch 1/1, Batch 361/12330, Loss: 6.2915, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24180.10 tokens/s
+Model checkpoint saved at batch 369 in epoch 1.
+Epoch 1/1, Batch 371/12330, Loss: 6.2062, Avg Time/batch: 0.3380 s, Avg Token Efficiency: 24238.33 tokens/s
+Epoch 1/1, Batch 381/12330, Loss: 6.1472, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24131.34 tokens/s
+Epoch 1/1, Batch 391/12330, Loss: 6.1238, Avg Time/batch: 0.3387 s, Avg Token Efficiency: 24185.71 tokens/s
+Epoch 1/1, Batch 401/12330, Loss: 6.0722, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24215.28 tokens/s
+Epoch 1/1, Batch 411/12330, Loss: 5.9958, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24216.37 tokens/s
+Epoch 1/1, Batch 421/12330, Loss: 6.0662, Avg Time/batch: 0.3385 s, Avg Token Efficiency: 24200.20 tokens/s
+Epoch 1/1, Batch 431/12330, Loss: 6.0631, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24192.41 tokens/s
+Epoch 1/1, Batch 441/12330, Loss: 5.9914, Avg Time/batch: 0.3377 s, Avg Token Efficiency: 24258.86 tokens/s
+Epoch 1/1, Batch 451/12330, Loss: 5.9367, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24171.72 tokens/s
+Epoch 1/1, Batch 461/12330, Loss: 5.9347, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24156.08 tokens/s
+Epoch 1/1, Batch 471/12330, Loss: 5.8437, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24158.86 tokens/s
+Epoch 1/1, Batch 481/12330, Loss: 5.8500, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24145.41 tokens/s
+Epoch 1/1, Batch 491/12330, Loss: 5.8497, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24210.37 tokens/s
+Model checkpoint saved at batch 492 in epoch 1.
+Epoch 1/1, Batch 501/12330, Loss: 5.8888, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.80 tokens/s
+Epoch 1/1, Batch 511/12330, Loss: 5.9129, Avg Time/batch: 0.3381 s, Avg Token Efficiency: 24227.23 tokens/s
+Epoch 1/1, Batch 521/12330, Loss: 5.8195, Avg Time/batch: 0.3380 s, Avg Token Efficiency: 24238.29 tokens/s
+Epoch 1/1, Batch 531/12330, Loss: 5.8282, Avg Time/batch: 0.3387 s, Avg Token Efficiency: 24187.39 tokens/s
+Epoch 1/1, Batch 541/12330, Loss: 5.8165, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24146.62 tokens/s
+Epoch 1/1, Batch 551/12330, Loss: 5.7690, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24169.05 tokens/s
+Epoch 1/1, Batch 561/12330, Loss: 5.7567, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24178.10 tokens/s
+Epoch 1/1, Batch 571/12330, Loss: 5.7035, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24178.35 tokens/s
+Epoch 1/1, Batch 581/12330, Loss: 5.7179, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24146.92 tokens/s
+Epoch 1/1, Batch 591/12330, Loss: 5.6722, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24173.93 tokens/s
+Epoch 1/1, Batch 601/12330, Loss: 5.7357, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24161.95 tokens/s
+Epoch 1/1, Batch 611/12330, Loss: 5.6348, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24194.86 tokens/s
+Model checkpoint saved at batch 615 in epoch 1.
+Epoch 1/1, Batch 621/12330, Loss: 5.5682, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.09 tokens/s
+Epoch 1/1, Batch 631/12330, Loss: 5.5886, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.26 tokens/s
+Epoch 1/1, Batch 641/12330, Loss: 5.6641, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24160.83 tokens/s
+Epoch 1/1, Batch 651/12330, Loss: 5.5023, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24179.43 tokens/s
+Epoch 1/1, Batch 661/12330, Loss: 5.6255, Avg Time/batch: 0.3381 s, Avg Token Efficiency: 24230.65 tokens/s
+Epoch 1/1, Batch 671/12330, Loss: 5.5458, Avg Time/batch: 0.3385 s, Avg Token Efficiency: 24203.51 tokens/s
+Epoch 1/1, Batch 681/12330, Loss: 5.5405, Avg Time/batch: 0.3385 s, Avg Token Efficiency: 24200.30 tokens/s
+Epoch 1/1, Batch 691/12330, Loss: 5.4999, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24144.66 tokens/s
+Epoch 1/1, Batch 701/12330, Loss: 5.4492, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24167.85 tokens/s
+Epoch 1/1, Batch 711/12330, Loss: 5.4140, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24122.67 tokens/s
+Epoch 1/1, Batch 721/12330, Loss: 5.4198, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24174.13 tokens/s
+Epoch 1/1, Batch 731/12330, Loss: 5.4946, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24169.10 tokens/s
+Model checkpoint saved at batch 738 in epoch 1.
+Epoch 1/1, Batch 741/12330, Loss: 5.5191, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24172.01 tokens/s
+Epoch 1/1, Batch 751/12330, Loss: 5.4790, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.90 tokens/s
+Epoch 1/1, Batch 761/12330, Loss: 5.3819, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.20 tokens/s
+Epoch 1/1, Batch 771/12330, Loss: 5.4718, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24148.67 tokens/s
+Epoch 1/1, Batch 781/12330, Loss: 5.3643, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24149.23 tokens/s
+Epoch 1/1, Batch 791/12330, Loss: 5.2940, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24207.06 tokens/s
+Epoch 1/1, Batch 801/12330, Loss: 5.3276, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.86 tokens/s
+Epoch 1/1, Batch 811/12330, Loss: 5.2801, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24153.09 tokens/s
+Epoch 1/1, Batch 821/12330, Loss: 5.2248, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24175.28 tokens/s
+Epoch 1/1, Batch 831/12330, Loss: 5.1960, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24217.38 tokens/s
+Epoch 1/1, Batch 841/12330, Loss: 5.2716, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24165.96 tokens/s
+Epoch 1/1, Batch 851/12330, Loss: 5.1496, Avg Time/batch: 0.3380 s, Avg Token Efficiency: 24235.32 tokens/s
+Epoch 1/1, Batch 861/12330, Loss: 5.1641, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24133.85 tokens/s
+Model checkpoint saved at batch 861 in epoch 1.
+Epoch 1/1, Batch 871/12330, Loss: 5.1437, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24153.12 tokens/s
+Epoch 1/1, Batch 881/12330, Loss: 5.2007, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24158.09 tokens/s
+Epoch 1/1, Batch 891/12330, Loss: 5.0833, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24132.77 tokens/s
+Epoch 1/1, Batch 901/12330, Loss: 5.0946, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24147.75 tokens/s
+Epoch 1/1, Batch 911/12330, Loss: 5.1661, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24180.55 tokens/s
+Epoch 1/1, Batch 921/12330, Loss: 5.1466, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.35 tokens/s
+Epoch 1/1, Batch 931/12330, Loss: 5.0750, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24160.70 tokens/s
+Epoch 1/1, Batch 941/12330, Loss: 5.1051, Avg Time/batch: 0.3385 s, Avg Token Efficiency: 24197.94 tokens/s
+Epoch 1/1, Batch 951/12330, Loss: 5.0082, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24169.12 tokens/s
+Epoch 1/1, Batch 961/12330, Loss: 4.9103, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24167.09 tokens/s
+Epoch 1/1, Batch 971/12330, Loss: 5.1104, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24139.90 tokens/s
+Epoch 1/1, Batch 981/12330, Loss: 4.9709, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.58 tokens/s
+Model checkpoint saved at batch 984 in epoch 1.
+Epoch 1/1, Batch 991/12330, Loss: 4.9716, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24115.98 tokens/s
+Epoch 1/1, Batch 1001/12330, Loss: 4.8838, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24129.81 tokens/s
+Epoch 1/1, Batch 1011/12330, Loss: 4.9282, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.38 tokens/s
+Epoch 1/1, Batch 1021/12330, Loss: 4.9502, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24149.23 tokens/s
+Epoch 1/1, Batch 1031/12330, Loss: 4.9209, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24139.53 tokens/s
+Epoch 1/1, Batch 1041/12330, Loss: 4.9198, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24163.54 tokens/s
+Epoch 1/1, Batch 1051/12330, Loss: 4.8558, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24174.52 tokens/s
+Epoch 1/1, Batch 1061/12330, Loss: 4.8464, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24182.88 tokens/s
+Epoch 1/1, Batch 1071/12330, Loss: 4.7536, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24110.77 tokens/s
+Epoch 1/1, Batch 1081/12330, Loss: 4.9011, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24141.71 tokens/s
+Epoch 1/1, Batch 1091/12330, Loss: 4.9438, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24162.04 tokens/s
+Epoch 1/1, Batch 1101/12330, Loss: 4.7117, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24176.77 tokens/s
+Model checkpoint saved at batch 1107 in epoch 1.
+Epoch 1/1, Batch 1111/12330, Loss: 4.7158, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24149.53 tokens/s
+Epoch 1/1, Batch 1121/12330, Loss: 4.8229, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.41 tokens/s
+Epoch 1/1, Batch 1131/12330, Loss: 4.6631, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24175.20 tokens/s
+Epoch 1/1, Batch 1141/12330, Loss: 4.5133, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24102.25 tokens/s
+Epoch 1/1, Batch 1151/12330, Loss: 4.7289, Avg Time/batch: 0.3386 s, Avg Token Efficiency: 24192.88 tokens/s
+Epoch 1/1, Batch 1161/12330, Loss: 4.5736, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.72 tokens/s
+Epoch 1/1, Batch 1171/12330, Loss: 4.6091, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24129.96 tokens/s
+Epoch 1/1, Batch 1181/12330, Loss: 4.8210, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24139.49 tokens/s
+Epoch 1/1, Batch 1191/12330, Loss: 4.4596, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24113.96 tokens/s
+Epoch 1/1, Batch 1201/12330, Loss: 4.5887, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24150.33 tokens/s
+Epoch 1/1, Batch 1211/12330, Loss: 4.7163, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24026.34 tokens/s
+Epoch 1/1, Batch 1221/12330, Loss: 4.5831, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24004.34 tokens/s
+Model checkpoint saved at batch 1230 in epoch 1.
+Epoch 1/1, Batch 1231/12330, Loss: 4.6411, Avg Time/batch: 0.3424 s, Avg Token Efficiency: 23925.60 tokens/s
+Epoch 1/1, Batch 1241/12330, Loss: 4.3776, Avg Time/batch: 0.3434 s, Avg Token Efficiency: 23856.71 tokens/s
+Epoch 1/1, Batch 1251/12330, Loss: 4.6085, Avg Time/batch: 0.3423 s, Avg Token Efficiency: 23929.36 tokens/s
+Epoch 1/1, Batch 1261/12330, Loss: 4.5163, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24000.78 tokens/s
+Epoch 1/1, Batch 1271/12330, Loss: 4.5370, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.30 tokens/s
+Epoch 1/1, Batch 1281/12330, Loss: 4.5476, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.75 tokens/s
+Epoch 1/1, Batch 1291/12330, Loss: 4.3518, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24041.48 tokens/s
+Epoch 1/1, Batch 1301/12330, Loss: 4.4723, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24001.65 tokens/s
+Epoch 1/1, Batch 1311/12330, Loss: 4.3939, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24002.84 tokens/s
+Epoch 1/1, Batch 1321/12330, Loss: 4.1370, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.64 tokens/s
+Epoch 1/1, Batch 1331/12330, Loss: 4.4635, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23983.14 tokens/s
+Epoch 1/1, Batch 1341/12330, Loss: 4.1592, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.72 tokens/s
+Epoch 1/1, Batch 1351/12330, Loss: 4.1796, Avg Time/batch: 0.3424 s, Avg Token Efficiency: 23925.54 tokens/s
+Model checkpoint saved at batch 1353 in epoch 1.
+Epoch 1/1, Batch 1361/12330, Loss: 4.2652, Avg Time/batch: 0.3438 s, Avg Token Efficiency: 23827.46 tokens/s
+Epoch 1/1, Batch 1371/12330, Loss: 4.2721, Avg Time/batch: 0.3442 s, Avg Token Efficiency: 23803.52 tokens/s
+Epoch 1/1, Batch 1381/12330, Loss: 4.1217, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23988.07 tokens/s
+Epoch 1/1, Batch 1391/12330, Loss: 4.0861, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23949.52 tokens/s
+Epoch 1/1, Batch 1401/12330, Loss: 4.2290, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23975.09 tokens/s
+Epoch 1/1, Batch 1411/12330, Loss: 4.1678, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23966.27 tokens/s
+Epoch 1/1, Batch 1421/12330, Loss: 4.0159, Avg Time/batch: 0.3419 s, Avg Token Efficiency: 23961.26 tokens/s
+Epoch 1/1, Batch 1431/12330, Loss: 4.3061, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23996.41 tokens/s
+Epoch 1/1, Batch 1441/12330, Loss: 4.1604, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23982.75 tokens/s
+Epoch 1/1, Batch 1451/12330, Loss: 3.8716, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23974.22 tokens/s
+Epoch 1/1, Batch 1461/12330, Loss: 4.0402, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24000.84 tokens/s
+Epoch 1/1, Batch 1471/12330, Loss: 3.7870, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.83 tokens/s
+Model checkpoint saved at batch 1476 in epoch 1.
+Epoch 1/1, Batch 1481/12330, Loss: 3.8965, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23995.45 tokens/s
+Epoch 1/1, Batch 1491/12330, Loss: 4.0792, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24041.37 tokens/s
+Epoch 1/1, Batch 1501/12330, Loss: 3.7862, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24013.61 tokens/s
+Epoch 1/1, Batch 1511/12330, Loss: 3.7768, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23983.63 tokens/s
+Epoch 1/1, Batch 1521/12330, Loss: 3.6170, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23975.40 tokens/s
+Epoch 1/1, Batch 1531/12330, Loss: 3.8795, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23996.47 tokens/s
+Epoch 1/1, Batch 1541/12330, Loss: 3.6453, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23997.44 tokens/s
+Epoch 1/1, Batch 1551/12330, Loss: 3.7888, Avg Time/batch: 0.3439 s, Avg Token Efficiency: 23819.28 tokens/s
+Epoch 1/1, Batch 1561/12330, Loss: 3.7593, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23684.94 tokens/s
+Epoch 1/1, Batch 1571/12330, Loss: 3.9995, Avg Time/batch: 0.3464 s, Avg Token Efficiency: 23646.92 tokens/s
+Epoch 1/1, Batch 1581/12330, Loss: 3.8676, Avg Time/batch: 0.3465 s, Avg Token Efficiency: 23643.16 tokens/s
+Epoch 1/1, Batch 1591/12330, Loss: 3.6221, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23678.52 tokens/s
+Model checkpoint saved at batch 1599 in epoch 1.
+Epoch 1/1, Batch 1601/12330, Loss: 3.6565, Avg Time/batch: 0.3480 s, Avg Token Efficiency: 23542.21 tokens/s
+Epoch 1/1, Batch 1611/12330, Loss: 3.6153, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23697.00 tokens/s
+Epoch 1/1, Batch 1621/12330, Loss: 3.6572, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23734.52 tokens/s
+Epoch 1/1, Batch 1631/12330, Loss: 3.2943, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23748.36 tokens/s
+Epoch 1/1, Batch 1641/12330, Loss: 3.5030, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23673.96 tokens/s
+Epoch 1/1, Batch 1651/12330, Loss: 3.6511, Avg Time/batch: 0.3449 s, Avg Token Efficiency: 23749.74 tokens/s
+Epoch 1/1, Batch 1661/12330, Loss: 3.3945, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23698.20 tokens/s
+Epoch 1/1, Batch 1671/12330, Loss: 3.4807, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23742.20 tokens/s
+Epoch 1/1, Batch 1681/12330, Loss: 3.2880, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23681.86 tokens/s
+Epoch 1/1, Batch 1691/12330, Loss: 3.3302, Avg Time/batch: 0.3446 s, Avg Token Efficiency: 23772.38 tokens/s
+Epoch 1/1, Batch 1701/12330, Loss: 3.4564, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23726.90 tokens/s
+Epoch 1/1, Batch 1711/12330, Loss: 3.3222, Avg Time/batch: 0.3462 s, Avg Token Efficiency: 23662.90 tokens/s
+Epoch 1/1, Batch 1721/12330, Loss: 3.1953, Avg Time/batch: 0.3449 s, Avg Token Efficiency: 23752.65 tokens/s
+Model checkpoint saved at batch 1722 in epoch 1.
+Epoch 1/1, Batch 1731/12330, Loss: 3.3220, Avg Time/batch: 0.3424 s, Avg Token Efficiency: 23924.96 tokens/s
+Epoch 1/1, Batch 1741/12330, Loss: 3.2088, Avg Time/batch: 0.3422 s, Avg Token Efficiency: 23938.24 tokens/s
+Epoch 1/1, Batch 1751/12330, Loss: 3.2744, Avg Time/batch: 0.3420 s, Avg Token Efficiency: 23954.97 tokens/s
+Epoch 1/1, Batch 1761/12330, Loss: 3.2984, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23981.03 tokens/s
+Epoch 1/1, Batch 1771/12330, Loss: 3.3928, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23976.21 tokens/s
+Epoch 1/1, Batch 1781/12330, Loss: 2.9618, Avg Time/batch: 0.3458 s, Avg Token Efficiency: 23692.71 tokens/s
+Epoch 1/1, Batch 1791/12330, Loss: 3.1209, Avg Time/batch: 0.3461 s, Avg Token Efficiency: 23670.60 tokens/s
+Epoch 1/1, Batch 1801/12330, Loss: 3.1700, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23705.21 tokens/s
+Epoch 1/1, Batch 1811/12330, Loss: 2.8530, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23710.90 tokens/s
+Epoch 1/1, Batch 1821/12330, Loss: 2.8954, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23745.05 tokens/s
+Epoch 1/1, Batch 1831/12330, Loss: 2.8429, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23697.07 tokens/s
+Epoch 1/1, Batch 1841/12330, Loss: 3.1227, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23683.30 tokens/s
+Model checkpoint saved at batch 1845 in epoch 1.
+Epoch 1/1, Batch 1851/12330, Loss: 2.8016, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23694.38 tokens/s
+Epoch 1/1, Batch 1861/12330, Loss: 2.6545, Avg Time/batch: 0.3426 s, Avg Token Efficiency: 23914.63 tokens/s
+Epoch 1/1, Batch 1871/12330, Loss: 2.9099, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23700.05 tokens/s
+Epoch 1/1, Batch 1881/12330, Loss: 2.7939, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23704.02 tokens/s
+Epoch 1/1, Batch 1891/12330, Loss: 3.0337, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23683.36 tokens/s
+Epoch 1/1, Batch 1901/12330, Loss: 2.6158, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23703.01 tokens/s
+Epoch 1/1, Batch 1911/12330, Loss: 2.7825, Avg Time/batch: 0.3461 s, Avg Token Efficiency: 23668.85 tokens/s
+Epoch 1/1, Batch 1921/12330, Loss: 2.7602, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23696.65 tokens/s
+Epoch 1/1, Batch 1931/12330, Loss: 2.8090, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23722.40 tokens/s
+Epoch 1/1, Batch 1941/12330, Loss: 2.3961, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23657.58 tokens/s
+Epoch 1/1, Batch 1951/12330, Loss: 2.6483, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23721.97 tokens/s
+Epoch 1/1, Batch 1961/12330, Loss: 2.7344, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23732.36 tokens/s
+Model checkpoint saved at batch 1968 in epoch 1.
+Epoch 1/1, Batch 1971/12330, Loss: 2.5084, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23682.32 tokens/s
+Epoch 1/1, Batch 1981/12330, Loss: 2.5122, Avg Time/batch: 0.3434 s, Avg Token Efficiency: 23853.32 tokens/s
+Epoch 1/1, Batch 1991/12330, Loss: 2.5675, Avg Time/batch: 0.3439 s, Avg Token Efficiency: 23822.89 tokens/s
+Epoch 1/1, Batch 2001/12330, Loss: 2.3683, Avg Time/batch: 0.3446 s, Avg Token Efficiency: 23773.86 tokens/s
+Epoch 1/1, Batch 2011/12330, Loss: 2.4024, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23721.73 tokens/s
+Epoch 1/1, Batch 2021/12330, Loss: 2.2864, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23707.53 tokens/s
+Epoch 1/1, Batch 2031/12330, Loss: 2.2940, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23700.49 tokens/s
+Epoch 1/1, Batch 2041/12330, Loss: 2.3208, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23701.99 tokens/s
+Epoch 1/1, Batch 2051/12330, Loss: 2.1954, Avg Time/batch: 0.3464 s, Avg Token Efficiency: 23651.14 tokens/s
+Epoch 1/1, Batch 2061/12330, Loss: 2.1493, Avg Time/batch: 0.3449 s, Avg Token Efficiency: 23751.26 tokens/s
+Epoch 1/1, Batch 2071/12330, Loss: 2.4899, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23727.57 tokens/s
+Epoch 1/1, Batch 2081/12330, Loss: 2.0921, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23696.17 tokens/s
+Epoch 1/1, Batch 2091/12330, Loss: 2.1763, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23705.21 tokens/s
+Model checkpoint saved at batch 2091 in epoch 1.
+Epoch 1/1, Batch 2101/12330, Loss: 2.1792, Avg Time/batch: 0.3488 s, Avg Token Efficiency: 23489.37 tokens/s
+Epoch 1/1, Batch 2111/12330, Loss: 2.3810, Avg Time/batch: 0.3462 s, Avg Token Efficiency: 23665.88 tokens/s
+Epoch 1/1, Batch 2121/12330, Loss: 1.9122, Avg Time/batch: 0.3469 s, Avg Token Efficiency: 23617.38 tokens/s
+Epoch 1/1, Batch 2131/12330, Loss: 2.2599, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23744.31 tokens/s
+Epoch 1/1, Batch 2141/12330, Loss: 2.0350, Avg Time/batch: 0.3466 s, Avg Token Efficiency: 23638.56 tokens/s
+Epoch 1/1, Batch 2151/12330, Loss: 2.0861, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23702.45 tokens/s
+Epoch 1/1, Batch 2161/12330, Loss: 1.9363, Avg Time/batch: 0.3446 s, Avg Token Efficiency: 23773.46 tokens/s
+Epoch 1/1, Batch 2171/12330, Loss: 1.9665, Avg Time/batch: 0.3451 s, Avg Token Efficiency: 23737.52 tokens/s
+Epoch 1/1, Batch 2181/12330, Loss: 1.9181, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23703.06 tokens/s
+Epoch 1/1, Batch 2191/12330, Loss: 1.7408, Avg Time/batch: 0.3454 s, Avg Token Efficiency: 23719.35 tokens/s
+Epoch 1/1, Batch 2201/12330, Loss: 1.8973, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23743.84 tokens/s
+Epoch 1/1, Batch 2211/12330, Loss: 1.9432, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23734.41 tokens/s
+Model checkpoint saved at batch 2214 in epoch 1.
+Epoch 1/1, Batch 2221/12330, Loss: 1.7733, Avg Time/batch: 0.3480 s, Avg Token Efficiency: 23543.30 tokens/s
+Epoch 1/1, Batch 2231/12330, Loss: 1.7279, Avg Time/batch: 0.3469 s, Avg Token Efficiency: 23614.75 tokens/s
+Epoch 1/1, Batch 2241/12330, Loss: 1.7651, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23708.49 tokens/s
+Epoch 1/1, Batch 2251/12330, Loss: 1.6409, Avg Time/batch: 0.3446 s, Avg Token Efficiency: 23774.23 tokens/s
+Epoch 1/1, Batch 2261/12330, Loss: 1.7807, Avg Time/batch: 0.3458 s, Avg Token Efficiency: 23687.62 tokens/s
+Epoch 1/1, Batch 2271/12330, Loss: 1.5774, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23734.59 tokens/s
+Epoch 1/1, Batch 2281/12330, Loss: 1.7494, Avg Time/batch: 0.3466 s, Avg Token Efficiency: 23638.24 tokens/s
+Epoch 1/1, Batch 2291/12330, Loss: 1.4757, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23702.52 tokens/s
+Epoch 1/1, Batch 2301/12330, Loss: 1.7859, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23713.05 tokens/s
+Epoch 1/1, Batch 2311/12330, Loss: 1.6426, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23681.43 tokens/s
+Epoch 1/1, Batch 2321/12330, Loss: 1.7337, Avg Time/batch: 0.3454 s, Avg Token Efficiency: 23717.92 tokens/s
+Epoch 1/1, Batch 2331/12330, Loss: 1.5440, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23708.08 tokens/s
+Model checkpoint saved at batch 2337 in epoch 1.
+Epoch 1/1, Batch 2341/12330, Loss: 1.5276, Avg Time/batch: 0.3470 s, Avg Token Efficiency: 23609.79 tokens/s
+Epoch 1/1, Batch 2351/12330, Loss: 1.4861, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23678.89 tokens/s
+Epoch 1/1, Batch 2361/12330, Loss: 1.5319, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23709.77 tokens/s
+Epoch 1/1, Batch 2371/12330, Loss: 1.4675, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23710.07 tokens/s
+Epoch 1/1, Batch 2381/12330, Loss: 1.5459, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23746.08 tokens/s
+Epoch 1/1, Batch 2391/12330, Loss: 1.4087, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23697.56 tokens/s
+Epoch 1/1, Batch 2401/12330, Loss: 1.3419, Avg Time/batch: 0.3464 s, Avg Token Efficiency: 23651.42 tokens/s
+Epoch 1/1, Batch 2411/12330, Loss: 1.3237, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23653.49 tokens/s
+Epoch 1/1, Batch 2421/12330, Loss: 1.3728, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23730.47 tokens/s
+Epoch 1/1, Batch 2431/12330, Loss: 1.4723, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23696.52 tokens/s
+Epoch 1/1, Batch 2441/12330, Loss: 1.2603, Avg Time/batch: 0.3461 s, Avg Token Efficiency: 23670.00 tokens/s
+Epoch 1/1, Batch 2451/12330, Loss: 1.3145, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23673.68 tokens/s
+Model checkpoint saved at batch 2460 in epoch 1.
+Epoch 1/1, Batch 2461/12330, Loss: 1.2264, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23745.37 tokens/s
+Epoch 1/1, Batch 2471/12330, Loss: 1.3772, Avg Time/batch: 0.3483 s, Avg Token Efficiency: 23518.49 tokens/s
+Epoch 1/1, Batch 2481/12330, Loss: 1.3009, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23710.37 tokens/s
+Epoch 1/1, Batch 2491/12330, Loss: 1.0357, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23656.74 tokens/s
+Epoch 1/1, Batch 2501/12330, Loss: 1.2274, Avg Time/batch: 0.3448 s, Avg Token Efficiency: 23758.19 tokens/s
+Epoch 1/1, Batch 2511/12330, Loss: 1.2417, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23706.78 tokens/s
+Epoch 1/1, Batch 2521/12330, Loss: 1.0760, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23658.69 tokens/s
+Epoch 1/1, Batch 2531/12330, Loss: 1.0895, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23684.53 tokens/s
+Epoch 1/1, Batch 2541/12330, Loss: 1.2747, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23701.60 tokens/s
+Epoch 1/1, Batch 2551/12330, Loss: 1.2066, Avg Time/batch: 0.3462 s, Avg Token Efficiency: 23662.79 tokens/s
+Epoch 1/1, Batch 2561/12330, Loss: 1.1416, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23742.62 tokens/s
+Epoch 1/1, Batch 2571/12330, Loss: 1.0341, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23685.67 tokens/s
+Epoch 1/1, Batch 2581/12330, Loss: 1.0603, Avg Time/batch: 0.3461 s, Avg Token Efficiency: 23672.36 tokens/s
+Model checkpoint saved at batch 2583 in epoch 1.
+Epoch 1/1, Batch 2591/12330, Loss: 0.9664, Avg Time/batch: 0.3493 s, Avg Token Efficiency: 23451.18 tokens/s
+Epoch 1/1, Batch 2601/12330, Loss: 1.1028, Avg Time/batch: 0.3466 s, Avg Token Efficiency: 23638.57 tokens/s
+Epoch 1/1, Batch 2611/12330, Loss: 1.1197, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23676.54 tokens/s
+Epoch 1/1, Batch 2621/12330, Loss: 1.0437, Avg Time/batch: 0.3452 s, Avg Token Efficiency: 23733.19 tokens/s
+Epoch 1/1, Batch 2631/12330, Loss: 0.9318, Avg Time/batch: 0.3460 s, Avg Token Efficiency: 23678.60 tokens/s
+Epoch 1/1, Batch 2641/12330, Loss: 0.9686, Avg Time/batch: 0.3458 s, Avg Token Efficiency: 23687.85 tokens/s
+Epoch 1/1, Batch 2651/12330, Loss: 0.9174, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23684.79 tokens/s
+Epoch 1/1, Batch 2661/12330, Loss: 0.9834, Avg Time/batch: 0.3451 s, Avg Token Efficiency: 23740.38 tokens/s
+Epoch 1/1, Batch 2671/12330, Loss: 0.9245, Avg Time/batch: 0.3462 s, Avg Token Efficiency: 23663.47 tokens/s
+Epoch 1/1, Batch 2681/12330, Loss: 0.9220, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23693.88 tokens/s
+Epoch 1/1, Batch 2691/12330, Loss: 1.1105, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23742.22 tokens/s
+Epoch 1/1, Batch 2701/12330, Loss: 0.9499, Avg Time/batch: 0.3451 s, Avg Token Efficiency: 23735.40 tokens/s
+Model checkpoint saved at batch 2706 in epoch 1.
+Epoch 1/1, Batch 2711/12330, Loss: 1.0162, Avg Time/batch: 0.3468 s, Avg Token Efficiency: 23623.66 tokens/s
+Epoch 1/1, Batch 2721/12330, Loss: 0.9532, Avg Time/batch: 0.3469 s, Avg Token Efficiency: 23614.76 tokens/s
+Epoch 1/1, Batch 2731/12330, Loss: 0.9925, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23722.18 tokens/s
+Epoch 1/1, Batch 2741/12330, Loss: 0.8859, Avg Time/batch: 0.3456 s, Avg Token Efficiency: 23700.64 tokens/s
+Epoch 1/1, Batch 2751/12330, Loss: 0.9314, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23721.49 tokens/s
+Epoch 1/1, Batch 2761/12330, Loss: 0.7912, Avg Time/batch: 0.3465 s, Avg Token Efficiency: 23639.68 tokens/s
+Epoch 1/1, Batch 2771/12330, Loss: 0.8143, Avg Time/batch: 0.3450 s, Avg Token Efficiency: 23743.76 tokens/s
+Epoch 1/1, Batch 2781/12330, Loss: 0.8279, Avg Time/batch: 0.3453 s, Avg Token Efficiency: 23723.85 tokens/s
+Epoch 1/1, Batch 2791/12330, Loss: 0.8325, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23694.68 tokens/s
+Epoch 1/1, Batch 2801/12330, Loss: 0.8140, Avg Time/batch: 0.3464 s, Avg Token Efficiency: 23649.25 tokens/s
+Epoch 1/1, Batch 2811/12330, Loss: 0.8997, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23709.16 tokens/s
+Epoch 1/1, Batch 2821/12330, Loss: 0.8159, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23681.74 tokens/s
+Model checkpoint saved at batch 2829 in epoch 1.
+Epoch 1/1, Batch 2831/12330, Loss: 0.8211, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23708.77 tokens/s
+Epoch 1/1, Batch 2841/12330, Loss: 0.8302, Avg Time/batch: 0.3493 s, Avg Token Efficiency: 23455.71 tokens/s
+Epoch 1/1, Batch 2851/12330, Loss: 0.7350, Avg Time/batch: 0.3465 s, Avg Token Efficiency: 23642.01 tokens/s
+Epoch 1/1, Batch 2861/12330, Loss: 0.8803, Avg Time/batch: 0.3457 s, Avg Token Efficiency: 23695.01 tokens/s
+Epoch 1/1, Batch 2871/12330, Loss: 0.8000, Avg Time/batch: 0.3459 s, Avg Token Efficiency: 23684.71 tokens/s
+Epoch 1/1, Batch 2881/12330, Loss: 0.8236, Avg Time/batch: 0.3455 s, Avg Token Efficiency: 23712.09 tokens/s
+Epoch 1/1, Batch 2891/12330, Loss: 0.8193, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23659.10 tokens/s
+Epoch 1/1, Batch 2901/12330, Loss: 0.6979, Avg Time/batch: 0.3463 s, Avg Token Efficiency: 23653.46 tokens/s
+Epoch 1/1, Batch 2911/12330, Loss: 0.6876, Avg Time/batch: 0.3451 s, Avg Token Efficiency: 23741.15 tokens/s
+Epoch 1/1, Batch 2921/12330, Loss: 0.7639, Avg Time/batch: 0.3461 s, Avg Token Efficiency: 23670.10 tokens/s
+Epoch 1/1, Batch 2931/12330, Loss: 0.7074, Avg Time/batch: 0.3462 s, Avg Token Efficiency: 23662.19 tokens/s
+Epoch 1/1, Batch 2941/12330, Loss: 0.7233, Avg Time/batch: 0.3476 s, Avg Token Efficiency: 23566.47 tokens/s
+Epoch 1/1, Batch 2951/12330, Loss: 0.7613, Avg Time/batch: 0.3479 s, Avg Token Efficiency: 23549.19 tokens/s
+Model checkpoint saved at batch 2952 in epoch 1.
+Epoch 1/1, Batch 2961/12330, Loss: 0.7119, Avg Time/batch: 0.3482 s, Avg Token Efficiency: 23527.95 tokens/s
+Epoch 1/1, Batch 2971/12330, Loss: 0.7010, Avg Time/batch: 0.3441 s, Avg Token Efficiency: 23803.65 tokens/s
+Epoch 1/1, Batch 2981/12330, Loss: 0.6987, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23919.11 tokens/s
+Epoch 1/1, Batch 2991/12330, Loss: 0.7763, Avg Time/batch: 0.3431 s, Avg Token Efficiency: 23875.30 tokens/s
+Epoch 1/1, Batch 3001/12330, Loss: 0.7112, Avg Time/batch: 0.3434 s, Avg Token Efficiency: 23855.86 tokens/s
+Epoch 1/1, Batch 3011/12330, Loss: 0.7734, Avg Time/batch: 0.3431 s, Avg Token Efficiency: 23877.70 tokens/s
+Epoch 1/1, Batch 3021/12330, Loss: 0.7543, Avg Time/batch: 0.3430 s, Avg Token Efficiency: 23881.01 tokens/s
+Epoch 1/1, Batch 3031/12330, Loss: 0.6908, Avg Time/batch: 0.3431 s, Avg Token Efficiency: 23874.65 tokens/s
+Epoch 1/1, Batch 3041/12330, Loss: 0.6829, Avg Time/batch: 0.3429 s, Avg Token Efficiency: 23887.18 tokens/s
+Epoch 1/1, Batch 3051/12330, Loss: 0.6889, Avg Time/batch: 0.3438 s, Avg Token Efficiency: 23826.05 tokens/s
+Epoch 1/1, Batch 3061/12330, Loss: 0.5851, Avg Time/batch: 0.3428 s, Avg Token Efficiency: 23895.49 tokens/s
+Epoch 1/1, Batch 3071/12330, Loss: 0.6477, Avg Time/batch: 0.3438 s, Avg Token Efficiency: 23825.27 tokens/s
+Model checkpoint saved at batch 3075 in epoch 1.
+Epoch 1/1, Batch 3081/12330, Loss: 0.6577, Avg Time/batch: 0.3444 s, Avg Token Efficiency: 23784.28 tokens/s
+Epoch 1/1, Batch 3091/12330, Loss: 0.6824, Avg Time/batch: 0.3435 s, Avg Token Efficiency: 23848.94 tokens/s
+Epoch 1/1, Batch 3101/12330, Loss: 0.6469, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.26 tokens/s
+Epoch 1/1, Batch 3111/12330, Loss: 0.5441, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.13 tokens/s
+Epoch 1/1, Batch 3121/12330, Loss: 0.6798, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.28 tokens/s
+Epoch 1/1, Batch 3131/12330, Loss: 0.6910, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23990.42 tokens/s
+Epoch 1/1, Batch 3141/12330, Loss: 0.6187, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24005.45 tokens/s
+Epoch 1/1, Batch 3151/12330, Loss: 0.7034, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24003.89 tokens/s
+Epoch 1/1, Batch 3161/12330, Loss: 0.6019, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.80 tokens/s
+Epoch 1/1, Batch 3171/12330, Loss: 0.5881, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24041.24 tokens/s
+Epoch 1/1, Batch 3181/12330, Loss: 0.6158, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23983.11 tokens/s
+Epoch 1/1, Batch 3191/12330, Loss: 0.6274, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24037.03 tokens/s
+Model checkpoint saved at batch 3198 in epoch 1.
+Epoch 1/1, Batch 3201/12330, Loss: 0.6604, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.97 tokens/s
+Epoch 1/1, Batch 3211/12330, Loss: 0.6295, Avg Time/batch: 0.3436 s, Avg Token Efficiency: 23844.36 tokens/s
+Epoch 1/1, Batch 3221/12330, Loss: 0.5720, Avg Time/batch: 0.3423 s, Avg Token Efficiency: 23932.15 tokens/s
+Epoch 1/1, Batch 3231/12330, Loss: 0.6287, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.68 tokens/s
+Epoch 1/1, Batch 3241/12330, Loss: 0.5842, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.15 tokens/s
+Epoch 1/1, Batch 3251/12330, Loss: 0.5748, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.03 tokens/s
+Epoch 1/1, Batch 3261/12330, Loss: 0.5270, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24040.50 tokens/s
+Epoch 1/1, Batch 3271/12330, Loss: 0.5716, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24047.97 tokens/s
+Epoch 1/1, Batch 3281/12330, Loss: 0.5599, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.42 tokens/s
+Epoch 1/1, Batch 3291/12330, Loss: 0.5035, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.06 tokens/s
+Epoch 1/1, Batch 3301/12330, Loss: 0.5984, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.81 tokens/s
+Epoch 1/1, Batch 3311/12330, Loss: 0.6870, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.76 tokens/s
+Epoch 1/1, Batch 3321/12330, Loss: 0.6129, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.35 tokens/s
+Model checkpoint saved at batch 3321 in epoch 1.
+Epoch 1/1, Batch 3331/12330, Loss: 0.5369, Avg Time/batch: 0.3428 s, Avg Token Efficiency: 23900.28 tokens/s
+Epoch 1/1, Batch 3341/12330, Loss: 0.5385, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23917.08 tokens/s
+Epoch 1/1, Batch 3351/12330, Loss: 0.5268, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.55 tokens/s
+Epoch 1/1, Batch 3361/12330, Loss: 0.5622, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.00 tokens/s
+Epoch 1/1, Batch 3371/12330, Loss: 0.5457, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.32 tokens/s
+Epoch 1/1, Batch 3381/12330, Loss: 0.5743, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23995.87 tokens/s
+Epoch 1/1, Batch 3391/12330, Loss: 0.5430, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24083.48 tokens/s
+Epoch 1/1, Batch 3401/12330, Loss: 0.5310, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.69 tokens/s
+Epoch 1/1, Batch 3411/12330, Loss: 0.5850, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24037.25 tokens/s
+Epoch 1/1, Batch 3421/12330, Loss: 0.5682, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24040.93 tokens/s
+Epoch 1/1, Batch 3431/12330, Loss: 0.6095, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.50 tokens/s
+Epoch 1/1, Batch 3441/12330, Loss: 0.5262, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.85 tokens/s
+Model checkpoint saved at batch 3444 in epoch 1.
+Epoch 1/1, Batch 3451/12330, Loss: 0.5812, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.73 tokens/s
+Epoch 1/1, Batch 3461/12330, Loss: 0.5810, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24015.30 tokens/s
+Epoch 1/1, Batch 3471/12330, Loss: 0.5618, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24015.62 tokens/s
+Epoch 1/1, Batch 3481/12330, Loss: 0.4994, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24008.91 tokens/s
+Epoch 1/1, Batch 3491/12330, Loss: 0.5474, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.86 tokens/s
+Epoch 1/1, Batch 3501/12330, Loss: 0.5648, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.01 tokens/s
+Epoch 1/1, Batch 3511/12330, Loss: 0.4709, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.13 tokens/s
+Epoch 1/1, Batch 3521/12330, Loss: 0.4801, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24083.22 tokens/s
+Epoch 1/1, Batch 3531/12330, Loss: 0.5467, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24001.45 tokens/s
+Epoch 1/1, Batch 3541/12330, Loss: 0.4670, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24031.10 tokens/s
+Epoch 1/1, Batch 3551/12330, Loss: 0.5224, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.36 tokens/s
+Epoch 1/1, Batch 3561/12330, Loss: 0.5296, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.76 tokens/s
+Model checkpoint saved at batch 3567 in epoch 1.
+Epoch 1/1, Batch 3571/12330, Loss: 0.5391, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23980.90 tokens/s
+Epoch 1/1, Batch 3581/12330, Loss: 0.5089, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23996.02 tokens/s
+Epoch 1/1, Batch 3591/12330, Loss: 0.5003, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.85 tokens/s
+Epoch 1/1, Batch 3601/12330, Loss: 0.5066, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.00 tokens/s
+Epoch 1/1, Batch 3611/12330, Loss: 0.5242, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.29 tokens/s
+Epoch 1/1, Batch 3621/12330, Loss: 0.4837, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.68 tokens/s
+Epoch 1/1, Batch 3631/12330, Loss: 0.4616, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.79 tokens/s
+Epoch 1/1, Batch 3641/12330, Loss: 0.5216, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.74 tokens/s
+Epoch 1/1, Batch 3651/12330, Loss: 0.5126, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.46 tokens/s
+Epoch 1/1, Batch 3661/12330, Loss: 0.4483, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.08 tokens/s
+Epoch 1/1, Batch 3671/12330, Loss: 0.4621, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.48 tokens/s
+Epoch 1/1, Batch 3681/12330, Loss: 0.5074, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24026.17 tokens/s
+Model checkpoint saved at batch 3690 in epoch 1.
+Epoch 1/1, Batch 3691/12330, Loss: 0.4557, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24099.81 tokens/s
+Epoch 1/1, Batch 3701/12330, Loss: 0.5139, Avg Time/batch: 0.3439 s, Avg Token Efficiency: 23822.37 tokens/s
+Epoch 1/1, Batch 3711/12330, Loss: 0.5222, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24050.54 tokens/s
+Epoch 1/1, Batch 3721/12330, Loss: 0.4568, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.24 tokens/s
+Epoch 1/1, Batch 3731/12330, Loss: 0.4566, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.25 tokens/s
+Epoch 1/1, Batch 3741/12330, Loss: 0.4517, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23978.19 tokens/s
+Epoch 1/1, Batch 3751/12330, Loss: 0.4725, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.73 tokens/s
+Epoch 1/1, Batch 3761/12330, Loss: 0.5325, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24030.96 tokens/s
+Epoch 1/1, Batch 3771/12330, Loss: 0.5140, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.32 tokens/s
+Epoch 1/1, Batch 3781/12330, Loss: 0.5071, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.58 tokens/s
+Epoch 1/1, Batch 3791/12330, Loss: 0.4660, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.94 tokens/s
+Epoch 1/1, Batch 3801/12330, Loss: 0.4797, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.36 tokens/s
+Epoch 1/1, Batch 3811/12330, Loss: 0.4396, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.51 tokens/s
+Model checkpoint saved at batch 3813 in epoch 1.
+Epoch 1/1, Batch 3821/12330, Loss: 0.4336, Avg Time/batch: 0.3426 s, Avg Token Efficiency: 23909.95 tokens/s
+Epoch 1/1, Batch 3831/12330, Loss: 0.5002, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.91 tokens/s
+Epoch 1/1, Batch 3841/12330, Loss: 0.4561, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.14 tokens/s
+Epoch 1/1, Batch 3851/12330, Loss: 0.4194, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.88 tokens/s
+Epoch 1/1, Batch 3861/12330, Loss: 0.4287, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.62 tokens/s
+Epoch 1/1, Batch 3871/12330, Loss: 0.4595, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24106.72 tokens/s
+Epoch 1/1, Batch 3881/12330, Loss: 0.4169, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.23 tokens/s
+Epoch 1/1, Batch 3891/12330, Loss: 0.4332, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.57 tokens/s
+Epoch 1/1, Batch 3901/12330, Loss: 0.4697, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.79 tokens/s
+Epoch 1/1, Batch 3911/12330, Loss: 0.4517, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.03 tokens/s
+Epoch 1/1, Batch 3921/12330, Loss: 0.4561, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.83 tokens/s
+Epoch 1/1, Batch 3931/12330, Loss: 0.4305, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24028.09 tokens/s
+Model checkpoint saved at batch 3936 in epoch 1.
+Epoch 1/1, Batch 3941/12330, Loss: 0.4513, Avg Time/batch: 0.3420 s, Avg Token Efficiency: 23956.04 tokens/s
+Epoch 1/1, Batch 3951/12330, Loss: 0.4555, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23947.15 tokens/s
+Epoch 1/1, Batch 3961/12330, Loss: 0.3953, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.93 tokens/s
+Epoch 1/1, Batch 3971/12330, Loss: 0.4425, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24055.07 tokens/s
+Epoch 1/1, Batch 3981/12330, Loss: 0.4531, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.49 tokens/s
+Epoch 1/1, Batch 3991/12330, Loss: 0.4187, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.78 tokens/s
+Epoch 1/1, Batch 4001/12330, Loss: 0.4162, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24042.27 tokens/s
+Epoch 1/1, Batch 4011/12330, Loss: 0.4608, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.58 tokens/s
+Epoch 1/1, Batch 4021/12330, Loss: 0.4585, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24047.02 tokens/s
+Epoch 1/1, Batch 4031/12330, Loss: 0.4560, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24035.45 tokens/s
+Epoch 1/1, Batch 4041/12330, Loss: 0.4570, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.91 tokens/s
+Epoch 1/1, Batch 4051/12330, Loss: 0.4142, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23985.58 tokens/s
+Model checkpoint saved at batch 4059 in epoch 1.
+Epoch 1/1, Batch 4061/12330, Loss: 0.4028, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.58 tokens/s
+Epoch 1/1, Batch 4071/12330, Loss: 0.4190, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23915.77 tokens/s
+Epoch 1/1, Batch 4081/12330, Loss: 0.4123, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.73 tokens/s
+Epoch 1/1, Batch 4091/12330, Loss: 0.4496, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.49 tokens/s
+Epoch 1/1, Batch 4101/12330, Loss: 0.4291, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24118.07 tokens/s
+Epoch 1/1, Batch 4111/12330, Loss: 0.4342, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.26 tokens/s
+Epoch 1/1, Batch 4121/12330, Loss: 0.4270, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.50 tokens/s
+Epoch 1/1, Batch 4131/12330, Loss: 0.3903, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.49 tokens/s
+Epoch 1/1, Batch 4141/12330, Loss: 0.4411, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24038.73 tokens/s
+Epoch 1/1, Batch 4151/12330, Loss: 0.3927, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24131.58 tokens/s
+Epoch 1/1, Batch 4161/12330, Loss: 0.4031, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.59 tokens/s
+Epoch 1/1, Batch 4171/12330, Loss: 0.3930, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24021.67 tokens/s
+Epoch 1/1, Batch 4181/12330, Loss: 0.4134, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.53 tokens/s
+Model checkpoint saved at batch 4182 in epoch 1.
+Epoch 1/1, Batch 4191/12330, Loss: 0.4145, Avg Time/batch: 0.3427 s, Avg Token Efficiency: 23905.12 tokens/s
+Epoch 1/1, Batch 4201/12330, Loss: 0.4227, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23944.81 tokens/s
+Epoch 1/1, Batch 4211/12330, Loss: 0.4609, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24115.82 tokens/s
+Epoch 1/1, Batch 4221/12330, Loss: 0.4333, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.74 tokens/s
+Epoch 1/1, Batch 4231/12330, Loss: 0.4225, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24134.36 tokens/s
+Epoch 1/1, Batch 4241/12330, Loss: 0.4158, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.11 tokens/s
+Epoch 1/1, Batch 4251/12330, Loss: 0.4185, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.28 tokens/s
+Epoch 1/1, Batch 4261/12330, Loss: 0.4083, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24026.85 tokens/s
+Epoch 1/1, Batch 4271/12330, Loss: 0.4168, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.39 tokens/s
+Epoch 1/1, Batch 4281/12330, Loss: 0.4130, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24010.20 tokens/s
+Epoch 1/1, Batch 4291/12330, Loss: 0.4111, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.47 tokens/s
+Epoch 1/1, Batch 4301/12330, Loss: 0.4204, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.32 tokens/s
+Model checkpoint saved at batch 4305 in epoch 1.
+Epoch 1/1, Batch 4311/12330, Loss: 0.4491, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23966.83 tokens/s
+Epoch 1/1, Batch 4321/12330, Loss: 0.4410, Avg Time/batch: 0.3441 s, Avg Token Efficiency: 23808.99 tokens/s
+Epoch 1/1, Batch 4331/12330, Loss: 0.4169, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.48 tokens/s
+Epoch 1/1, Batch 4341/12330, Loss: 0.3866, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.30 tokens/s
+Epoch 1/1, Batch 4351/12330, Loss: 0.4075, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.50 tokens/s
+Epoch 1/1, Batch 4361/12330, Loss: 0.4189, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24021.94 tokens/s
+Epoch 1/1, Batch 4371/12330, Loss: 0.4082, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.93 tokens/s
+Epoch 1/1, Batch 4381/12330, Loss: 0.4052, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24055.05 tokens/s
+Epoch 1/1, Batch 4391/12330, Loss: 0.4074, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.33 tokens/s
+Epoch 1/1, Batch 4401/12330, Loss: 0.3938, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.98 tokens/s
+Epoch 1/1, Batch 4411/12330, Loss: 0.3863, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24041.89 tokens/s
+Epoch 1/1, Batch 4421/12330, Loss: 0.3861, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24047.16 tokens/s
+Model checkpoint saved at batch 4428 in epoch 1.
+Epoch 1/1, Batch 4431/12330, Loss: 0.3929, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23965.89 tokens/s
+Epoch 1/1, Batch 4441/12330, Loss: 0.4060, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.09 tokens/s
+Epoch 1/1, Batch 4451/12330, Loss: 0.3950, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24028.60 tokens/s
+Epoch 1/1, Batch 4461/12330, Loss: 0.3866, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.30 tokens/s
+Epoch 1/1, Batch 4471/12330, Loss: 0.3717, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24131.76 tokens/s
+Epoch 1/1, Batch 4481/12330, Loss: 0.3398, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24110.66 tokens/s
+Epoch 1/1, Batch 4491/12330, Loss: 0.3888, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.04 tokens/s
+Epoch 1/1, Batch 4501/12330, Loss: 0.3972, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.11 tokens/s
+Epoch 1/1, Batch 4511/12330, Loss: 0.3966, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.86 tokens/s
+Epoch 1/1, Batch 4521/12330, Loss: 0.3659, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.34 tokens/s
+Epoch 1/1, Batch 4531/12330, Loss: 0.3931, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24136.86 tokens/s
+Epoch 1/1, Batch 4541/12330, Loss: 0.3850, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.60 tokens/s
+Epoch 1/1, Batch 4551/12330, Loss: 0.3558, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.57 tokens/s
+Model checkpoint saved at batch 4551 in epoch 1.
+Epoch 1/1, Batch 4561/12330, Loss: 0.3505, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23996.92 tokens/s
+Epoch 1/1, Batch 4571/12330, Loss: 0.3708, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24048.02 tokens/s
+Epoch 1/1, Batch 4581/12330, Loss: 0.3702, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.80 tokens/s
+Epoch 1/1, Batch 4591/12330, Loss: 0.3577, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.64 tokens/s
+Epoch 1/1, Batch 4601/12330, Loss: 0.3672, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.05 tokens/s
+Epoch 1/1, Batch 4611/12330, Loss: 0.3679, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24146.84 tokens/s
+Epoch 1/1, Batch 4621/12330, Loss: 0.3870, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24025.30 tokens/s
+Epoch 1/1, Batch 4631/12330, Loss: 0.4033, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24118.03 tokens/s
+Epoch 1/1, Batch 4641/12330, Loss: 0.3762, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.72 tokens/s
+Epoch 1/1, Batch 4651/12330, Loss: 0.3925, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.72 tokens/s
+Epoch 1/1, Batch 4661/12330, Loss: 0.3668, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24031.87 tokens/s
+Epoch 1/1, Batch 4671/12330, Loss: 0.3621, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.47 tokens/s
+Model checkpoint saved at batch 4674 in epoch 1.
+Epoch 1/1, Batch 4681/12330, Loss: 0.3598, Avg Time/batch: 0.3431 s, Avg Token Efficiency: 23879.08 tokens/s
+Epoch 1/1, Batch 4691/12330, Loss: 0.3731, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.62 tokens/s
+Epoch 1/1, Batch 4701/12330, Loss: 0.3473, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.68 tokens/s
+Epoch 1/1, Batch 4711/12330, Loss: 0.3673, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.50 tokens/s
+Epoch 1/1, Batch 4721/12330, Loss: 0.3330, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.33 tokens/s
+Epoch 1/1, Batch 4731/12330, Loss: 0.3325, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.71 tokens/s
+Epoch 1/1, Batch 4741/12330, Loss: 0.3123, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.21 tokens/s
+Epoch 1/1, Batch 4751/12330, Loss: 0.3892, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.63 tokens/s
+Epoch 1/1, Batch 4761/12330, Loss: 0.3328, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24099.22 tokens/s
+Epoch 1/1, Batch 4771/12330, Loss: 0.3994, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24101.55 tokens/s
+Epoch 1/1, Batch 4781/12330, Loss: 0.3402, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.91 tokens/s
+Epoch 1/1, Batch 4791/12330, Loss: 0.3936, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24025.86 tokens/s
+Model checkpoint saved at batch 4797 in epoch 1.
+Epoch 1/1, Batch 4801/12330, Loss: 0.3357, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23964.61 tokens/s
+Epoch 1/1, Batch 4811/12330, Loss: 0.3304, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23973.55 tokens/s
+Epoch 1/1, Batch 4821/12330, Loss: 0.3765, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24052.56 tokens/s
+Epoch 1/1, Batch 4831/12330, Loss: 0.3655, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24017.77 tokens/s
+Epoch 1/1, Batch 4841/12330, Loss: 0.3511, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24054.45 tokens/s
+Epoch 1/1, Batch 4851/12330, Loss: 0.3691, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.40 tokens/s
+Epoch 1/1, Batch 4861/12330, Loss: 0.3457, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24144.07 tokens/s
+Epoch 1/1, Batch 4871/12330, Loss: 0.3601, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.56 tokens/s
+Epoch 1/1, Batch 4881/12330, Loss: 0.3694, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.50 tokens/s
+Epoch 1/1, Batch 4891/12330, Loss: 0.3740, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.45 tokens/s
+Epoch 1/1, Batch 4901/12330, Loss: 0.3827, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24140.77 tokens/s
+Epoch 1/1, Batch 4911/12330, Loss: 0.3598, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.27 tokens/s
+Model checkpoint saved at batch 4920 in epoch 1.
+Epoch 1/1, Batch 4921/12330, Loss: 0.3664, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.27 tokens/s
+Epoch 1/1, Batch 4931/12330, Loss: 0.3324, Avg Time/batch: 0.3446 s, Avg Token Efficiency: 23773.86 tokens/s
+Epoch 1/1, Batch 4941/12330, Loss: 0.3665, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.64 tokens/s
+Epoch 1/1, Batch 4951/12330, Loss: 0.3604, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24021.42 tokens/s
+Epoch 1/1, Batch 4961/12330, Loss: 0.3297, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.35 tokens/s
+Epoch 1/1, Batch 4971/12330, Loss: 0.3709, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.61 tokens/s
+Epoch 1/1, Batch 4981/12330, Loss: 0.3417, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.64 tokens/s
+Epoch 1/1, Batch 4991/12330, Loss: 0.3225, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.29 tokens/s
+Epoch 1/1, Batch 5001/12330, Loss: 0.3617, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.47 tokens/s
+Epoch 1/1, Batch 5011/12330, Loss: 0.3296, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.53 tokens/s
+Epoch 1/1, Batch 5021/12330, Loss: 0.3213, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.73 tokens/s
+Epoch 1/1, Batch 5031/12330, Loss: 0.3532, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24054.95 tokens/s
+Epoch 1/1, Batch 5041/12330, Loss: 0.3357, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24040.93 tokens/s
+Model checkpoint saved at batch 5043 in epoch 1.
+Epoch 1/1, Batch 5051/12330, Loss: 0.3426, Avg Time/batch: 0.3435 s, Avg Token Efficiency: 23847.35 tokens/s
+Epoch 1/1, Batch 5061/12330, Loss: 0.3556, Avg Time/batch: 0.3433 s, Avg Token Efficiency: 23862.79 tokens/s
+Epoch 1/1, Batch 5071/12330, Loss: 0.3441, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.44 tokens/s
+Epoch 1/1, Batch 5081/12330, Loss: 0.3377, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.29 tokens/s
+Epoch 1/1, Batch 5091/12330, Loss: 0.3358, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.83 tokens/s
+Epoch 1/1, Batch 5101/12330, Loss: 0.3235, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.94 tokens/s
+Epoch 1/1, Batch 5111/12330, Loss: 0.3209, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24038.24 tokens/s
+Epoch 1/1, Batch 5121/12330, Loss: 0.3423, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.57 tokens/s
+Epoch 1/1, Batch 5131/12330, Loss: 0.3145, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24171.16 tokens/s
+Epoch 1/1, Batch 5141/12330, Loss: 0.3554, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.45 tokens/s
+Epoch 1/1, Batch 5151/12330, Loss: 0.3377, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.23 tokens/s
+Epoch 1/1, Batch 5161/12330, Loss: 0.3293, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.97 tokens/s
+Model checkpoint saved at batch 5166 in epoch 1.
+Epoch 1/1, Batch 5171/12330, Loss: 0.3262, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.19 tokens/s
+Epoch 1/1, Batch 5181/12330, Loss: 0.3296, Avg Time/batch: 0.3434 s, Avg Token Efficiency: 23852.76 tokens/s
+Epoch 1/1, Batch 5191/12330, Loss: 0.3059, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24045.84 tokens/s
+Epoch 1/1, Batch 5201/12330, Loss: 0.3268, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.86 tokens/s
+Epoch 1/1, Batch 5211/12330, Loss: 0.3137, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24115.91 tokens/s
+Epoch 1/1, Batch 5221/12330, Loss: 0.3403, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.97 tokens/s
+Epoch 1/1, Batch 5231/12330, Loss: 0.3195, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.97 tokens/s
+Epoch 1/1, Batch 5241/12330, Loss: 0.3162, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.80 tokens/s
+Epoch 1/1, Batch 5251/12330, Loss: 0.3267, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.26 tokens/s
+Epoch 1/1, Batch 5261/12330, Loss: 0.3394, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.97 tokens/s
+Epoch 1/1, Batch 5271/12330, Loss: 0.3115, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.20 tokens/s
+Epoch 1/1, Batch 5281/12330, Loss: 0.3343, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24111.73 tokens/s
+Model checkpoint saved at batch 5289 in epoch 1.
+Epoch 1/1, Batch 5291/12330, Loss: 0.3123, Avg Time/batch: 0.3385 s, Avg Token Efficiency: 24199.08 tokens/s
+Epoch 1/1, Batch 5301/12330, Loss: 0.3135, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.00 tokens/s
+Epoch 1/1, Batch 5311/12330, Loss: 0.3334, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24076.69 tokens/s
+Epoch 1/1, Batch 5321/12330, Loss: 0.3235, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24164.96 tokens/s
+Epoch 1/1, Batch 5331/12330, Loss: 0.3420, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24112.99 tokens/s
+Epoch 1/1, Batch 5341/12330, Loss: 0.3227, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.40 tokens/s
+Epoch 1/1, Batch 5351/12330, Loss: 0.3257, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.88 tokens/s
+Epoch 1/1, Batch 5361/12330, Loss: 0.3019, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.70 tokens/s
+Epoch 1/1, Batch 5371/12330, Loss: 0.3271, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24090.74 tokens/s
+Epoch 1/1, Batch 5381/12330, Loss: 0.2946, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.04 tokens/s
+Epoch 1/1, Batch 5391/12330, Loss: 0.3626, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.54 tokens/s
+Epoch 1/1, Batch 5401/12330, Loss: 0.3205, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.43 tokens/s
+Epoch 1/1, Batch 5411/12330, Loss: 0.3091, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24104.05 tokens/s
+Model checkpoint saved at batch 5412 in epoch 1.
+Epoch 1/1, Batch 5421/12330, Loss: 0.3100, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.31 tokens/s
+Epoch 1/1, Batch 5431/12330, Loss: 0.3029, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.08 tokens/s
+Epoch 1/1, Batch 5441/12330, Loss: 0.3187, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.14 tokens/s
+Epoch 1/1, Batch 5451/12330, Loss: 0.3580, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.49 tokens/s
+Epoch 1/1, Batch 5461/12330, Loss: 0.3010, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24052.71 tokens/s
+Epoch 1/1, Batch 5471/12330, Loss: 0.3112, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24148.86 tokens/s
+Epoch 1/1, Batch 5481/12330, Loss: 0.2862, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.46 tokens/s
+Epoch 1/1, Batch 5491/12330, Loss: 0.3193, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.83 tokens/s
+Epoch 1/1, Batch 5501/12330, Loss: 0.3043, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24020.84 tokens/s
+Epoch 1/1, Batch 5511/12330, Loss: 0.3295, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24076.57 tokens/s
+Epoch 1/1, Batch 5521/12330, Loss: 0.3124, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24016.45 tokens/s
+Epoch 1/1, Batch 5531/12330, Loss: 0.3101, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24030.78 tokens/s
+Model checkpoint saved at batch 5535 in epoch 1.
+Epoch 1/1, Batch 5541/12330, Loss: 0.3349, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.57 tokens/s
+Epoch 1/1, Batch 5551/12330, Loss: 0.3339, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.17 tokens/s
+Epoch 1/1, Batch 5561/12330, Loss: 0.3284, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.85 tokens/s
+Epoch 1/1, Batch 5571/12330, Loss: 0.3331, Avg Time/batch: 0.3383 s, Avg Token Efficiency: 24217.57 tokens/s
+Epoch 1/1, Batch 5581/12330, Loss: 0.2725, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24097.73 tokens/s
+Epoch 1/1, Batch 5591/12330, Loss: 0.3300, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.66 tokens/s
+Epoch 1/1, Batch 5601/12330, Loss: 0.3471, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.55 tokens/s
+Epoch 1/1, Batch 5611/12330, Loss: 0.2943, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24111.42 tokens/s
+Epoch 1/1, Batch 5621/12330, Loss: 0.2965, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.86 tokens/s
+Epoch 1/1, Batch 5631/12330, Loss: 0.3130, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.41 tokens/s
+Epoch 1/1, Batch 5641/12330, Loss: 0.3316, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24137.77 tokens/s
+Epoch 1/1, Batch 5651/12330, Loss: 0.2978, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.62 tokens/s
+Model checkpoint saved at batch 5658 in epoch 1.
+Epoch 1/1, Batch 5661/12330, Loss: 0.3188, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.31 tokens/s
+Epoch 1/1, Batch 5671/12330, Loss: 0.3404, Avg Time/batch: 0.3428 s, Avg Token Efficiency: 23894.61 tokens/s
+Epoch 1/1, Batch 5681/12330, Loss: 0.3029, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.77 tokens/s
+Epoch 1/1, Batch 5691/12330, Loss: 0.3249, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.86 tokens/s
+Epoch 1/1, Batch 5701/12330, Loss: 0.2879, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24139.78 tokens/s
+Epoch 1/1, Batch 5711/12330, Loss: 0.2878, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.24 tokens/s
+Epoch 1/1, Batch 5721/12330, Loss: 0.2860, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24103.95 tokens/s
+Epoch 1/1, Batch 5731/12330, Loss: 0.3263, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.80 tokens/s
+Epoch 1/1, Batch 5741/12330, Loss: 0.2782, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.73 tokens/s
+Epoch 1/1, Batch 5751/12330, Loss: 0.3050, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24076.25 tokens/s
+Epoch 1/1, Batch 5761/12330, Loss: 0.3066, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.75 tokens/s
+Epoch 1/1, Batch 5771/12330, Loss: 0.3050, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24048.02 tokens/s
+Epoch 1/1, Batch 5781/12330, Loss: 0.3004, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.69 tokens/s
+Model checkpoint saved at batch 5781 in epoch 1.
+Epoch 1/1, Batch 5791/12330, Loss: 0.2832, Avg Time/batch: 0.3430 s, Avg Token Efficiency: 23883.25 tokens/s
+Epoch 1/1, Batch 5801/12330, Loss: 0.2947, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24005.06 tokens/s
+Epoch 1/1, Batch 5811/12330, Loss: 0.2744, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24028.61 tokens/s
+Epoch 1/1, Batch 5821/12330, Loss: 0.2905, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.73 tokens/s
+Epoch 1/1, Batch 5831/12330, Loss: 0.3143, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.59 tokens/s
+Epoch 1/1, Batch 5841/12330, Loss: 0.3032, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.62 tokens/s
+Epoch 1/1, Batch 5851/12330, Loss: 0.2879, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24122.85 tokens/s
+Epoch 1/1, Batch 5861/12330, Loss: 0.2984, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.82 tokens/s
+Epoch 1/1, Batch 5871/12330, Loss: 0.2874, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.36 tokens/s
+Epoch 1/1, Batch 5881/12330, Loss: 0.2805, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.24 tokens/s
+Epoch 1/1, Batch 5891/12330, Loss: 0.3108, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24046.40 tokens/s
+Epoch 1/1, Batch 5901/12330, Loss: 0.2975, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.66 tokens/s
+Model checkpoint saved at batch 5904 in epoch 1.
+Epoch 1/1, Batch 5911/12330, Loss: 0.3112, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23968.05 tokens/s
+Epoch 1/1, Batch 5921/12330, Loss: 0.2917, Avg Time/batch: 0.3426 s, Avg Token Efficiency: 23909.08 tokens/s
+Epoch 1/1, Batch 5931/12330, Loss: 0.3036, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.08 tokens/s
+Epoch 1/1, Batch 5941/12330, Loss: 0.2876, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.08 tokens/s
+Epoch 1/1, Batch 5951/12330, Loss: 0.2871, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.54 tokens/s
+Epoch 1/1, Batch 5961/12330, Loss: 0.2841, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.11 tokens/s
+Epoch 1/1, Batch 5971/12330, Loss: 0.2970, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24169.98 tokens/s
+Epoch 1/1, Batch 5981/12330, Loss: 0.3018, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.57 tokens/s
+Epoch 1/1, Batch 5991/12330, Loss: 0.2955, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.59 tokens/s
+Epoch 1/1, Batch 6001/12330, Loss: 0.2823, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24112.75 tokens/s
+Epoch 1/1, Batch 6011/12330, Loss: 0.2843, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24136.11 tokens/s
+Epoch 1/1, Batch 6021/12330, Loss: 0.3108, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.38 tokens/s
+Model checkpoint saved at batch 6027 in epoch 1.
+Epoch 1/1, Batch 6031/12330, Loss: 0.2757, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.15 tokens/s
+Epoch 1/1, Batch 6041/12330, Loss: 0.2854, Avg Time/batch: 0.3429 s, Avg Token Efficiency: 23893.38 tokens/s
+Epoch 1/1, Batch 6051/12330, Loss: 0.2951, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.44 tokens/s
+Epoch 1/1, Batch 6061/12330, Loss: 0.3044, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24097.27 tokens/s
+Epoch 1/1, Batch 6071/12330, Loss: 0.2826, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24045.44 tokens/s
+Epoch 1/1, Batch 6081/12330, Loss: 0.2899, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24126.93 tokens/s
+Epoch 1/1, Batch 6091/12330, Loss: 0.2812, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.58 tokens/s
+Epoch 1/1, Batch 6101/12330, Loss: 0.2985, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24103.32 tokens/s
+Epoch 1/1, Batch 6111/12330, Loss: 0.2778, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24013.81 tokens/s
+Epoch 1/1, Batch 6121/12330, Loss: 0.2936, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24122.53 tokens/s
+Epoch 1/1, Batch 6131/12330, Loss: 0.2906, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.73 tokens/s
+Epoch 1/1, Batch 6141/12330, Loss: 0.2656, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.33 tokens/s
+Model checkpoint saved at batch 6150 in epoch 1.
+Epoch 1/1, Batch 6151/12330, Loss: 0.2800, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.92 tokens/s
+Epoch 1/1, Batch 6161/12330, Loss: 0.2906, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23949.20 tokens/s
+Epoch 1/1, Batch 6171/12330, Loss: 0.2747, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23921.00 tokens/s
+Epoch 1/1, Batch 6181/12330, Loss: 0.2626, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24052.25 tokens/s
+Epoch 1/1, Batch 6191/12330, Loss: 0.2891, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.00 tokens/s
+Epoch 1/1, Batch 6201/12330, Loss: 0.2868, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.48 tokens/s
+Epoch 1/1, Batch 6211/12330, Loss: 0.2892, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.86 tokens/s
+Epoch 1/1, Batch 6221/12330, Loss: 0.2915, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24042.99 tokens/s
+Epoch 1/1, Batch 6231/12330, Loss: 0.2912, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.40 tokens/s
+Epoch 1/1, Batch 6241/12330, Loss: 0.2628, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.37 tokens/s
+Epoch 1/1, Batch 6251/12330, Loss: 0.2890, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24003.90 tokens/s
+Epoch 1/1, Batch 6261/12330, Loss: 0.2790, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.14 tokens/s
+Epoch 1/1, Batch 6271/12330, Loss: 0.2919, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.43 tokens/s
+Model checkpoint saved at batch 6273 in epoch 1.
+Epoch 1/1, Batch 6281/12330, Loss: 0.2616, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24144.48 tokens/s
+Epoch 1/1, Batch 6291/12330, Loss: 0.3089, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.46 tokens/s
+Epoch 1/1, Batch 6301/12330, Loss: 0.2961, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.08 tokens/s
+Epoch 1/1, Batch 6311/12330, Loss: 0.3110, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.52 tokens/s
+Epoch 1/1, Batch 6321/12330, Loss: 0.2996, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24150.22 tokens/s
+Epoch 1/1, Batch 6331/12330, Loss: 0.2621, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.92 tokens/s
+Epoch 1/1, Batch 6341/12330, Loss: 0.2763, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.13 tokens/s
+Epoch 1/1, Batch 6351/12330, Loss: 0.2771, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24099.15 tokens/s
+Epoch 1/1, Batch 6361/12330, Loss: 0.2676, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.48 tokens/s
+Epoch 1/1, Batch 6371/12330, Loss: 0.2863, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24048.21 tokens/s
+Epoch 1/1, Batch 6381/12330, Loss: 0.2546, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.89 tokens/s
+Epoch 1/1, Batch 6391/12330, Loss: 0.2802, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24076.26 tokens/s
+Model checkpoint saved at batch 6396 in epoch 1.
+Epoch 1/1, Batch 6401/12330, Loss: 0.2708, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24146.81 tokens/s
+Epoch 1/1, Batch 6411/12330, Loss: 0.2815, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24062.47 tokens/s
+Epoch 1/1, Batch 6421/12330, Loss: 0.2766, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.19 tokens/s
+Epoch 1/1, Batch 6431/12330, Loss: 0.2676, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.31 tokens/s
+Epoch 1/1, Batch 6441/12330, Loss: 0.3044, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24097.61 tokens/s
+Epoch 1/1, Batch 6451/12330, Loss: 0.2909, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24139.76 tokens/s
+Epoch 1/1, Batch 6461/12330, Loss: 0.2763, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.18 tokens/s
+Epoch 1/1, Batch 6471/12330, Loss: 0.2697, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.86 tokens/s
+Epoch 1/1, Batch 6481/12330, Loss: 0.2560, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.11 tokens/s
+Epoch 1/1, Batch 6491/12330, Loss: 0.2500, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24141.20 tokens/s
+Epoch 1/1, Batch 6501/12330, Loss: 0.2906, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.14 tokens/s
+Epoch 1/1, Batch 6511/12330, Loss: 0.2820, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.34 tokens/s
+Model checkpoint saved at batch 6519 in epoch 1.
+Epoch 1/1, Batch 6521/12330, Loss: 0.2892, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24050.03 tokens/s
+Epoch 1/1, Batch 6531/12330, Loss: 0.2788, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.91 tokens/s
+Epoch 1/1, Batch 6541/12330, Loss: 0.2612, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24086.45 tokens/s
+Epoch 1/1, Batch 6551/12330, Loss: 0.2699, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.03 tokens/s
+Epoch 1/1, Batch 6561/12330, Loss: 0.2991, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24115.83 tokens/s
+Epoch 1/1, Batch 6571/12330, Loss: 0.2617, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24090.25 tokens/s
+Epoch 1/1, Batch 6581/12330, Loss: 0.2706, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.65 tokens/s
+Epoch 1/1, Batch 6591/12330, Loss: 0.2789, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.29 tokens/s
+Epoch 1/1, Batch 6601/12330, Loss: 0.2495, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.49 tokens/s
+Epoch 1/1, Batch 6611/12330, Loss: 0.2764, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24050.06 tokens/s
+Epoch 1/1, Batch 6621/12330, Loss: 0.2621, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.79 tokens/s
+Epoch 1/1, Batch 6631/12330, Loss: 0.2749, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24044.79 tokens/s
+Epoch 1/1, Batch 6641/12330, Loss: 0.2582, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.06 tokens/s
+Model checkpoint saved at batch 6642 in epoch 1.
+Epoch 1/1, Batch 6651/12330, Loss: 0.2813, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 23998.85 tokens/s
+Epoch 1/1, Batch 6661/12330, Loss: 0.2791, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24134.22 tokens/s
+Epoch 1/1, Batch 6671/12330, Loss: 0.2841, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.85 tokens/s
+Epoch 1/1, Batch 6681/12330, Loss: 0.2845, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.94 tokens/s
+Epoch 1/1, Batch 6691/12330, Loss: 0.2757, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24097.05 tokens/s
+Epoch 1/1, Batch 6701/12330, Loss: 0.2729, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.49 tokens/s
+Epoch 1/1, Batch 6711/12330, Loss: 0.2689, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24134.20 tokens/s
+Epoch 1/1, Batch 6721/12330, Loss: 0.2464, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.70 tokens/s
+Epoch 1/1, Batch 6731/12330, Loss: 0.2566, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.25 tokens/s
+Epoch 1/1, Batch 6741/12330, Loss: 0.2611, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.33 tokens/s
+Epoch 1/1, Batch 6751/12330, Loss: 0.2573, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.33 tokens/s
+Epoch 1/1, Batch 6761/12330, Loss: 0.2673, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.31 tokens/s
+Model checkpoint saved at batch 6765 in epoch 1.
+Epoch 1/1, Batch 6771/12330, Loss: 0.2460, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24009.14 tokens/s
+Epoch 1/1, Batch 6781/12330, Loss: 0.2615, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.89 tokens/s
+Epoch 1/1, Batch 6791/12330, Loss: 0.2572, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.24 tokens/s
+Epoch 1/1, Batch 6801/12330, Loss: 0.2572, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.36 tokens/s
+Epoch 1/1, Batch 6811/12330, Loss: 0.2707, Avg Time/batch: 0.3388 s, Avg Token Efficiency: 24176.97 tokens/s
+Epoch 1/1, Batch 6821/12330, Loss: 0.2505, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.93 tokens/s
+Epoch 1/1, Batch 6831/12330, Loss: 0.2970, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.58 tokens/s
+Epoch 1/1, Batch 6841/12330, Loss: 0.2795, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.98 tokens/s
+Epoch 1/1, Batch 6851/12330, Loss: 0.2971, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24133.67 tokens/s
+Epoch 1/1, Batch 6861/12330, Loss: 0.2550, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.98 tokens/s
+Epoch 1/1, Batch 6871/12330, Loss: 0.2785, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24152.82 tokens/s
+Epoch 1/1, Batch 6881/12330, Loss: 0.2321, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.77 tokens/s
+Model checkpoint saved at batch 6888 in epoch 1.
+Epoch 1/1, Batch 6891/12330, Loss: 0.2577, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.59 tokens/s
+Epoch 1/1, Batch 6901/12330, Loss: 0.2582, Avg Time/batch: 0.3422 s, Avg Token Efficiency: 23938.41 tokens/s
+Epoch 1/1, Batch 6911/12330, Loss: 0.2534, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24007.12 tokens/s
+Epoch 1/1, Batch 6921/12330, Loss: 0.2623, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24028.62 tokens/s
+Epoch 1/1, Batch 6931/12330, Loss: 0.2619, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.93 tokens/s
+Epoch 1/1, Batch 6941/12330, Loss: 0.2597, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.86 tokens/s
+Epoch 1/1, Batch 6951/12330, Loss: 0.2591, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.56 tokens/s
+Epoch 1/1, Batch 6961/12330, Loss: 0.2597, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24123.83 tokens/s
+Epoch 1/1, Batch 6971/12330, Loss: 0.2507, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.93 tokens/s
+Epoch 1/1, Batch 6981/12330, Loss: 0.2860, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24122.35 tokens/s
+Epoch 1/1, Batch 6991/12330, Loss: 0.2572, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.33 tokens/s
+Epoch 1/1, Batch 7001/12330, Loss: 0.2619, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24103.63 tokens/s
+Epoch 1/1, Batch 7011/12330, Loss: 0.2701, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.58 tokens/s
+Model checkpoint saved at batch 7011 in epoch 1.
+Epoch 1/1, Batch 7021/12330, Loss: 0.2575, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24138.27 tokens/s
+Epoch 1/1, Batch 7031/12330, Loss: 0.2448, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.92 tokens/s
+Epoch 1/1, Batch 7041/12330, Loss: 0.2614, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24142.13 tokens/s
+Epoch 1/1, Batch 7051/12330, Loss: 0.2450, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24132.65 tokens/s
+Epoch 1/1, Batch 7061/12330, Loss: 0.2666, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.72 tokens/s
+Epoch 1/1, Batch 7071/12330, Loss: 0.2625, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.97 tokens/s
+Epoch 1/1, Batch 7081/12330, Loss: 0.2513, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.57 tokens/s
+Epoch 1/1, Batch 7091/12330, Loss: 0.2630, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24090.60 tokens/s
+Epoch 1/1, Batch 7101/12330, Loss: 0.2340, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.60 tokens/s
+Epoch 1/1, Batch 7111/12330, Loss: 0.2610, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24123.28 tokens/s
+Epoch 1/1, Batch 7121/12330, Loss: 0.2526, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.38 tokens/s
+Epoch 1/1, Batch 7131/12330, Loss: 0.2579, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24133.04 tokens/s
+Model checkpoint saved at batch 7134 in epoch 1.
+Epoch 1/1, Batch 7141/12330, Loss: 0.2647, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.81 tokens/s
+Epoch 1/1, Batch 7151/12330, Loss: 0.2726, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24143.87 tokens/s
+Epoch 1/1, Batch 7161/12330, Loss: 0.2851, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24166.12 tokens/s
+Epoch 1/1, Batch 7171/12330, Loss: 0.2430, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.02 tokens/s
+Epoch 1/1, Batch 7181/12330, Loss: 0.2561, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24018.45 tokens/s
+Epoch 1/1, Batch 7191/12330, Loss: 0.2698, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24046.36 tokens/s
+Epoch 1/1, Batch 7201/12330, Loss: 0.2664, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.20 tokens/s
+Epoch 1/1, Batch 7211/12330, Loss: 0.2548, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.12 tokens/s
+Epoch 1/1, Batch 7221/12330, Loss: 0.2596, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24008.94 tokens/s
+Epoch 1/1, Batch 7231/12330, Loss: 0.2532, Avg Time/batch: 0.3384 s, Avg Token Efficiency: 24206.04 tokens/s
+Epoch 1/1, Batch 7241/12330, Loss: 0.2545, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24157.42 tokens/s
+Epoch 1/1, Batch 7251/12330, Loss: 0.2549, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.47 tokens/s
+Model checkpoint saved at batch 7257 in epoch 1.
+Epoch 1/1, Batch 7261/12330, Loss: 0.2586, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23990.22 tokens/s
+Epoch 1/1, Batch 7271/12330, Loss: 0.2407, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24118.95 tokens/s
+Epoch 1/1, Batch 7281/12330, Loss: 0.2560, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.37 tokens/s
+Epoch 1/1, Batch 7291/12330, Loss: 0.2469, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.46 tokens/s
+Epoch 1/1, Batch 7301/12330, Loss: 0.2806, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.50 tokens/s
+Epoch 1/1, Batch 7311/12330, Loss: 0.2674, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.86 tokens/s
+Epoch 1/1, Batch 7321/12330, Loss: 0.2593, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24040.21 tokens/s
+Epoch 1/1, Batch 7331/12330, Loss: 0.2380, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24023.14 tokens/s
+Epoch 1/1, Batch 7341/12330, Loss: 0.2606, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23985.89 tokens/s
+Epoch 1/1, Batch 7351/12330, Loss: 0.2597, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.22 tokens/s
+Epoch 1/1, Batch 7361/12330, Loss: 0.2424, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24127.67 tokens/s
+Epoch 1/1, Batch 7371/12330, Loss: 0.2608, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.23 tokens/s
+Model checkpoint saved at batch 7380 in epoch 1.
+Epoch 1/1, Batch 7381/12330, Loss: 0.2627, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24035.94 tokens/s
+Epoch 1/1, Batch 7391/12330, Loss: 0.2599, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23964.55 tokens/s
+Epoch 1/1, Batch 7401/12330, Loss: 0.2557, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.30 tokens/s
+Epoch 1/1, Batch 7411/12330, Loss: 0.2529, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24044.91 tokens/s
+Epoch 1/1, Batch 7421/12330, Loss: 0.2397, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24112.80 tokens/s
+Epoch 1/1, Batch 7431/12330, Loss: 0.2497, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.93 tokens/s
+Epoch 1/1, Batch 7441/12330, Loss: 0.2447, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.85 tokens/s
+Epoch 1/1, Batch 7451/12330, Loss: 0.2470, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24038.88 tokens/s
+Epoch 1/1, Batch 7461/12330, Loss: 0.2964, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.68 tokens/s
+Epoch 1/1, Batch 7471/12330, Loss: 0.2263, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24044.42 tokens/s
+Epoch 1/1, Batch 7481/12330, Loss: 0.2657, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.31 tokens/s
+Epoch 1/1, Batch 7491/12330, Loss: 0.2446, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24158.01 tokens/s
+Epoch 1/1, Batch 7501/12330, Loss: 0.2661, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24045.47 tokens/s
+Model checkpoint saved at batch 7503 in epoch 1.
+Epoch 1/1, Batch 7511/12330, Loss: 0.2657, Avg Time/batch: 0.3434 s, Avg Token Efficiency: 23852.46 tokens/s
+Epoch 1/1, Batch 7521/12330, Loss: 0.2423, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24141.95 tokens/s
+Epoch 1/1, Batch 7531/12330, Loss: 0.2302, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.80 tokens/s
+Epoch 1/1, Batch 7541/12330, Loss: 0.2301, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.74 tokens/s
+Epoch 1/1, Batch 7551/12330, Loss: 0.2760, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.35 tokens/s
+Epoch 1/1, Batch 7561/12330, Loss: 0.2126, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.53 tokens/s
+Epoch 1/1, Batch 7571/12330, Loss: 0.2404, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.83 tokens/s
+Epoch 1/1, Batch 7581/12330, Loss: 0.2439, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24013.32 tokens/s
+Epoch 1/1, Batch 7591/12330, Loss: 0.2558, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.93 tokens/s
+Epoch 1/1, Batch 7601/12330, Loss: 0.2195, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.83 tokens/s
+Epoch 1/1, Batch 7611/12330, Loss: 0.2534, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.33 tokens/s
+Epoch 1/1, Batch 7621/12330, Loss: 0.2522, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.75 tokens/s
+Model checkpoint saved at batch 7626 in epoch 1.
+Epoch 1/1, Batch 7631/12330, Loss: 0.2484, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24035.26 tokens/s
+Epoch 1/1, Batch 7641/12330, Loss: 0.2591, Avg Time/batch: 0.3426 s, Avg Token Efficiency: 23909.05 tokens/s
+Epoch 1/1, Batch 7651/12330, Loss: 0.2401, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.93 tokens/s
+Epoch 1/1, Batch 7661/12330, Loss: 0.2275, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.52 tokens/s
+Epoch 1/1, Batch 7671/12330, Loss: 0.2485, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.29 tokens/s
+Epoch 1/1, Batch 7681/12330, Loss: 0.2613, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.42 tokens/s
+Epoch 1/1, Batch 7691/12330, Loss: 0.2520, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.11 tokens/s
+Epoch 1/1, Batch 7701/12330, Loss: 0.2693, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.98 tokens/s
+Epoch 1/1, Batch 7711/12330, Loss: 0.2522, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24141.50 tokens/s
+Epoch 1/1, Batch 7721/12330, Loss: 0.2522, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.65 tokens/s
+Epoch 1/1, Batch 7731/12330, Loss: 0.2366, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24101.11 tokens/s
+Epoch 1/1, Batch 7741/12330, Loss: 0.2530, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.41 tokens/s
+Model checkpoint saved at batch 7749 in epoch 1.
+Epoch 1/1, Batch 7751/12330, Loss: 0.2480, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.24 tokens/s
+Epoch 1/1, Batch 7761/12330, Loss: 0.2674, Avg Time/batch: 0.3427 s, Avg Token Efficiency: 23900.81 tokens/s
+Epoch 1/1, Batch 7771/12330, Loss: 0.2498, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24031.86 tokens/s
+Epoch 1/1, Batch 7781/12330, Loss: 0.2163, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.56 tokens/s
+Epoch 1/1, Batch 7791/12330, Loss: 0.2258, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24086.58 tokens/s
+Epoch 1/1, Batch 7801/12330, Loss: 0.2470, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.92 tokens/s
+Epoch 1/1, Batch 7811/12330, Loss: 0.2473, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.39 tokens/s
+Epoch 1/1, Batch 7821/12330, Loss: 0.2490, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24015.71 tokens/s
+Epoch 1/1, Batch 7831/12330, Loss: 0.2395, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24099.03 tokens/s
+Epoch 1/1, Batch 7841/12330, Loss: 0.2312, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.04 tokens/s
+Epoch 1/1, Batch 7851/12330, Loss: 0.2505, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24048.74 tokens/s
+Epoch 1/1, Batch 7861/12330, Loss: 0.2379, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24112.89 tokens/s
+Epoch 1/1, Batch 7871/12330, Loss: 0.2500, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.04 tokens/s
+Model checkpoint saved at batch 7872 in epoch 1.
+Epoch 1/1, Batch 7881/12330, Loss: 0.2249, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24050.30 tokens/s
+Epoch 1/1, Batch 7891/12330, Loss: 0.2321, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.47 tokens/s
+Epoch 1/1, Batch 7901/12330, Loss: 0.2259, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.95 tokens/s
+Epoch 1/1, Batch 7911/12330, Loss: 0.2457, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.19 tokens/s
+Epoch 1/1, Batch 7921/12330, Loss: 0.2277, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.51 tokens/s
+Epoch 1/1, Batch 7931/12330, Loss: 0.2256, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.66 tokens/s
+Epoch 1/1, Batch 7941/12330, Loss: 0.2570, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.08 tokens/s
+Epoch 1/1, Batch 7951/12330, Loss: 0.2524, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.94 tokens/s
+Epoch 1/1, Batch 7961/12330, Loss: 0.2394, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24086.51 tokens/s
+Epoch 1/1, Batch 7971/12330, Loss: 0.2430, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24135.75 tokens/s
+Epoch 1/1, Batch 7981/12330, Loss: 0.2289, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24018.75 tokens/s
+Epoch 1/1, Batch 7991/12330, Loss: 0.2587, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.78 tokens/s
+Model checkpoint saved at batch 7995 in epoch 1.
+Epoch 1/1, Batch 8001/12330, Loss: 0.2313, Avg Time/batch: 0.3426 s, Avg Token Efficiency: 23913.82 tokens/s
+Epoch 1/1, Batch 8011/12330, Loss: 0.2559, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24104.65 tokens/s
+Epoch 1/1, Batch 8021/12330, Loss: 0.2347, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.70 tokens/s
+Epoch 1/1, Batch 8031/12330, Loss: 0.2526, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24137.39 tokens/s
+Epoch 1/1, Batch 8041/12330, Loss: 0.2264, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.01 tokens/s
+Epoch 1/1, Batch 8051/12330, Loss: 0.2502, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.07 tokens/s
+Epoch 1/1, Batch 8061/12330, Loss: 0.2444, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.97 tokens/s
+Epoch 1/1, Batch 8071/12330, Loss: 0.2191, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24156.64 tokens/s
+Epoch 1/1, Batch 8081/12330, Loss: 0.2339, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24127.83 tokens/s
+Epoch 1/1, Batch 8091/12330, Loss: 0.2246, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24083.45 tokens/s
+Epoch 1/1, Batch 8101/12330, Loss: 0.2025, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.66 tokens/s
+Epoch 1/1, Batch 8111/12330, Loss: 0.2334, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24024.72 tokens/s
+Model checkpoint saved at batch 8118 in epoch 1.
+Epoch 1/1, Batch 8121/12330, Loss: 0.2327, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24002.67 tokens/s
+Epoch 1/1, Batch 8131/12330, Loss: 0.2127, Avg Time/batch: 0.3441 s, Avg Token Efficiency: 23804.53 tokens/s
+Epoch 1/1, Batch 8141/12330, Loss: 0.2316, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.63 tokens/s
+Epoch 1/1, Batch 8151/12330, Loss: 0.2283, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24079.43 tokens/s
+Epoch 1/1, Batch 8161/12330, Loss: 0.2374, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.99 tokens/s
+Epoch 1/1, Batch 8171/12330, Loss: 0.2355, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24026.81 tokens/s
+Epoch 1/1, Batch 8181/12330, Loss: 0.2211, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.96 tokens/s
+Epoch 1/1, Batch 8191/12330, Loss: 0.2387, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.70 tokens/s
+Epoch 1/1, Batch 8201/12330, Loss: 0.2368, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24102.54 tokens/s
+Epoch 1/1, Batch 8211/12330, Loss: 0.2453, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.45 tokens/s
+Epoch 1/1, Batch 8221/12330, Loss: 0.2392, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23994.68 tokens/s
+Epoch 1/1, Batch 8231/12330, Loss: 0.2358, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24117.65 tokens/s
+Epoch 1/1, Batch 8241/12330, Loss: 0.2267, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.82 tokens/s
+Model checkpoint saved at batch 8241 in epoch 1.
+Epoch 1/1, Batch 8251/12330, Loss: 0.2288, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23945.93 tokens/s
+Epoch 1/1, Batch 8261/12330, Loss: 0.2287, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23975.58 tokens/s
+Epoch 1/1, Batch 8271/12330, Loss: 0.2515, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.42 tokens/s
+Epoch 1/1, Batch 8281/12330, Loss: 0.2333, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.22 tokens/s
+Epoch 1/1, Batch 8291/12330, Loss: 0.2144, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.67 tokens/s
+Epoch 1/1, Batch 8301/12330, Loss: 0.2284, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.29 tokens/s
+Epoch 1/1, Batch 8311/12330, Loss: 0.2343, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.67 tokens/s
+Epoch 1/1, Batch 8321/12330, Loss: 0.2515, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24083.12 tokens/s
+Epoch 1/1, Batch 8331/12330, Loss: 0.2191, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.65 tokens/s
+Epoch 1/1, Batch 8341/12330, Loss: 0.2442, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24004.65 tokens/s
+Epoch 1/1, Batch 8351/12330, Loss: 0.2111, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24035.31 tokens/s
+Epoch 1/1, Batch 8361/12330, Loss: 0.2138, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.31 tokens/s
+Model checkpoint saved at batch 8364 in epoch 1.
+Epoch 1/1, Batch 8371/12330, Loss: 0.2371, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.41 tokens/s
+Epoch 1/1, Batch 8381/12330, Loss: 0.2051, Avg Time/batch: 0.3433 s, Avg Token Efficiency: 23861.52 tokens/s
+Epoch 1/1, Batch 8391/12330, Loss: 0.2388, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.04 tokens/s
+Epoch 1/1, Batch 8401/12330, Loss: 0.2265, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.11 tokens/s
+Epoch 1/1, Batch 8411/12330, Loss: 0.2444, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24104.77 tokens/s
+Epoch 1/1, Batch 8421/12330, Loss: 0.2192, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.94 tokens/s
+Epoch 1/1, Batch 8431/12330, Loss: 0.2194, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24024.58 tokens/s
+Epoch 1/1, Batch 8441/12330, Loss: 0.2389, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24042.78 tokens/s
+Epoch 1/1, Batch 8451/12330, Loss: 0.2259, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.69 tokens/s
+Epoch 1/1, Batch 8461/12330, Loss: 0.2145, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.30 tokens/s
+Epoch 1/1, Batch 8471/12330, Loss: 0.2544, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.38 tokens/s
+Epoch 1/1, Batch 8481/12330, Loss: 0.2088, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.59 tokens/s
+Model checkpoint saved at batch 8487 in epoch 1.
+Epoch 1/1, Batch 8491/12330, Loss: 0.2382, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24018.92 tokens/s
+Epoch 1/1, Batch 8501/12330, Loss: 0.2185, Avg Time/batch: 0.3437 s, Avg Token Efficiency: 23833.71 tokens/s
+Epoch 1/1, Batch 8511/12330, Loss: 0.2500, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.13 tokens/s
+Epoch 1/1, Batch 8521/12330, Loss: 0.2334, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24106.13 tokens/s
+Epoch 1/1, Batch 8531/12330, Loss: 0.2165, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24123.20 tokens/s
+Epoch 1/1, Batch 8541/12330, Loss: 0.2257, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24110.34 tokens/s
+Epoch 1/1, Batch 8551/12330, Loss: 0.2446, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.90 tokens/s
+Epoch 1/1, Batch 8561/12330, Loss: 0.2299, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24170.60 tokens/s
+Epoch 1/1, Batch 8571/12330, Loss: 0.2198, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.77 tokens/s
+Epoch 1/1, Batch 8581/12330, Loss: 0.2223, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.72 tokens/s
+Epoch 1/1, Batch 8591/12330, Loss: 0.2111, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.52 tokens/s
+Epoch 1/1, Batch 8601/12330, Loss: 0.2175, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.15 tokens/s
+Model checkpoint saved at batch 8610 in epoch 1.
+Epoch 1/1, Batch 8611/12330, Loss: 0.2236, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24111.94 tokens/s
+Epoch 1/1, Batch 8621/12330, Loss: 0.2140, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24127.93 tokens/s
+Epoch 1/1, Batch 8631/12330, Loss: 0.2246, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24046.01 tokens/s
+Epoch 1/1, Batch 8641/12330, Loss: 0.2457, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.77 tokens/s
+Epoch 1/1, Batch 8651/12330, Loss: 0.2377, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24042.27 tokens/s
+Epoch 1/1, Batch 8661/12330, Loss: 0.2264, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.04 tokens/s
+Epoch 1/1, Batch 8671/12330, Loss: 0.2381, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24090.28 tokens/s
+Epoch 1/1, Batch 8681/12330, Loss: 0.2471, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24132.66 tokens/s
+Epoch 1/1, Batch 8691/12330, Loss: 0.2138, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24090.48 tokens/s
+Epoch 1/1, Batch 8701/12330, Loss: 0.2080, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.42 tokens/s
+Epoch 1/1, Batch 8711/12330, Loss: 0.2121, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.77 tokens/s
+Epoch 1/1, Batch 8721/12330, Loss: 0.2230, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.45 tokens/s
+Epoch 1/1, Batch 8731/12330, Loss: 0.2129, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.86 tokens/s
+Model checkpoint saved at batch 8733 in epoch 1.
+Epoch 1/1, Batch 8741/12330, Loss: 0.2085, Avg Time/batch: 0.3387 s, Avg Token Efficiency: 24188.02 tokens/s
+Epoch 1/1, Batch 8751/12330, Loss: 0.2288, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.84 tokens/s
+Epoch 1/1, Batch 8761/12330, Loss: 0.2175, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.12 tokens/s
+Epoch 1/1, Batch 8771/12330, Loss: 0.2146, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24131.90 tokens/s
+Epoch 1/1, Batch 8781/12330, Loss: 0.2303, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24097.54 tokens/s
+Epoch 1/1, Batch 8791/12330, Loss: 0.2399, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.54 tokens/s
+Epoch 1/1, Batch 8801/12330, Loss: 0.2092, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.63 tokens/s
+Epoch 1/1, Batch 8811/12330, Loss: 0.1986, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.99 tokens/s
+Epoch 1/1, Batch 8821/12330, Loss: 0.2213, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.35 tokens/s
+Epoch 1/1, Batch 8831/12330, Loss: 0.2147, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24068.44 tokens/s
+Epoch 1/1, Batch 8841/12330, Loss: 0.2360, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.68 tokens/s
+Epoch 1/1, Batch 8851/12330, Loss: 0.2187, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24137.53 tokens/s
+Model checkpoint saved at batch 8856 in epoch 1.
+Epoch 1/1, Batch 8861/12330, Loss: 0.2213, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23995.69 tokens/s
+Epoch 1/1, Batch 8871/12330, Loss: 0.2208, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.76 tokens/s
+Epoch 1/1, Batch 8881/12330, Loss: 0.2192, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24145.55 tokens/s
+Epoch 1/1, Batch 8891/12330, Loss: 0.2358, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.69 tokens/s
+Epoch 1/1, Batch 8901/12330, Loss: 0.2269, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.88 tokens/s
+Epoch 1/1, Batch 8911/12330, Loss: 0.2154, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24023.11 tokens/s
+Epoch 1/1, Batch 8921/12330, Loss: 0.2091, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24046.88 tokens/s
+Epoch 1/1, Batch 8931/12330, Loss: 0.2234, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24118.67 tokens/s
+Epoch 1/1, Batch 8941/12330, Loss: 0.2193, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24166.44 tokens/s
+Epoch 1/1, Batch 8951/12330, Loss: 0.2358, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.49 tokens/s
+Epoch 1/1, Batch 8961/12330, Loss: 0.2036, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24076.98 tokens/s
+Epoch 1/1, Batch 8971/12330, Loss: 0.1973, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.87 tokens/s
+Model checkpoint saved at batch 8979 in epoch 1.
+Epoch 1/1, Batch 8981/12330, Loss: 0.2313, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.78 tokens/s
+Epoch 1/1, Batch 8991/12330, Loss: 0.2221, Avg Time/batch: 0.3421 s, Avg Token Efficiency: 23946.97 tokens/s
+Epoch 1/1, Batch 9001/12330, Loss: 0.2531, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24154.61 tokens/s
+Epoch 1/1, Batch 9011/12330, Loss: 0.2093, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24135.23 tokens/s
+Epoch 1/1, Batch 9021/12330, Loss: 0.2299, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24104.89 tokens/s
+Epoch 1/1, Batch 9031/12330, Loss: 0.2111, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.46 tokens/s
+Epoch 1/1, Batch 9041/12330, Loss: 0.2237, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24164.11 tokens/s
+Epoch 1/1, Batch 9051/12330, Loss: 0.2132, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.78 tokens/s
+Epoch 1/1, Batch 9061/12330, Loss: 0.2148, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.62 tokens/s
+Epoch 1/1, Batch 9071/12330, Loss: 0.2109, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24113.66 tokens/s
+Epoch 1/1, Batch 9081/12330, Loss: 0.2235, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.51 tokens/s
+Epoch 1/1, Batch 9091/12330, Loss: 0.2339, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.23 tokens/s
+Epoch 1/1, Batch 9101/12330, Loss: 0.2267, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24126.88 tokens/s
+Model checkpoint saved at batch 9102 in epoch 1.
+Epoch 1/1, Batch 9111/12330, Loss: 0.2041, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23978.71 tokens/s
+Epoch 1/1, Batch 9121/12330, Loss: 0.1978, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.32 tokens/s
+Epoch 1/1, Batch 9131/12330, Loss: 0.2199, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.75 tokens/s
+Epoch 1/1, Batch 9141/12330, Loss: 0.2280, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.30 tokens/s
+Epoch 1/1, Batch 9151/12330, Loss: 0.2112, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24073.00 tokens/s
+Epoch 1/1, Batch 9161/12330, Loss: 0.2106, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24052.40 tokens/s
+Epoch 1/1, Batch 9171/12330, Loss: 0.2069, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.19 tokens/s
+Epoch 1/1, Batch 9181/12330, Loss: 0.2183, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.52 tokens/s
+Epoch 1/1, Batch 9191/12330, Loss: 0.2197, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.65 tokens/s
+Epoch 1/1, Batch 9201/12330, Loss: 0.1962, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.22 tokens/s
+Epoch 1/1, Batch 9211/12330, Loss: 0.2033, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.85 tokens/s
+Epoch 1/1, Batch 9221/12330, Loss: 0.2167, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.23 tokens/s
+Model checkpoint saved at batch 9225 in epoch 1.
+Epoch 1/1, Batch 9231/12330, Loss: 0.2107, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 23999.64 tokens/s
+Epoch 1/1, Batch 9241/12330, Loss: 0.2199, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.32 tokens/s
+Epoch 1/1, Batch 9251/12330, Loss: 0.2110, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.69 tokens/s
+Epoch 1/1, Batch 9261/12330, Loss: 0.2085, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24076.99 tokens/s
+Epoch 1/1, Batch 9271/12330, Loss: 0.2093, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24136.24 tokens/s
+Epoch 1/1, Batch 9281/12330, Loss: 0.2233, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.55 tokens/s
+Epoch 1/1, Batch 9291/12330, Loss: 0.2084, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24102.77 tokens/s
+Epoch 1/1, Batch 9301/12330, Loss: 0.2124, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.17 tokens/s
+Epoch 1/1, Batch 9311/12330, Loss: 0.2138, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.01 tokens/s
+Epoch 1/1, Batch 9321/12330, Loss: 0.2148, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24103.67 tokens/s
+Epoch 1/1, Batch 9331/12330, Loss: 0.2041, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24104.60 tokens/s
+Epoch 1/1, Batch 9341/12330, Loss: 0.2160, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24148.85 tokens/s
+Model checkpoint saved at batch 9348 in epoch 1.
+Epoch 1/1, Batch 9351/12330, Loss: 0.2253, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24136.88 tokens/s
+Epoch 1/1, Batch 9361/12330, Loss: 0.2046, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.43 tokens/s
+Epoch 1/1, Batch 9371/12330, Loss: 0.2292, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24034.02 tokens/s
+Epoch 1/1, Batch 9381/12330, Loss: 0.2132, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24146.84 tokens/s
+Epoch 1/1, Batch 9391/12330, Loss: 0.1926, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.50 tokens/s
+Epoch 1/1, Batch 9401/12330, Loss: 0.2187, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24136.89 tokens/s
+Epoch 1/1, Batch 9411/12330, Loss: 0.1943, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.80 tokens/s
+Epoch 1/1, Batch 9421/12330, Loss: 0.2130, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.50 tokens/s
+Epoch 1/1, Batch 9431/12330, Loss: 0.2065, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24098.66 tokens/s
+Epoch 1/1, Batch 9441/12330, Loss: 0.2070, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.87 tokens/s
+Epoch 1/1, Batch 9451/12330, Loss: 0.2146, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24089.32 tokens/s
+Epoch 1/1, Batch 9461/12330, Loss: 0.2434, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.13 tokens/s
+Epoch 1/1, Batch 9471/12330, Loss: 0.2062, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24033.19 tokens/s
+Model checkpoint saved at batch 9471 in epoch 1.
+Epoch 1/1, Batch 9481/12330, Loss: 0.1993, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23988.82 tokens/s
+Epoch 1/1, Batch 9491/12330, Loss: 0.2318, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.12 tokens/s
+Epoch 1/1, Batch 9501/12330, Loss: 0.1963, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.91 tokens/s
+Epoch 1/1, Batch 9511/12330, Loss: 0.2281, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.88 tokens/s
+Epoch 1/1, Batch 9521/12330, Loss: 0.2118, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24026.48 tokens/s
+Epoch 1/1, Batch 9531/12330, Loss: 0.2306, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24140.56 tokens/s
+Epoch 1/1, Batch 9541/12330, Loss: 0.2051, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24050.56 tokens/s
+Epoch 1/1, Batch 9551/12330, Loss: 0.2220, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.03 tokens/s
+Epoch 1/1, Batch 9561/12330, Loss: 0.2145, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24076.49 tokens/s
+Epoch 1/1, Batch 9571/12330, Loss: 0.2033, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24132.53 tokens/s
+Epoch 1/1, Batch 9581/12330, Loss: 0.2193, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.36 tokens/s
+Epoch 1/1, Batch 9591/12330, Loss: 0.2104, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24118.03 tokens/s
+Model checkpoint saved at batch 9594 in epoch 1.
+Epoch 1/1, Batch 9601/12330, Loss: 0.1870, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.93 tokens/s
+Epoch 1/1, Batch 9611/12330, Loss: 0.2115, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24123.75 tokens/s
+Epoch 1/1, Batch 9621/12330, Loss: 0.2150, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.85 tokens/s
+Epoch 1/1, Batch 9631/12330, Loss: 0.1881, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.03 tokens/s
+Epoch 1/1, Batch 9641/12330, Loss: 0.1956, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.69 tokens/s
+Epoch 1/1, Batch 9651/12330, Loss: 0.1932, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24128.58 tokens/s
+Epoch 1/1, Batch 9661/12330, Loss: 0.1898, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.14 tokens/s
+Epoch 1/1, Batch 9671/12330, Loss: 0.1892, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.00 tokens/s
+Epoch 1/1, Batch 9681/12330, Loss: 0.2272, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24101.12 tokens/s
+Epoch 1/1, Batch 9691/12330, Loss: 0.1904, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24019.40 tokens/s
+Epoch 1/1, Batch 9701/12330, Loss: 0.1880, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.93 tokens/s
+Epoch 1/1, Batch 9711/12330, Loss: 0.2129, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24082.03 tokens/s
+Model checkpoint saved at batch 9717 in epoch 1.
+Epoch 1/1, Batch 9721/12330, Loss: 0.2080, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24019.86 tokens/s
+Epoch 1/1, Batch 9731/12330, Loss: 0.1899, Avg Time/batch: 0.3427 s, Avg Token Efficiency: 23905.95 tokens/s
+Epoch 1/1, Batch 9741/12330, Loss: 0.2095, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24156.27 tokens/s
+Epoch 1/1, Batch 9751/12330, Loss: 0.2117, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.47 tokens/s
+Epoch 1/1, Batch 9761/12330, Loss: 0.2239, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24044.73 tokens/s
+Epoch 1/1, Batch 9771/12330, Loss: 0.2025, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.96 tokens/s
+Epoch 1/1, Batch 9781/12330, Loss: 0.1936, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.03 tokens/s
+Epoch 1/1, Batch 9791/12330, Loss: 0.2127, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.45 tokens/s
+Epoch 1/1, Batch 9801/12330, Loss: 0.2009, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.28 tokens/s
+Epoch 1/1, Batch 9811/12330, Loss: 0.2186, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.90 tokens/s
+Epoch 1/1, Batch 9821/12330, Loss: 0.1945, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.75 tokens/s
+Epoch 1/1, Batch 9831/12330, Loss: 0.1869, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.51 tokens/s
+Model checkpoint saved at batch 9840 in epoch 1.
+Epoch 1/1, Batch 9841/12330, Loss: 0.2199, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.25 tokens/s
+Epoch 1/1, Batch 9851/12330, Loss: 0.2070, Avg Time/batch: 0.3445 s, Avg Token Efficiency: 23779.92 tokens/s
+Epoch 1/1, Batch 9861/12330, Loss: 0.2085, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24045.83 tokens/s
+Epoch 1/1, Batch 9871/12330, Loss: 0.1926, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.46 tokens/s
+Epoch 1/1, Batch 9881/12330, Loss: 0.2047, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.74 tokens/s
+Epoch 1/1, Batch 9891/12330, Loss: 0.2111, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24015.96 tokens/s
+Epoch 1/1, Batch 9901/12330, Loss: 0.2134, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.63 tokens/s
+Epoch 1/1, Batch 9911/12330, Loss: 0.1984, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.61 tokens/s
+Epoch 1/1, Batch 9921/12330, Loss: 0.1775, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24031.48 tokens/s
+Epoch 1/1, Batch 9931/12330, Loss: 0.2056, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24079.95 tokens/s
+Epoch 1/1, Batch 9941/12330, Loss: 0.2122, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.74 tokens/s
+Epoch 1/1, Batch 9951/12330, Loss: 0.2000, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24102.56 tokens/s
+Epoch 1/1, Batch 9961/12330, Loss: 0.2037, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23989.98 tokens/s
+Model checkpoint saved at batch 9963 in epoch 1.
+Epoch 1/1, Batch 9971/12330, Loss: 0.1985, Avg Time/batch: 0.3432 s, Avg Token Efficiency: 23867.16 tokens/s
+Epoch 1/1, Batch 9981/12330, Loss: 0.1935, Avg Time/batch: 0.3428 s, Avg Token Efficiency: 23895.76 tokens/s
+Epoch 1/1, Batch 9991/12330, Loss: 0.2130, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24042.85 tokens/s
+Epoch 1/1, Batch 10001/12330, Loss: 0.2155, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.67 tokens/s
+Epoch 1/1, Batch 10011/12330, Loss: 0.1862, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.64 tokens/s
+Epoch 1/1, Batch 10021/12330, Loss: 0.1765, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.82 tokens/s
+Epoch 1/1, Batch 10031/12330, Loss: 0.1873, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24087.41 tokens/s
+Epoch 1/1, Batch 10041/12330, Loss: 0.1922, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24086.47 tokens/s
+Epoch 1/1, Batch 10051/12330, Loss: 0.1951, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24037.57 tokens/s
+Epoch 1/1, Batch 10061/12330, Loss: 0.2034, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24025.35 tokens/s
+Epoch 1/1, Batch 10071/12330, Loss: 0.2120, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24101.83 tokens/s
+Epoch 1/1, Batch 10081/12330, Loss: 0.2108, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.34 tokens/s
+Model checkpoint saved at batch 10086 in epoch 1.
+Epoch 1/1, Batch 10091/12330, Loss: 0.1850, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.36 tokens/s
+Epoch 1/1, Batch 10101/12330, Loss: 0.2106, Avg Time/batch: 0.3423 s, Avg Token Efficiency: 23932.56 tokens/s
+Epoch 1/1, Batch 10111/12330, Loss: 0.2223, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.60 tokens/s
+Epoch 1/1, Batch 10121/12330, Loss: 0.2057, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.57 tokens/s
+Epoch 1/1, Batch 10131/12330, Loss: 0.2023, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24052.42 tokens/s
+Epoch 1/1, Batch 10141/12330, Loss: 0.1983, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24008.58 tokens/s
+Epoch 1/1, Batch 10151/12330, Loss: 0.1985, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.31 tokens/s
+Epoch 1/1, Batch 10161/12330, Loss: 0.2157, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.66 tokens/s
+Epoch 1/1, Batch 10171/12330, Loss: 0.1888, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.23 tokens/s
+Epoch 1/1, Batch 10181/12330, Loss: 0.2007, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.54 tokens/s
+Epoch 1/1, Batch 10191/12330, Loss: 0.1826, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.53 tokens/s
+Epoch 1/1, Batch 10201/12330, Loss: 0.2007, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.15 tokens/s
+Model checkpoint saved at batch 10209 in epoch 1.
+Epoch 1/1, Batch 10211/12330, Loss: 0.2185, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.51 tokens/s
+Epoch 1/1, Batch 10221/12330, Loss: 0.1998, Avg Time/batch: 0.3432 s, Avg Token Efficiency: 23871.34 tokens/s
+Epoch 1/1, Batch 10231/12330, Loss: 0.2077, Avg Time/batch: 0.3427 s, Avg Token Efficiency: 23905.08 tokens/s
+Epoch 1/1, Batch 10241/12330, Loss: 0.2190, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24148.64 tokens/s
+Epoch 1/1, Batch 10251/12330, Loss: 0.1848, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24110.05 tokens/s
+Epoch 1/1, Batch 10261/12330, Loss: 0.2230, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.90 tokens/s
+Epoch 1/1, Batch 10271/12330, Loss: 0.2010, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.54 tokens/s
+Epoch 1/1, Batch 10281/12330, Loss: 0.2045, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.68 tokens/s
+Epoch 1/1, Batch 10291/12330, Loss: 0.1976, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.50 tokens/s
+Epoch 1/1, Batch 10301/12330, Loss: 0.1786, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.96 tokens/s
+Epoch 1/1, Batch 10311/12330, Loss: 0.1929, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.01 tokens/s
+Epoch 1/1, Batch 10321/12330, Loss: 0.1929, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.15 tokens/s
+Epoch 1/1, Batch 10331/12330, Loss: 0.1973, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24008.36 tokens/s
+Model checkpoint saved at batch 10332 in epoch 1.
+Epoch 1/1, Batch 10341/12330, Loss: 0.2097, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.37 tokens/s
+Epoch 1/1, Batch 10351/12330, Loss: 0.1973, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.70 tokens/s
+Epoch 1/1, Batch 10361/12330, Loss: 0.1927, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.50 tokens/s
+Epoch 1/1, Batch 10371/12330, Loss: 0.1860, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.90 tokens/s
+Epoch 1/1, Batch 10381/12330, Loss: 0.1865, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24104.86 tokens/s
+Epoch 1/1, Batch 10391/12330, Loss: 0.2095, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24044.53 tokens/s
+Epoch 1/1, Batch 10401/12330, Loss: 0.1984, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24056.11 tokens/s
+Epoch 1/1, Batch 10411/12330, Loss: 0.2035, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.57 tokens/s
+Epoch 1/1, Batch 10421/12330, Loss: 0.2219, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24069.05 tokens/s
+Epoch 1/1, Batch 10431/12330, Loss: 0.2020, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24119.96 tokens/s
+Epoch 1/1, Batch 10441/12330, Loss: 0.2019, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24021.85 tokens/s
+Epoch 1/1, Batch 10451/12330, Loss: 0.2030, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24102.25 tokens/s
+Model checkpoint saved at batch 10455 in epoch 1.
+Epoch 1/1, Batch 10461/12330, Loss: 0.1877, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.28 tokens/s
+Epoch 1/1, Batch 10471/12330, Loss: 0.2026, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.57 tokens/s
+Epoch 1/1, Batch 10481/12330, Loss: 0.2064, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.26 tokens/s
+Epoch 1/1, Batch 10491/12330, Loss: 0.1893, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.52 tokens/s
+Epoch 1/1, Batch 10501/12330, Loss: 0.1994, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.97 tokens/s
+Epoch 1/1, Batch 10511/12330, Loss: 0.2153, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24061.20 tokens/s
+Epoch 1/1, Batch 10521/12330, Loss: 0.1927, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.53 tokens/s
+Epoch 1/1, Batch 10531/12330, Loss: 0.1913, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.78 tokens/s
+Epoch 1/1, Batch 10541/12330, Loss: 0.2006, Avg Time/batch: 0.3414 s, Avg Token Efficiency: 23996.69 tokens/s
+Epoch 1/1, Batch 10551/12330, Loss: 0.2114, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24157.56 tokens/s
+Epoch 1/1, Batch 10561/12330, Loss: 0.1985, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.01 tokens/s
+Epoch 1/1, Batch 10571/12330, Loss: 0.1963, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.99 tokens/s
+Model checkpoint saved at batch 10578 in epoch 1.
+Epoch 1/1, Batch 10581/12330, Loss: 0.2039, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.67 tokens/s
+Epoch 1/1, Batch 10591/12330, Loss: 0.1730, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24028.72 tokens/s
+Epoch 1/1, Batch 10601/12330, Loss: 0.1875, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.81 tokens/s
+Epoch 1/1, Batch 10611/12330, Loss: 0.1905, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.06 tokens/s
+Epoch 1/1, Batch 10621/12330, Loss: 0.1827, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24132.80 tokens/s
+Epoch 1/1, Batch 10631/12330, Loss: 0.1929, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.17 tokens/s
+Epoch 1/1, Batch 10641/12330, Loss: 0.1953, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.88 tokens/s
+Epoch 1/1, Batch 10651/12330, Loss: 0.1750, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.82 tokens/s
+Epoch 1/1, Batch 10661/12330, Loss: 0.2112, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24048.34 tokens/s
+Epoch 1/1, Batch 10671/12330, Loss: 0.1749, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.80 tokens/s
+Epoch 1/1, Batch 10681/12330, Loss: 0.1918, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24086.37 tokens/s
+Epoch 1/1, Batch 10691/12330, Loss: 0.1926, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24106.77 tokens/s
+Epoch 1/1, Batch 10701/12330, Loss: 0.2166, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24153.87 tokens/s
+Model checkpoint saved at batch 10701 in epoch 1.
+Epoch 1/1, Batch 10711/12330, Loss: 0.1909, Avg Time/batch: 0.3422 s, Avg Token Efficiency: 23936.08 tokens/s
+Epoch 1/1, Batch 10721/12330, Loss: 0.1931, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.65 tokens/s
+Epoch 1/1, Batch 10731/12330, Loss: 0.1952, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24109.98 tokens/s
+Epoch 1/1, Batch 10741/12330, Loss: 0.2244, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24090.38 tokens/s
+Epoch 1/1, Batch 10751/12330, Loss: 0.2202, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24066.62 tokens/s
+Epoch 1/1, Batch 10761/12330, Loss: 0.1899, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.05 tokens/s
+Epoch 1/1, Batch 10771/12330, Loss: 0.2084, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.30 tokens/s
+Epoch 1/1, Batch 10781/12330, Loss: 0.1876, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24043.79 tokens/s
+Epoch 1/1, Batch 10791/12330, Loss: 0.1852, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.52 tokens/s
+Epoch 1/1, Batch 10801/12330, Loss: 0.2088, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24150.12 tokens/s
+Epoch 1/1, Batch 10811/12330, Loss: 0.2040, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24057.83 tokens/s
+Epoch 1/1, Batch 10821/12330, Loss: 0.1944, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.74 tokens/s
+Model checkpoint saved at batch 10824 in epoch 1.
+Epoch 1/1, Batch 10831/12330, Loss: 0.1877, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24016.54 tokens/s
+Epoch 1/1, Batch 10841/12330, Loss: 0.1710, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24008.68 tokens/s
+Epoch 1/1, Batch 10851/12330, Loss: 0.1846, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.24 tokens/s
+Epoch 1/1, Batch 10861/12330, Loss: 0.1749, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24164.81 tokens/s
+Epoch 1/1, Batch 10871/12330, Loss: 0.1837, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.12 tokens/s
+Epoch 1/1, Batch 10881/12330, Loss: 0.1808, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.48 tokens/s
+Epoch 1/1, Batch 10891/12330, Loss: 0.1912, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24090.61 tokens/s
+Epoch 1/1, Batch 10901/12330, Loss: 0.1907, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.92 tokens/s
+Epoch 1/1, Batch 10911/12330, Loss: 0.1998, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24062.96 tokens/s
+Epoch 1/1, Batch 10921/12330, Loss: 0.2052, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.43 tokens/s
+Epoch 1/1, Batch 10931/12330, Loss: 0.1801, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.70 tokens/s
+Epoch 1/1, Batch 10941/12330, Loss: 0.1684, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 24002.07 tokens/s
+Model checkpoint saved at batch 10947 in epoch 1.
+Epoch 1/1, Batch 10951/12330, Loss: 0.2086, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24079.81 tokens/s
+Epoch 1/1, Batch 10961/12330, Loss: 0.1970, Avg Time/batch: 0.3437 s, Avg Token Efficiency: 23837.25 tokens/s
+Epoch 1/1, Batch 10971/12330, Loss: 0.1916, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24036.87 tokens/s
+Epoch 1/1, Batch 10981/12330, Loss: 0.1923, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24090.11 tokens/s
+Epoch 1/1, Batch 10991/12330, Loss: 0.2099, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24105.61 tokens/s
+Epoch 1/1, Batch 11001/12330, Loss: 0.1832, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.56 tokens/s
+Epoch 1/1, Batch 11011/12330, Loss: 0.2318, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.58 tokens/s
+Epoch 1/1, Batch 11021/12330, Loss: 0.1790, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.82 tokens/s
+Epoch 1/1, Batch 11031/12330, Loss: 0.2108, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.51 tokens/s
+Epoch 1/1, Batch 11041/12330, Loss: 0.1958, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.35 tokens/s
+Epoch 1/1, Batch 11051/12330, Loss: 0.1949, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.55 tokens/s
+Epoch 1/1, Batch 11061/12330, Loss: 0.1790, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24063.94 tokens/s
+Model checkpoint saved at batch 11070 in epoch 1.
+Epoch 1/1, Batch 11071/12330, Loss: 0.1778, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.67 tokens/s
+Epoch 1/1, Batch 11081/12330, Loss: 0.1747, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23921.12 tokens/s
+Epoch 1/1, Batch 11091/12330, Loss: 0.2177, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24049.63 tokens/s
+Epoch 1/1, Batch 11101/12330, Loss: 0.1887, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24095.14 tokens/s
+Epoch 1/1, Batch 11111/12330, Loss: 0.1907, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.50 tokens/s
+Epoch 1/1, Batch 11121/12330, Loss: 0.1936, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24034.95 tokens/s
+Epoch 1/1, Batch 11131/12330, Loss: 0.1882, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.97 tokens/s
+Epoch 1/1, Batch 11141/12330, Loss: 0.1930, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.75 tokens/s
+Epoch 1/1, Batch 11151/12330, Loss: 0.1923, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.30 tokens/s
+Epoch 1/1, Batch 11161/12330, Loss: 0.1780, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24108.20 tokens/s
+Epoch 1/1, Batch 11171/12330, Loss: 0.1974, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24046.96 tokens/s
+Epoch 1/1, Batch 11181/12330, Loss: 0.1908, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24048.61 tokens/s
+Epoch 1/1, Batch 11191/12330, Loss: 0.1741, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.35 tokens/s
+Model checkpoint saved at batch 11193 in epoch 1.
+Epoch 1/1, Batch 11201/12330, Loss: 0.1829, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24025.23 tokens/s
+Epoch 1/1, Batch 11211/12330, Loss: 0.1855, Avg Time/batch: 0.3424 s, Avg Token Efficiency: 23928.27 tokens/s
+Epoch 1/1, Batch 11221/12330, Loss: 0.1805, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24029.19 tokens/s
+Epoch 1/1, Batch 11231/12330, Loss: 0.1806, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24075.48 tokens/s
+Epoch 1/1, Batch 11241/12330, Loss: 0.1888, Avg Time/batch: 0.3392 s, Avg Token Efficiency: 24151.64 tokens/s
+Epoch 1/1, Batch 11251/12330, Loss: 0.1989, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24048.44 tokens/s
+Epoch 1/1, Batch 11261/12330, Loss: 0.2172, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24131.96 tokens/s
+Epoch 1/1, Batch 11271/12330, Loss: 0.2012, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24093.02 tokens/s
+Epoch 1/1, Batch 11281/12330, Loss: 0.1824, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24126.04 tokens/s
+Epoch 1/1, Batch 11291/12330, Loss: 0.1818, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24030.03 tokens/s
+Epoch 1/1, Batch 11301/12330, Loss: 0.1557, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24099.47 tokens/s
+Epoch 1/1, Batch 11311/12330, Loss: 0.1801, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24078.19 tokens/s
+Model checkpoint saved at batch 11316 in epoch 1.
+Epoch 1/1, Batch 11321/12330, Loss: 0.1934, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24112.67 tokens/s
+Epoch 1/1, Batch 11331/12330, Loss: 0.1933, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.43 tokens/s
+Epoch 1/1, Batch 11341/12330, Loss: 0.1736, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.40 tokens/s
+Epoch 1/1, Batch 11351/12330, Loss: 0.1822, Avg Time/batch: 0.3389 s, Avg Token Efficiency: 24174.92 tokens/s
+Epoch 1/1, Batch 11361/12330, Loss: 0.1782, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24058.07 tokens/s
+Epoch 1/1, Batch 11371/12330, Loss: 0.1877, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24110.61 tokens/s
+Epoch 1/1, Batch 11381/12330, Loss: 0.1922, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.63 tokens/s
+Epoch 1/1, Batch 11391/12330, Loss: 0.1858, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24069.06 tokens/s
+Epoch 1/1, Batch 11401/12330, Loss: 0.1769, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24017.52 tokens/s
+Epoch 1/1, Batch 11411/12330, Loss: 0.1709, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24020.96 tokens/s
+Epoch 1/1, Batch 11421/12330, Loss: 0.1827, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24106.49 tokens/s
+Epoch 1/1, Batch 11431/12330, Loss: 0.1846, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.65 tokens/s
+Model checkpoint saved at batch 11439 in epoch 1.
+Epoch 1/1, Batch 11441/12330, Loss: 0.1956, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24121.13 tokens/s
+Epoch 1/1, Batch 11451/12330, Loss: 0.1853, Avg Time/batch: 0.3425 s, Avg Token Efficiency: 23918.21 tokens/s
+Epoch 1/1, Batch 11461/12330, Loss: 0.1953, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.32 tokens/s
+Epoch 1/1, Batch 11471/12330, Loss: 0.1666, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24067.07 tokens/s
+Epoch 1/1, Batch 11481/12330, Loss: 0.1845, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.88 tokens/s
+Epoch 1/1, Batch 11491/12330, Loss: 0.1858, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24013.12 tokens/s
+Epoch 1/1, Batch 11501/12330, Loss: 0.2040, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24062.01 tokens/s
+Epoch 1/1, Batch 11511/12330, Loss: 0.1921, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24143.14 tokens/s
+Epoch 1/1, Batch 11521/12330, Loss: 0.1802, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.75 tokens/s
+Epoch 1/1, Batch 11531/12330, Loss: 0.1978, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.22 tokens/s
+Epoch 1/1, Batch 11541/12330, Loss: 0.1870, Avg Time/batch: 0.3416 s, Avg Token Efficiency: 23983.57 tokens/s
+Epoch 1/1, Batch 11551/12330, Loss: 0.1884, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.98 tokens/s
+Epoch 1/1, Batch 11561/12330, Loss: 0.1945, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.61 tokens/s
+Model checkpoint saved at batch 11562 in epoch 1.
+Epoch 1/1, Batch 11571/12330, Loss: 0.1882, Avg Time/batch: 0.3418 s, Avg Token Efficiency: 23969.72 tokens/s
+Epoch 1/1, Batch 11581/12330, Loss: 0.1674, Avg Time/batch: 0.3423 s, Avg Token Efficiency: 23930.73 tokens/s
+Epoch 1/1, Batch 11591/12330, Loss: 0.1795, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24074.26 tokens/s
+Epoch 1/1, Batch 11601/12330, Loss: 0.1949, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24048.02 tokens/s
+Epoch 1/1, Batch 11611/12330, Loss: 0.1672, Avg Time/batch: 0.3395 s, Avg Token Efficiency: 24126.30 tokens/s
+Epoch 1/1, Batch 11621/12330, Loss: 0.1813, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24069.98 tokens/s
+Epoch 1/1, Batch 11631/12330, Loss: 0.1801, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24076.23 tokens/s
+Epoch 1/1, Batch 11641/12330, Loss: 0.1822, Avg Time/batch: 0.3412 s, Avg Token Efficiency: 24006.95 tokens/s
+Epoch 1/1, Batch 11651/12330, Loss: 0.1889, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24100.39 tokens/s
+Epoch 1/1, Batch 11661/12330, Loss: 0.1538, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.96 tokens/s
+Epoch 1/1, Batch 11671/12330, Loss: 0.1896, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24140.29 tokens/s
+Epoch 1/1, Batch 11681/12330, Loss: 0.1974, Avg Time/batch: 0.3399 s, Avg Token Efficiency: 24103.54 tokens/s
+Model checkpoint saved at batch 11685 in epoch 1.
+Epoch 1/1, Batch 11691/12330, Loss: 0.1776, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23989.46 tokens/s
+Epoch 1/1, Batch 11701/12330, Loss: 0.1794, Avg Time/batch: 0.3440 s, Avg Token Efficiency: 23811.22 tokens/s
+Epoch 1/1, Batch 11711/12330, Loss: 0.1854, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24124.44 tokens/s
+Epoch 1/1, Batch 11721/12330, Loss: 0.1791, Avg Time/batch: 0.3407 s, Avg Token Efficiency: 24047.34 tokens/s
+Epoch 1/1, Batch 11731/12330, Loss: 0.1797, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24140.28 tokens/s
+Epoch 1/1, Batch 11741/12330, Loss: 0.1935, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.85 tokens/s
+Epoch 1/1, Batch 11751/12330, Loss: 0.1789, Avg Time/batch: 0.3393 s, Avg Token Efficiency: 24144.84 tokens/s
+Epoch 1/1, Batch 11761/12330, Loss: 0.1638, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.43 tokens/s
+Epoch 1/1, Batch 11771/12330, Loss: 0.1872, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.68 tokens/s
+Epoch 1/1, Batch 11781/12330, Loss: 0.1779, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.36 tokens/s
+Epoch 1/1, Batch 11791/12330, Loss: 0.1863, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.06 tokens/s
+Epoch 1/1, Batch 11801/12330, Loss: 0.1902, Avg Time/batch: 0.3390 s, Avg Token Efficiency: 24161.83 tokens/s
+Model checkpoint saved at batch 11808 in epoch 1.
+Epoch 1/1, Batch 11811/12330, Loss: 0.1837, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24039.77 tokens/s
+Epoch 1/1, Batch 11821/12330, Loss: 0.1863, Avg Time/batch: 0.3439 s, Avg Token Efficiency: 23819.28 tokens/s
+Epoch 1/1, Batch 11831/12330, Loss: 0.1822, Avg Time/batch: 0.3413 s, Avg Token Efficiency: 23999.72 tokens/s
+Epoch 1/1, Batch 11841/12330, Loss: 0.1775, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.99 tokens/s
+Epoch 1/1, Batch 11851/12330, Loss: 0.1663, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24060.54 tokens/s
+Epoch 1/1, Batch 11861/12330, Loss: 0.1801, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24092.85 tokens/s
+Epoch 1/1, Batch 11871/12330, Loss: 0.2002, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24118.38 tokens/s
+Epoch 1/1, Batch 11881/12330, Loss: 0.2064, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24094.64 tokens/s
+Epoch 1/1, Batch 11891/12330, Loss: 0.1797, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24072.42 tokens/s
+Epoch 1/1, Batch 11901/12330, Loss: 0.1660, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.51 tokens/s
+Epoch 1/1, Batch 11911/12330, Loss: 0.1872, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24088.99 tokens/s
+Epoch 1/1, Batch 11921/12330, Loss: 0.1715, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24053.59 tokens/s
+Epoch 1/1, Batch 11931/12330, Loss: 0.1720, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.65 tokens/s
+Model checkpoint saved at batch 11931 in epoch 1.
+Epoch 1/1, Batch 11941/12330, Loss: 0.1782, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.53 tokens/s
+Epoch 1/1, Batch 11951/12330, Loss: 0.1872, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24107.28 tokens/s
+Epoch 1/1, Batch 11961/12330, Loss: 0.1845, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.04 tokens/s
+Epoch 1/1, Batch 11971/12330, Loss: 0.1771, Avg Time/batch: 0.3391 s, Avg Token Efficiency: 24158.20 tokens/s
+Epoch 1/1, Batch 11981/12330, Loss: 0.1684, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24120.82 tokens/s
+Epoch 1/1, Batch 11991/12330, Loss: 0.1752, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24077.52 tokens/s
+Epoch 1/1, Batch 12001/12330, Loss: 0.1823, Avg Time/batch: 0.3398 s, Avg Token Efficiency: 24104.89 tokens/s
+Epoch 1/1, Batch 12011/12330, Loss: 0.1665, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24096.23 tokens/s
+Epoch 1/1, Batch 12021/12330, Loss: 0.1638, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24084.92 tokens/s
+Epoch 1/1, Batch 12031/12330, Loss: 0.1800, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24059.64 tokens/s
+Epoch 1/1, Batch 12041/12330, Loss: 0.1649, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.58 tokens/s
+Epoch 1/1, Batch 12051/12330, Loss: 0.1737, Avg Time/batch: 0.3405 s, Avg Token Efficiency: 24055.44 tokens/s
+Model checkpoint saved at batch 12054 in epoch 1.
+Epoch 1/1, Batch 12061/12330, Loss: 0.1798, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23974.69 tokens/s
+Epoch 1/1, Batch 12071/12330, Loss: 0.1858, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24083.82 tokens/s
+Epoch 1/1, Batch 12081/12330, Loss: 0.1743, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24064.56 tokens/s
+Epoch 1/1, Batch 12091/12330, Loss: 0.1943, Avg Time/batch: 0.3404 s, Avg Token Efficiency: 24065.63 tokens/s
+Epoch 1/1, Batch 12101/12330, Loss: 0.1739, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24032.39 tokens/s
+Epoch 1/1, Batch 12111/12330, Loss: 0.1810, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24114.66 tokens/s
+Epoch 1/1, Batch 12121/12330, Loss: 0.1818, Avg Time/batch: 0.3410 s, Avg Token Efficiency: 24022.54 tokens/s
+Epoch 1/1, Batch 12131/12330, Loss: 0.1752, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24117.84 tokens/s
+Epoch 1/1, Batch 12141/12330, Loss: 0.1675, Avg Time/batch: 0.3409 s, Avg Token Efficiency: 24027.27 tokens/s
+Epoch 1/1, Batch 12151/12330, Loss: 0.1798, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24081.50 tokens/s
+Epoch 1/1, Batch 12161/12330, Loss: 0.1785, Avg Time/batch: 0.3415 s, Avg Token Efficiency: 23986.35 tokens/s
+Epoch 1/1, Batch 12171/12330, Loss: 0.1798, Avg Time/batch: 0.3397 s, Avg Token Efficiency: 24116.04 tokens/s
+Model checkpoint saved at batch 12177 in epoch 1.
+Epoch 1/1, Batch 12181/12330, Loss: 0.1893, Avg Time/batch: 0.3411 s, Avg Token Efficiency: 24015.78 tokens/s
+Epoch 1/1, Batch 12191/12330, Loss: 0.1909, Avg Time/batch: 0.3424 s, Avg Token Efficiency: 23928.09 tokens/s
+Epoch 1/1, Batch 12201/12330, Loss: 0.1787, Avg Time/batch: 0.3401 s, Avg Token Efficiency: 24085.37 tokens/s
+Epoch 1/1, Batch 12211/12330, Loss: 0.1651, Avg Time/batch: 0.3402 s, Avg Token Efficiency: 24080.54 tokens/s
+Epoch 1/1, Batch 12221/12330, Loss: 0.1791, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.30 tokens/s
+Epoch 1/1, Batch 12231/12330, Loss: 0.1782, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24070.12 tokens/s
+Epoch 1/1, Batch 12241/12330, Loss: 0.1824, Avg Time/batch: 0.3400 s, Avg Token Efficiency: 24091.38 tokens/s
+Epoch 1/1, Batch 12251/12330, Loss: 0.1627, Avg Time/batch: 0.3403 s, Avg Token Efficiency: 24071.47 tokens/s
+Epoch 1/1, Batch 12261/12330, Loss: 0.1839, Avg Time/batch: 0.3394 s, Avg Token Efficiency: 24135.29 tokens/s
+Epoch 1/1, Batch 12271/12330, Loss: 0.1674, Avg Time/batch: 0.3408 s, Avg Token Efficiency: 24038.74 tokens/s
+Epoch 1/1, Batch 12281/12330, Loss: 0.1585, Avg Time/batch: 0.3396 s, Avg Token Efficiency: 24125.22 tokens/s
+Epoch 1/1, Batch 12291/12330, Loss: 0.1759, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24054.30 tokens/s
+Model checkpoint saved at batch 12300 in epoch 1.
+Epoch 1/1, Batch 12301/12330, Loss: 0.1778, Avg Time/batch: 0.3406 s, Avg Token Efficiency: 24051.21 tokens/s
+Epoch 1/1, Batch 12311/12330, Loss: 0.1687, Avg Time/batch: 0.3438 s, Avg Token Efficiency: 23825.47 tokens/s
+Epoch 1/1, Batch 12321/12330, Loss: 0.1812, Avg Time/batch: 0.3417 s, Avg Token Efficiency: 23977.40 tokens/s
+Epoch 1, Training Loss: 1.1302
+Epoch 1, Batch 1/1370, Validation Loss: 0.1358
+Epoch 1, Batch 11/1370, Validation Loss: 0.1415
+Epoch 1, Batch 21/1370, Validation Loss: 0.1525
+Epoch 1, Batch 31/1370, Validation Loss: 0.1308
+Epoch 1, Batch 41/1370, Validation Loss: 0.1387
+Epoch 1, Batch 51/1370, Validation Loss: 0.1339
+Epoch 1, Batch 61/1370, Validation Loss: 0.1476
+Epoch 1, Batch 71/1370, Validation Loss: 0.1477
+Epoch 1, Batch 81/1370, Validation Loss: 0.1307
+Epoch 1, Batch 91/1370, Validation Loss: 0.1313
+Epoch 1, Batch 101/1370, Validation Loss: 0.1465
+Epoch 1, Batch 111/1370, Validation Loss: 0.1311
+Epoch 1, Batch 121/1370, Validation Loss: 0.1427
+Epoch 1, Batch 131/1370, Validation Loss: 0.1442
+Epoch 1, Batch 141/1370, Validation Loss: 0.1327
+Epoch 1, Batch 151/1370, Validation Loss: 0.1369
+Epoch 1, Batch 161/1370, Validation Loss: 0.1391
+Epoch 1, Batch 171/1370, Validation Loss: 0.1474
+Epoch 1, Batch 181/1370, Validation Loss: 0.1398
+Epoch 1, Batch 191/1370, Validation Loss: 0.1523
+Epoch 1, Batch 201/1370, Validation Loss: 0.1424
+Epoch 1, Batch 211/1370, Validation Loss: 0.1446
+Epoch 1, Batch 221/1370, Validation Loss: 0.1350
+Epoch 1, Batch 231/1370, Validation Loss: 0.1377
+Epoch 1, Batch 241/1370, Validation Loss: 0.1428
+Epoch 1, Batch 251/1370, Validation Loss: 0.1403
+Epoch 1, Batch 261/1370, Validation Loss: 0.1280
+Epoch 1, Batch 271/1370, Validation Loss: 0.1364
+Epoch 1, Batch 281/1370, Validation Loss: 0.1355
+Epoch 1, Batch 291/1370, Validation Loss: 0.1485
+Epoch 1, Batch 301/1370, Validation Loss: 0.1262
+Epoch 1, Batch 311/1370, Validation Loss: 0.1344
+Epoch 1, Batch 321/1370, Validation Loss: 0.1565
+Epoch 1, Batch 331/1370, Validation Loss: 0.1378
+Epoch 1, Batch 341/1370, Validation Loss: 0.1287
+Epoch 1, Batch 351/1370, Validation Loss: 0.1357
+Epoch 1, Batch 361/1370, Validation Loss: 0.1401
+Epoch 1, Batch 371/1370, Validation Loss: 0.1488
+Epoch 1, Batch 381/1370, Validation Loss: 0.1376
+Epoch 1, Batch 391/1370, Validation Loss: 0.1417
+Epoch 1, Batch 401/1370, Validation Loss: 0.1247
+Epoch 1, Batch 411/1370, Validation Loss: 0.1352
+Epoch 1, Batch 421/1370, Validation Loss: 0.1290
+Epoch 1, Batch 431/1370, Validation Loss: 0.1496
+Epoch 1, Batch 441/1370, Validation Loss: 0.1480
+Epoch 1, Batch 451/1370, Validation Loss: 0.1460
+Epoch 1, Batch 461/1370, Validation Loss: 0.1411
+Epoch 1, Batch 471/1370, Validation Loss: 0.1321
+Epoch 1, Batch 481/1370, Validation Loss: 0.1339
+Epoch 1, Batch 491/1370, Validation Loss: 0.1476
+Epoch 1, Batch 501/1370, Validation Loss: 0.1340
+Epoch 1, Batch 511/1370, Validation Loss: 0.1208
+Epoch 1, Batch 521/1370, Validation Loss: 0.1347
+Epoch 1, Batch 531/1370, Validation Loss: 0.1341
+Epoch 1, Batch 541/1370, Validation Loss: 0.1476
+Epoch 1, Batch 551/1370, Validation Loss: 0.1434
+Epoch 1, Batch 561/1370, Validation Loss: 0.1399
+Epoch 1, Batch 571/1370, Validation Loss: 0.1284
+Epoch 1, Batch 581/1370, Validation Loss: 0.1291
+Epoch 1, Batch 591/1370, Validation Loss: 0.1480
+Epoch 1, Batch 601/1370, Validation Loss: 0.1465
+Epoch 1, Batch 611/1370, Validation Loss: 0.1355
+Epoch 1, Batch 621/1370, Validation Loss: 0.1420
+Epoch 1, Batch 631/1370, Validation Loss: 0.1400
+Epoch 1, Batch 641/1370, Validation Loss: 0.1365
+Epoch 1, Batch 651/1370, Validation Loss: 0.1392
+Epoch 1, Batch 661/1370, Validation Loss: 0.1431
+Epoch 1, Batch 671/1370, Validation Loss: 0.1424
+Epoch 1, Batch 681/1370, Validation Loss: 0.1356
+Epoch 1, Batch 691/1370, Validation Loss: 0.1517
+Epoch 1, Batch 701/1370, Validation Loss: 0.1530
+Epoch 1, Batch 711/1370, Validation Loss: 0.1408
+Epoch 1, Batch 721/1370, Validation Loss: 0.1354
+Epoch 1, Batch 731/1370, Validation Loss: 0.1335
+Epoch 1, Batch 741/1370, Validation Loss: 0.1380
+Epoch 1, Batch 751/1370, Validation Loss: 0.1336
+Epoch 1, Batch 761/1370, Validation Loss: 0.1321
+Epoch 1, Batch 771/1370, Validation Loss: 0.1387
+Epoch 1, Batch 781/1370, Validation Loss: 0.1413
+Epoch 1, Batch 791/1370, Validation Loss: 0.1471
+Epoch 1, Batch 801/1370, Validation Loss: 0.1377
+Epoch 1, Batch 811/1370, Validation Loss: 0.1538
+Epoch 1, Batch 821/1370, Validation Loss: 0.1373
+Epoch 1, Batch 831/1370, Validation Loss: 0.1352
+Epoch 1, Batch 841/1370, Validation Loss: 0.1364
+Epoch 1, Batch 851/1370, Validation Loss: 0.1429
+Epoch 1, Batch 861/1370, Validation Loss: 0.1531
+Epoch 1, Batch 871/1370, Validation Loss: 0.1489
+Epoch 1, Batch 881/1370, Validation Loss: 0.1524
+Epoch 1, Batch 891/1370, Validation Loss: 0.1303
+Epoch 1, Batch 901/1370, Validation Loss: 0.1431
+Epoch 1, Batch 911/1370, Validation Loss: 0.1452
+Epoch 1, Batch 921/1370, Validation Loss: 0.1366
+Epoch 1, Batch 931/1370, Validation Loss: 0.1476
+Epoch 1, Batch 941/1370, Validation Loss: 0.1498
+Epoch 1, Batch 951/1370, Validation Loss: 0.1381
+Epoch 1, Batch 961/1370, Validation Loss: 0.1343
+Epoch 1, Batch 971/1370, Validation Loss: 0.1423
+Epoch 1, Batch 981/1370, Validation Loss: 0.1433
+Epoch 1, Batch 991/1370, Validation Loss: 0.1374
+Epoch 1, Batch 1001/1370, Validation Loss: 0.1461
+Epoch 1, Batch 1011/1370, Validation Loss: 0.1334
+Epoch 1, Batch 1021/1370, Validation Loss: 0.1467
+Epoch 1, Batch 1031/1370, Validation Loss: 0.1468
+Epoch 1, Batch 1041/1370, Validation Loss: 0.1284
+Epoch 1, Batch 1051/1370, Validation Loss: 0.1605
+Epoch 1, Batch 1061/1370, Validation Loss: 0.1482
+Epoch 1, Batch 1071/1370, Validation Loss: 0.1382
+Epoch 1, Batch 1081/1370, Validation Loss: 0.1381
+Epoch 1, Batch 1091/1370, Validation Loss: 0.1374
+Epoch 1, Batch 1101/1370, Validation Loss: 0.1396
+Epoch 1, Batch 1111/1370, Validation Loss: 0.1397
+Epoch 1, Batch 1121/1370, Validation Loss: 0.1344
+Epoch 1, Batch 1131/1370, Validation Loss: 0.1302
+Epoch 1, Batch 1141/1370, Validation Loss: 0.1469
+Epoch 1, Batch 1151/1370, Validation Loss: 0.1351
+Epoch 1, Batch 1161/1370, Validation Loss: 0.1402
+Epoch 1, Batch 1171/1370, Validation Loss: 0.1431
+Epoch 1, Batch 1181/1370, Validation Loss: 0.1322
+Epoch 1, Batch 1191/1370, Validation Loss: 0.1372
+Epoch 1, Batch 1201/1370, Validation Loss: 0.1386
+Epoch 1, Batch 1211/1370, Validation Loss: 0.1339
+Epoch 1, Batch 1221/1370, Validation Loss: 0.1405
+Epoch 1, Batch 1231/1370, Validation Loss: 0.1392
+Epoch 1, Batch 1241/1370, Validation Loss: 0.1337
+Epoch 1, Batch 1251/1370, Validation Loss: 0.1535
+Epoch 1, Batch 1261/1370, Validation Loss: 0.1317
+Epoch 1, Batch 1271/1370, Validation Loss: 0.1366
+Epoch 1, Batch 1281/1370, Validation Loss: 0.1467
+Epoch 1, Batch 1291/1370, Validation Loss: 0.1425
+Epoch 1, Batch 1301/1370, Validation Loss: 0.1387
+Epoch 1, Batch 1311/1370, Validation Loss: 0.1376
+Epoch 1, Batch 1321/1370, Validation Loss: 0.1445
+Epoch 1, Batch 1331/1370, Validation Loss: 0.1276
+Epoch 1, Batch 1341/1370, Validation Loss: 0.1440
+Epoch 1, Batch 1351/1370, Validation Loss: 0.1344
+Epoch 1, Batch 1361/1370, Validation Loss: 0.1365
+Epoch 1, Validation Loss: 0.1393
+Model saved successfully.
