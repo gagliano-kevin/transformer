@@ -20,21 +20,21 @@ from reg_nano_transformer import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=10000, pretrained=False, tokenizer_name="bpe_tok_10k_no_monte_cristo", log=True)
+    tokenizer = init_tokenizer(vocab_size=10000, pretrained=True, tokenizer_name="bpe_tok_10k_no_monte_cristo", log=True)
 
-    text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
+    #text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
 
-    encoded_text = tokenizer.encode(text)
-    #"""
+    #encoded_text = tokenizer.encode(text)
+    """
     #save encoded text to a file separated by spaces
     with open('bpe_10k_encoded_text_no_monte_cristo.txt', 'w') as f:
         f.write(' '.join(map(str, encoded_text)))
+    """
     #"""
-    """
     # Load the encoded text from the file
-    with open('bpe_5k_encoded_text.txt', 'r') as f:
+    with open('bpe_10k_encoded_text_no_monte_cristo.txt', 'r') as f:
         encoded_text = list(map(int, f.read().split()))
-    """
+    #"""
 
     torch_tokens = torch.tensor(encoded_text, dtype=torch.long)
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     dropout=0.1
     )
 
-    batch_size = 64
+    batch_size = 32
 
     dataset = CustomDataset(torch_tokens, seq_len=config.max_seq_len)
 
