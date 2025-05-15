@@ -150,7 +150,8 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
                     _, loss = model(x, y)
             else:
                 _, loss = model(x, y)  # Direct computation on CPU
-            loss.backward()
+            with torch.autograd.detect_anomaly():
+                loss.backward()
             optimizer.step()
             total_loss += loss.item()
             avg_batch_time += time.time() - t0
