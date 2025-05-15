@@ -14,7 +14,7 @@ from nano_transformer_class import transformer, transformerConfig
 
 if __name__ == "__main__":
 
-    tokenizer = simple_init_tokenizer(vocab_size=1000, pretrained=True, log=False)
+    tokenizer = simple_init_tokenizer(vocab_size=6000, pretrained=True, log=False)
 
     #text = load_data_from_files()
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     """
     
     # Load the encoded text from the file
-    with open('encoded_text.txt', 'r') as f:
+    with open('bpe_6k_no_monte_cristo_encoded_text.txt', 'r') as f:
         encoded_text = list(map(int, f.read().split()))
     
     
