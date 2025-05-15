@@ -125,7 +125,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs=10, log_f
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
 
-    dtype = torch.float32
+    dtype = torch.float16
     print("Using dtype:", dtype)
 
     if torch.cuda.is_available():

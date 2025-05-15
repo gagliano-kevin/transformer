@@ -14,27 +14,29 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 if parent_dir not in sys.path:
     sys.path.append(parent_dir)
 
-from train import init_tokenizer, load_data_from_directory, CustomDataset, load_model, train_model, stream_text
-from nano_transformer_class import transformer, transformerConfig
+#from colab_test.train_log import train_model, CustomDataset,init_tokenizer, load_data_from_directory, CustomDataset, load_model, train_model, stream_text
+from colab_test.nano_transformer_class import transformerConfig
+from train import train_model, CustomDataset
+from nano_transformer_class import transformer
 
 
 if __name__ == "__main__":
 
-    tokenizer = init_tokenizer(vocab_size=1000, pretrained=False, tokenizer_name="bpe_tok_1k_no_monte_cristo", log=True)
+    #tokenizer = init_tokenizer(vocab_size=1000, pretrained=False, tokenizer_name="bpe_tok_1k_no_monte_cristo", log=True)
 
-    text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
+    #text = load_data_from_directory(exclude_files=["datasets_source.txt", "The-Count-of-Monte-Cristo.txt"])
 
-    encoded_text = tokenizer.encode(text)
-    #"""
+    #encoded_text = tokenizer.encode(text)
+    """
     #save encoded text to a file separated by spaces
     with open('bpe_1k_encoded_text_no_monte_cristo.txt', 'w') as f:
         f.write(' '.join(map(str, encoded_text)))
+    """
     #"""
-    """
     # Load the encoded text from the file
-    with open('bpe_5k_encoded_text.txt', 'r') as f:
+    with open('bpe_6k_no_monte_cristo_encoded_text.txt', 'r') as f:
         encoded_text = list(map(int, f.read().split()))
-    """
+    #"""
 
     torch_tokens = torch.tensor(encoded_text, dtype=torch.long)
 
@@ -44,11 +46,11 @@ if __name__ == "__main__":
     embedding_dim=512,
     feed_forward_dim=1024,
     max_seq_len=256,
-    vocab_size=tokenizer.vocab_size,
+    vocab_size=6000,#tokenizer.vocab_size,
     dropout=0.1
     )
 
-    batch_size = 2
+    batch_size = 8
 
     dataset = CustomDataset(torch_tokens, seq_len=config.max_seq_len)
 
@@ -74,9 +76,9 @@ if __name__ == "__main__":
         val_loader=val_loader,
         optimizer=optimizer,
         num_epochs=1,
-        log_freq=100,
-        model_name="nano_transformer_bpe_1k_no_monte_cristo",
-        checkpoints_per_epoch=1000,
+        log_freq=250,
+        model_name="test_j_train2",
+        checkpoints_per_epoch=50,
     )
 
     #prompt = "This is a test sentence, can you tokenize it? , yes, I can! , thank you! , I am happy to help! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! , I am a large language model trained by OpenAI. , I can help you with many things, such as writing code, answering questions, and providing information on a wide range of topics. , I am here to assist you in any way I can! "
