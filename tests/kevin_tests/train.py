@@ -356,9 +356,6 @@ def reg_train_model(model, train_loader, val_loader, optimizer, num_epochs=10, l
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("Using device:", device)
 
-    dtype = torch.float16
-    print("Using dtype:", dtype)
-
     if torch.cuda.is_available():
         model = model.to(device)
 
@@ -376,16 +373,11 @@ def reg_train_model(model, train_loader, val_loader, optimizer, num_epochs=10, l
             t0 = time.time()
             x, y = x.to(device), y.to(device)
             optimizer.zero_grad()
-            if torch.cuda.is_available():
-                with torch.autocast(device_type="cuda", dtype=dtype):
-                    _, loss = model(x, y)
-            else:
-                _, loss = model(x, y)  # Direct computation on CPU
+            _, loss = model(x, y)
             if torch.isnan(loss):                               # Check for NaN loss
                 print(f"NaN loss encountered in batch index: {batch_idx}. Saving batch.")
                 print(f"X: {x}")
                 print(f"Y: {y}")
-                torch.save((x, y), "bad_batch.pt")
                 break
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)    # Gradient clipping
@@ -415,11 +407,7 @@ def reg_train_model(model, train_loader, val_loader, optimizer, num_epochs=10, l
         with torch.no_grad():
             for x, y in val_loader:
                 x, y = x.to(device), y.to(device)
-                if torch.cuda.is_available():
-                    with torch.autocast(device_type="cuda", dtype=dtype):
-                        _, loss = model(x, y)
-                else:
-                    _, loss = model(x, y)  # Direct computation on CPU
+                _, loss = model(x, y)
                 if torch.isnan(loss):
                     break
                 val_loss += loss.item()
