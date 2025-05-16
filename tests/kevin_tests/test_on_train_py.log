@@ -1,0 +1,65 @@
+number of decayed parameter tensors: 26, with 11591680 parameters
+number of non-decayed parameter tensors: 42, with 23552 parameters
+using fused AdamW: False
+Model path: ../../pretrained_models/test_j_train2.pth
+Model configuration saved to: ../../pretrained_models/test_j_train2_config.txt
+Using device: cuda
+Using dtype: torch.float16
+Training model for 1 epochs with 49320 batches per epoch.
+Checkpoints will be saved every 986 batches.
+Epoch 1/1, Batch 1/49320, Loss: 8.8043, Avg Time/batch: 1.0000 s, Avg Token Efficiency: 2907.06 tokens/s
+Epoch 1/1, Batch 251/49320, Loss: 7.8124, Avg Time/batch: 0.1289 s, Avg Token Efficiency: 15883.68 tokens/s
+Epoch 1/1, Batch 501/49320, Loss: 7.0344, Avg Time/batch: 0.1277 s, Avg Token Efficiency: 16038.54 tokens/s
+Epoch 1/1, Batch 751/49320, Loss: 6.8499, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16026.82 tokens/s
+Model checkpoint saved at batch 986 in epoch 1.
+Epoch 1/1, Batch 1001/49320, Loss: 6.5974, Avg Time/batch: 0.1288 s, Avg Token Efficiency: 15903.18 tokens/s
+Epoch 1/1, Batch 1251/49320, Loss: 6.5447, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16024.61 tokens/s
+Epoch 1/1, Batch 1501/49320, Loss: 6.2254, Avg Time/batch: 0.1277 s, Avg Token Efficiency: 16033.42 tokens/s
+Epoch 1/1, Batch 1751/49320, Loss: 6.0968, Avg Time/batch: 0.1281 s, Avg Token Efficiency: 15987.25 tokens/s
+Model checkpoint saved at batch 1972 in epoch 1.
+Epoch 1/1, Batch 2001/49320, Loss: 5.9748, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16023.56 tokens/s
+Epoch 1/1, Batch 2251/49320, Loss: 5.8777, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16024.98 tokens/s
+Epoch 1/1, Batch 2501/49320, Loss: 5.6975, Avg Time/batch: 0.1280 s, Avg Token Efficiency: 15998.91 tokens/s
+Epoch 1/1, Batch 2751/49320, Loss: 5.3549, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16025.72 tokens/s
+Model checkpoint saved at batch 2958 in epoch 1.
+Epoch 1/1, Batch 3001/49320, Loss: 5.4281, Avg Time/batch: 0.1279 s, Avg Token Efficiency: 16015.87 tokens/s
+Epoch 1/1, Batch 3251/49320, Loss: 5.2416, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16024.66 tokens/s
+Epoch 1/1, Batch 3501/49320, Loss: 5.3094, Avg Time/batch: 0.1278 s, Avg Token Efficiency: 16026.99 tokens/s
+Epoch 1/1, Batch 3751/49320, Loss: 5.4456, Avg Time/batch: 0.1277 s, Avg Token Efficiency: 16043.36 tokens/s
+Model checkpoint saved at batch 3944 in epoch 1.
+Epoch 1/1, Batch 4001/49320, Loss: 5.1621, Avg Time/batch: 0.1282 s, Avg Token Efficiency: 15975.28 tokens/s
+Epoch 1/1, Batch 4251/49320, Loss: 5.0419, Avg Time/batch: 0.1280 s, Avg Token Efficiency: 16004.40 tokens/s
+Epoch 1/1, Batch 4501/49320, Loss: 5.4026, Avg Time/batch: 0.1279 s, Avg Token Efficiency: 16012.03 tokens/s
+Epoch 1/1, Batch 4751/49320, Loss: 5.0810, Avg Time/batch: 0.1279 s, Avg Token Efficiency: 16016.70 tokens/s
+Model checkpoint saved at batch 4930 in epoch 1.
+Epoch 1/1, Batch 5001/49320, Loss: 5.0059, Avg Time/batch: 0.1280 s, Avg Token Efficiency: 16005.93 tokens/s
+Epoch 1/1, Batch 5251/49320, Loss: 5.0473, Avg Time/batch: 0.1279 s, Avg Token Efficiency: 16009.29 tokens/s
+Epoch 1/1, Batch 5501/49320, Loss: 4.4388, Avg Time/batch: 0.1280 s, Avg Token Efficiency: 15999.50 tokens/s
+Epoch 1/1, Batch 5751/49320, Loss: 4.4485, Avg Time/batch: 0.1280 s, Avg Token Efficiency: 16002.40 tokens/s
+Model checkpoint saved at batch 5916 in epoch 1.
+Epoch 1/1, Batch 6001/49320, Loss: 4.4942, Avg Time/batch: 0.1281 s, Avg Token Efficiency: 15986.76 tokens/s
+Epoch 1/1, Batch 6251/49320, Loss: 4.8936, Avg Time/batch: 0.1285 s, Avg Token Efficiency: 15936.05 tokens/s
+Epoch 1/1, Batch 6501/49320, Loss: 4.7098, Avg Time/batch: 0.1281 s, Avg Token Efficiency: 15987.44 tokens/s
+
+
+from colab_test.nano_transformer_class import transformer, transformerConfig
+from train import train_model, CustomDataset
+
+
+(pacman_env) kevin@kevin-Alienware-17-R3:~/Desktop/transformer/tests/kevin_tests$ python train_test.py >> test_on_train_py.log
+/home/kevin/Desktop/transformer/tests/kevin_tests/train.py:153: UserWarning: Anomaly Detection has been enabled. This mode will increase the runtime and should only be enabled for debugging.
+  with torch.autograd.detect_anomaly():
+/home/kevin/anaconda3/envs/pacman_env/lib/python3.9/site-packages/torch/autograd/graph.py:825: UserWarning: Error detected in LogSoftmaxBackward0. No forward pass information available. Enable detect anomaly during forward pass for more information. (Triggered internally at ../torch/csrc/autograd/python_anomaly_mode.cpp:88.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Traceback (most recent call last):
+  File "/home/kevin/Desktop/transformer/tests/kevin_tests/train_test.py", line 73, in <module>
+    train_model(
+  File "/home/kevin/Desktop/transformer/tests/kevin_tests/train.py", line 154, in train_model
+    loss.backward()
+  File "/home/kevin/anaconda3/envs/pacman_env/lib/python3.9/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/home/kevin/anaconda3/envs/pacman_env/lib/python3.9/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/home/kevin/anaconda3/envs/pacman_env/lib/python3.9/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: Function 'LogSoftmaxBackward0' returned nan values in its 0th output.
