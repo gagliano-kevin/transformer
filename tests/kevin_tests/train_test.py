@@ -16,9 +16,9 @@ if parent_dir not in sys.path:
 
 #from colab_test.train_log import train_model, CustomDataset,init_tokenizer, load_data_from_directory, CustomDataset, load_model, train_model, stream_text
 from nano_transformer_class import transformer, transformerConfig
-from colab_test.train_log import train_model, CustomDataset
+#from colab_test.train_log import train_model
 #from nano_transformer_class import transformer, transformerConfig
-
+from train import CustomDataset, train_model
 
 if __name__ == "__main__":
 
