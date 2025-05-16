@@ -160,15 +160,15 @@ class CustomBPETokenizer:
         Function to decode a list of tokens into text.
         The function takes a list of tokens (list of integers) and returns a string of text.
         The function first checks if the tokens are in the vocabulary, and if not, it replaces them with a special token.
-        Tokens variable is the concatenation of the bytes associated with the token ids in the vocabulary.
+        Byte_tokens variable is the concatenation of the bytes associated with the token ids in the vocabulary.
         The function then decodes the bytes into a string using utf-8 encoding.
         Arguments:
         tokens: list of tokens (list of integers) to decode
         Returns:
         text: string of text decoded from the tokens
         """
-        tokens = b"".join([self.vocab[token] for token in tokens])
-        text = tokens.decode("utf-8", errors="replace")
+        byte_tokens = b"".join([self.vocab[token] for token in tokens])
+        text = byte_tokens.decode("utf-8", errors="replace")
         return text
 
 
