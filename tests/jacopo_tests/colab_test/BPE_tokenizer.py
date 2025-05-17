@@ -357,7 +357,9 @@ class CustomBPETokenizer:
                     if len(merge_tokens) == 2:
                         s1_quoted, s2_quoted = merge_tokens
                         s1_rendered = s1_quoted.strip().strip('"')
+                        if s1_rendered == "": s1_rendered = "\""        # handling for string: """ (to avoid resulting in empty string)
                         s2_rendered = s2_quoted.strip().strip('"')
+                        if s2_rendered == "": s2_rendered = "\""        # handling for string: """ (to avoid resulting in empty string)
                         try:
                             new_id = int(new_id_str)
                             id1 = next((token_id for token_id, token_bytes in self.vocab.items() if token_bytes.decode('utf-8', errors='replace') == s1_rendered), None)

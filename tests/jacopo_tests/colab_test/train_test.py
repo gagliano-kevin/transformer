@@ -8,13 +8,13 @@ import time
 
 
 
-from train import simple_init_tokenizer, load_data_from_files, CustomDataset, load_model, train_model, stream_text
+from train_log import simple_init_tokenizer, load_data_from_files, CustomDataset, load_model, train_model, stream_text_old, stream_text, stream_text_medium
 from nano_transformer_class import transformer, transformerConfig
 
 
 if __name__ == "__main__":
 
-    tokenizer = simple_init_tokenizer(vocab_size=1000, pretrained=True, log=True)
+    tokenizer = simple_init_tokenizer(vocab_size=8000, pretrained=True, log=True)
 
     #text = load_data_from_files()
 
@@ -26,8 +26,9 @@ if __name__ == "__main__":
         f.write(' '.join(map(str, encoded_text)))
     """
     
+    
     # Load the encoded text from the file
-    with open('encoded_text.txt', 'r') as f:
+    with open('bpe_8k_encoded_text.txt', 'r') as f:
         loaded_encoded_text = list(map(int, f.read().split()))
     
     
@@ -55,7 +56,7 @@ if __name__ == "__main__":
     #train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True) 
     #val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
-    model = load_model(config, model_name="model_name")
+    model = load_model(config, model_name="8k_transformer")
     #model = transformer(config)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -76,9 +77,9 @@ if __name__ == "__main__":
     )
     """
     # Test the model
-    prompt = "Project Gutenberg volunteers and employees expend considerable effort to identify"
+    prompt = "the Count Dracula is a bad person"
     print(prompt, end="", flush=True)
-    for token in stream_text(prompt=prompt, model=model, bpe_tokenizer=tokenizer, device=device, max_len=200):
+    for token in stream_text_old(prompt=prompt, model=model, bpe_tokenizer=tokenizer, device=device, max_len=100):
         print(token, end="", flush=True)
         #time.sleep(0.1)
     # stream_text

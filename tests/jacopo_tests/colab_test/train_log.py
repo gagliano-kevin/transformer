@@ -52,7 +52,7 @@ def load_data_from_directory(directory_path="../../datasets", exclude_files=["da
     return text
 
 # function to load data fram files in the current directory
-def load_data_from_files(file_paths=["dracula-stoker.txt", "Psychology-and-Pedagogy-of-Anger.txt", "The-Invisible-Man.txt", "The-Killing-Complex.txt"]):
+def load_data_from_files(file_paths=["dracula-stoker.txt", "The-Invisible-Man.txt", "The-Killing-Complex.txt", "20000_leagues_under_the_sea.txt"]):
     """
     Load text data from specified files.
     Args:
@@ -101,7 +101,7 @@ def simple_init_tokenizer(vocab_size=300, pretrained=False, log=False, log_file=
         log_print("Tokenizer loaded successfully.")
     else:
         log_print(f"Training new tokenizer with vocab size {vocab_size}...")
-        text = load_data_from_files(["dracula-stoker.txt", "Psychology-and-Pedagogy-of-Anger.txt", "The-Invisible-Man.txt", "The-Killing-Complex.txt"])
+        text = load_data_from_files(["dracula-stoker.txt", "The-Invisible-Man.txt", "The-Killing-Complex.txt", "20000_leagues_under_the_sea.txt"])
         tokenizer = BPE_tokenizer(vocab_size=vocab_size, log=log)
         tokenizer.train(text)
         tokenizer.save_model(file_prefix="tokenizer")
@@ -312,7 +312,7 @@ def generate_text(prompt, max_len=200, model=None, tokenizer=None, device=None, 
 
 
 #function that creates a stream of text, one token at a time untill it reaches the end of the sequence or the max_len>256
-def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, log=False):
+def stream_text_old(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, log=False):
     """
     Stream text generation using a pretrained transformer model.
     Args:
@@ -355,5 +355,235 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
             # Decode from all tokens for consistency
             new_text = bpe_tokenizer.decode(all_tokens[0].tolist())             # new_text is equivalent to all_text (prompt + all generated tokens)
             new_piece = new_text[len(generated_text):]                          # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
-            generated_text = new_text                                           # generated_text is now the whole text (prompt + all the generated tokens)                
+            generated_text = new_text  
+            if "\\" in new_piece:
+                new_piece=" "                                         # generated_text is now the whole text (prompt + all the generated tokens)                
             yield new_piece
+
+
+def stream_text_medium(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, 
+                temperature=0.4, top_k=40, top_p=0.9, repetition_penalty=1.1, log=False):
+    """
+    Stream text generation using a pretrained transformer model with improved sampling.
+    
+    Args:
+        prompt (str): Input text prompt for generation.
+        max_len (int): Maximum length of generated text.
+        model (transformer): Pretrained transformer model.
+        bpe_tokenizer (BPE_tokenizer): Tokenizer for encoding and decoding text.
+        device (torch.device): Device to run the model on (CPU or GPU).
+        temperature (float): Controls randomness in generation. Lower values make it more deterministic.
+        top_k (int): Keep only top k tokens with highest probability. Set to 0 to disable.
+        top_p (float): Keep the top tokens with cumulative probability >= top_p. Set to 0 to disable.
+        repetition_penalty (float): Penalize repetition. 1.0 means no penalty.
+        log (bool): Whether to log the generation process.
+        
+    Yields:
+        str: Generated text piece by piece.
+    """
+    if model is None or bpe_tokenizer is None:
+        raise ValueError("Model and tokenizer must be provided for text generation.")
+    if device is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    if log:
+        print("Using device:", device)
+        print(f"Generating text with prompt: '{prompt}'")
+        print(f"Parameters: temp={temperature}, top_k={top_k}, top_p={top_p}")
+        print("Max length:", max_len)
+
+    model.eval()
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    all_tokens = tokens.clone()  # Keep track of ALL tokens
+    generated_text = prompt
+    
+    # Keep track of recently generated tokens for repetition penalty
+    prev_tokens = []
+    
+    with torch.no_grad():
+        for _ in range(max_len):
+            if tokens.size(1) >= model.config.max_seq_len:
+                # Slide window only for model input
+                tokens = tokens[:, -model.config.max_seq_len:]
+            
+            output, _ = model(tokens)
+            logits = output[:, -1, :] / max(temperature, 1e-7)  # Avoid division by zero
+            
+            # Apply repetition penalty if needed
+            if repetition_penalty != 1.0 and len(prev_tokens) > 0:
+                for prev_token in set(prev_tokens[-5:]):  # Consider last 5 tokens
+                    logits[0, prev_token] /= repetition_penalty
+            
+            # Apply top-k filtering
+            if top_k > 0:
+                indices_to_remove = logits < torch.topk(logits, top_k)[0][..., -1, None]
+                logits[indices_to_remove] = -float('Inf')
+            
+            # Apply top-p filtering (nucleus sampling)
+            if top_p > 0.0:
+                sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+                cumulative_probs = torch.cumsum(torch.softmax(sorted_logits, dim=-1), dim=-1)
+                
+                # Remove tokens with cumulative probability above the threshold
+                sorted_indices_to_remove = cumulative_probs > top_p
+                # Shift the indices to the right to keep also the first token above the threshold
+                sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+                sorted_indices_to_remove[..., 0] = 0
+                
+                indices_to_remove = sorted_indices[sorted_indices_to_remove]
+                logits[0, indices_to_remove] = -float('Inf')
+            
+            # Convert to probabilities and sample
+            probs = torch.softmax(logits, dim=-1)
+            next_token = torch.multinomial(probs, num_samples=1)
+            
+            # Update repetition penalty tracking
+            prev_tokens.append(next_token.item())
+            
+            # Update both collections
+            tokens = torch.cat((tokens, next_token), dim=1)
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            
+            # Decode from all tokens for consistency
+            decoded_text = bpe_tokenizer.decode(all_tokens[0].tolist())
+            
+            # Clean up control characters for display
+            decoded_text = decoded_text.replace('\u000a', '\n')
+            
+            # Get only the new piece to yield
+            new_piece = decoded_text[len(generated_text):]
+            generated_text = decoded_text
+            
+            yield new_piece
+
+def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, 
+                temperature=0.4, top_k=40, top_p=0.9, repetition_penalty=1.1, 
+                fix_escapes=True, log=False):
+    """
+    Stream text generation using a pretrained transformer model with improved sampling and text cleaning.
+    
+    Args:
+        prompt (str): Input text prompt for generation.
+        max_len (int): Maximum length of generated text.
+        model (transformer): Pretrained transformer model.
+        bpe_tokenizer (BPE_tokenizer): Tokenizer for encoding and decoding text.
+        device (torch.device): Device to run the model on (CPU or GPU).
+        temperature (float): Controls randomness in generation. Lower values make it more deterministic.
+        top_k (int): Keep only top k tokens with highest probability. Set to 0 to disable.
+        top_p (float): Keep the top tokens with cumulative probability >= top_p. Set to 0 to disable.
+        repetition_penalty (float): Penalize repetition. 1.0 means no penalty.
+        fix_escapes (bool): Whether to attempt fixing escape sequences in generated text.
+        log (bool): Whether to log the generation process.
+        
+    Yields:
+        str: Generated text piece by piece.
+    """
+    if model is None or bpe_tokenizer is None:
+        raise ValueError("Model and tokenizer must be provided for text generation.")
+    if device is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    if log:
+        print("Using device:", device)
+        print(f"Generating text with prompt: '{prompt}'")
+        print(f"Parameters: temp={temperature}, top_k={top_k}, top_p={top_p}")
+        print("Max length:", max_len)
+
+    # Define a function to clean text of escape sequences
+    def clean_text(text):
+        # Common escape sequence replacements
+        replacements = {
+            '\u000a': '\n',     # Newline
+            '\\u000a': '\n',    # Escaped newline
+            '\u000d': '\r',     # Carriage return
+            '\\u000d': '\r',    # Escaped carriage return
+            '\u0009': '\t',     # Tab
+            '\\u0009': '\t',    # Escaped tab
+            '\\n': '\n',        # Another form of newline
+            '\\r': '\r',        # Another form of carriage return
+            '\\t': '\t'         # Another form of tab
+        }
+        
+        # Apply all replacements
+        for escape_seq, replacement in replacements.items():
+            text = text.replace(escape_seq, replacement)
+            
+        # Try to handle any remaining escape sequences
+        if fix_escapes:
+            try:
+                # This will interpret escape sequences like \u000a as actual Unicode characters
+                text = text.encode('utf-8').decode('unicode_escape')
+            except (UnicodeDecodeError, AttributeError):
+                # If this fails, continue with the text as is
+                pass
+                
+        return text
+
+    model.eval()
+    tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)
+    all_tokens = tokens.clone()  # Keep track of ALL tokens
+    generated_text = prompt
+    
+    # Keep track of recently generated tokens for repetition penalty
+    prev_tokens = []
+    
+    with torch.no_grad():
+        for _ in range(max_len):
+            if tokens.size(1) >= model.config.max_seq_len:
+                # Slide window only for model input
+                tokens = tokens[:, -model.config.max_seq_len:]
+            
+            output, _ = model(tokens)
+            logits = output[:, -1, :] / max(temperature, 1e-7)  # Avoid division by zero
+            
+            # Apply repetition penalty if needed
+            if repetition_penalty != 1.0 and len(prev_tokens) > 0:
+                for prev_token in set(prev_tokens[-5:]):  # Consider last 5 tokens
+                    logits[0, prev_token] /= repetition_penalty
+            
+            # Apply top-k filtering
+            if top_k > 0:
+                indices_to_remove = logits < torch.topk(logits, top_k)[0][..., -1, None]
+                logits[indices_to_remove] = -float('Inf')
+            
+            # Apply top-p filtering (nucleus sampling)
+            if top_p > 0.0:
+                sorted_logits, sorted_indices = torch.sort(logits, descending=True)
+                cumulative_probs = torch.cumsum(torch.softmax(sorted_logits, dim=-1), dim=-1)
+                
+                # Remove tokens with cumulative probability above the threshold
+                sorted_indices_to_remove = cumulative_probs > top_p
+                # Shift the indices to the right to keep also the first token above the threshold
+                sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+                sorted_indices_to_remove[..., 0] = 0
+                
+                indices_to_remove = sorted_indices[sorted_indices_to_remove]
+                logits[0, indices_to_remove] = -float('Inf')
+            
+            # Convert to probabilities and sample
+            probs = torch.softmax(logits, dim=-1)
+            next_token = torch.multinomial(probs, num_samples=1)
+            
+            # Update repetition penalty tracking
+            prev_tokens.append(next_token.item())
+            
+            # Update both collections
+            tokens = torch.cat((tokens, next_token), dim=1)
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)
+            
+            # Decode from all tokens for consistency
+            decoded_text = bpe_tokenizer.decode(all_tokens[0].tolist())
+            
+            # Clean up the text including control characters and escape sequences
+            cleaned_text = clean_text(decoded_text)
+            
+            # Get only the new piece to yield
+            new_piece = cleaned_text[len(clean_text(generated_text)):]
+            generated_text = decoded_text  # Keep original for length tracking
+            
+            # Clean the piece before yielding
+            new_piece = clean_text(new_piece)
+            
+            # If we get an empty piece (due to cleaning), skip yielding
+            if new_piece:
+                yield new_piece
