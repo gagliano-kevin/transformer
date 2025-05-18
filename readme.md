@@ -32,7 +32,7 @@ The `transformer` class implements the core Transformer model from scratch with 
 
 ---
 
-## Custom BPE Tokenizer Overview
+## 📜 Custom BPE Tokenizer Overview
 
 A Python implementation of a Byte Pair Encoding (BPE) tokenizer. This tokenizer can be trained on a given text corpus to learn a vocabulary and merge rules. It can then be used to encode text into a sequence of tokens and decode tokens back into text.
 
