@@ -160,15 +160,15 @@ class CustomBPETokenizer:
         Function to decode a list of tokens into text.
         The function takes a list of tokens (list of integers) and returns a string of text.
         The function first checks if the tokens are in the vocabulary, and if not, it replaces them with a special token.
-        Tokens variable is the concatenation of the bytes associated with the token ids in the vocabulary.
+        Byte_tokens variable is the concatenation of the bytes associated with the token ids in the vocabulary.
         The function then decodes the bytes into a string using utf-8 encoding.
         Arguments:
         tokens: list of tokens (list of integers) to decode
         Returns:
         text: string of text decoded from the tokens
         """
-        tokens = b"".join([self.vocab[token] for token in tokens])
-        text = tokens.decode("utf-8", errors="replace")
+        byte_tokens = b"".join([self.vocab[token] for token in tokens])
+        text = byte_tokens.decode("utf-8", errors="replace")
         return text
 
 
@@ -362,7 +362,9 @@ class CustomBPETokenizer:
                     if len(merge_tokens) == 2:
                         s1_quoted, s2_quoted = merge_tokens
                         s1_rendered = s1_quoted.strip().strip('"')
+                        if s1_rendered == "": s1_rendered = "\""        # handling for string: """ (to avoid resulting in empty string)
                         s2_rendered = s2_quoted.strip().strip('"')
+                        if s2_rendered == "": s2_rendered = "\""        # handling for string: """ (to avoid resulting in empty string)
                         try:
                             new_id = int(new_id_str)
                             id1 = next((token_id for token_id, token_bytes in self.vocab.items() if token_bytes.decode('utf-8', errors='replace') == s1_rendered), None)
@@ -371,6 +373,7 @@ class CustomBPETokenizer:
                                 self.merges[(id1, id2)] = new_id
                             else:
                                 print(f"Warning: Could not find token IDs for merge: '{s1_rendered}', '{s2_rendered}' in the loaded vocabulary.")
+                                print(f"Original line: {line}")
                         except ValueError:
                             print(f"Warning: Invalid new_id in merges file: {new_id_str}")
                     else:
