@@ -1,9 +1,0 @@
-model_name=reg_nano_transformer_bpe_10k_no_monte_cristo
-num_layers=4
-num_heads=4
-embedding_dim=512
-feed_forward_dim=1024
-max_seq_len=256
-vocab_size=10000
-dropout=0.1
-num_epochs=1
