@@ -29,3 +29,19 @@ The `transformer` class implements the core Transformer model from scratch with 
 - MLP with GELU activation
 - Weight sharing between input embeddings and output projection
 - Configurable model depth, head count, embedding dimensions, and more
+
+---
+
+## Custom BPE Tokenizer Overview
+
+A Python implementation of a Byte Pair Encoding (BPE) tokenizer. This tokenizer can be trained on a given text corpus to learn a vocabulary and merge rules. It can then be used to encode text into a sequence of tokens and decode tokens back into text.
+
+## Features
+
+-   **Trainable:** Learn BPE merge rules and vocabulary from raw text or text files.
+-   **Configurable Vocabulary Size:** Specify the desired vocabulary size during initialization.
+-   **Encoding & Decoding:** Convert text to token IDs and vice-versa.
+-   **Model Persistence:** Save trained tokenizer (vocabulary and merge rules) to files and load them later.
+-   **Vocabulary Display:** Inspect the learned vocabulary with human-readable representations of tokens, including proper handling of control characters and extended ASCII.
+-   **Logging:** Optional logging for training and encoding steps.
+-   **Unicode Handling:** Properly handles Unicode characters, including replacement of control characters for display purposes.
