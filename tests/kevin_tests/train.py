@@ -206,7 +206,7 @@ def load_model(transformer_config, model_name="", device=None):
     """
     if model_name == "":
         raise ValueError("Model name cannot be empty.")
-    model_path = "../../pretrained_models/" + model_name + ".pth"
+    model_path = "./pretrained_models/" + model_name + ".pth"
 
     if device is None:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -313,10 +313,10 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
             
             # Decode from all tokens for consistency
             new_text = bpe_tokenizer.decode(all_tokens[0].tolist())             # new_text is equivalent to all_text (prompt + all generated tokens)
-            new_piece = new_text[len(generate_text):]                           # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
+            new_piece = new_text[len(generated_text):]                           # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
             if "\\" in new_piece:                               # if the last generated token is a special token, then we replace it with a space    
                 new_piece = " "
-            generate_text = new_text
+            generated_text = new_text
             yield new_piece
 
 
