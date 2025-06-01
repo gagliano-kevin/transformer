@@ -257,20 +257,20 @@ def generate_text(prompt, max_len=200, model=None, tokenizer=None, device=None, 
         print("Max length:", max_len)
 
     model.eval()
-    tokens = torch.tensor(tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device) #unsqueeze because we need a batch dimension
+    tokens = torch.tensor(tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)   # unsqueeze is used to add batch dimension
     
     with torch.no_grad():
         for _ in range(max_len):
-            if tokens.size(1) >= model.config.max_seq_len:
+            if tokens.size(1) >= model.config.max_seq_len:                                      # tokens.size(1) is the current length of the sequence
                 break
             output, _ = model(tokens)
-            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)
+            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(0)                    # Get the index of the most probable next token (shape = [batch_size, seq_len] = [1,1])
             tokens = torch.cat((tokens, next_token), dim=1)
     
-    return tokenizer.decode(tokens.squeeze(0).tolist())
+    return tokenizer.decode(tokens.squeeze(0).tolist())                                         # # tokens.squeeze(0) removes the batch dimension, converting it to a 1D tensor
 
 
-#function that creates a stream of text, one token at a time untill it reaches the end of the sequence or the max_len>256
+# Function that creates a stream of text, one token at a time until it reaches the end of the sequence or the max_len>256
 def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None, log=False):
     """
     Stream text generation using a pretrained transformer model.
@@ -295,28 +295,27 @@ def stream_text(prompt, max_len=256, model=None, bpe_tokenizer=None, device=None
 
     model.eval()
     tokens = torch.tensor(bpe_tokenizer.encode(prompt), dtype=torch.long).unsqueeze(0).to(device)       # used as a token sliding window of context size dimension
-    all_tokens = tokens.clone()  # Keep track of ALL tokens
+    all_tokens = tokens.clone()                                                                         # Keep track of ALL tokens
     generated_text = prompt
     
     with torch.no_grad():
         for _ in range(max_len):
-            if tokens.size(1) >= model.config.max_seq_len:
-                # Slide window only for model input
-                tokens = tokens[:, -model.config.max_seq_len:]
+            if tokens.size(1) >= model.config.max_seq_len:                                              # tokens.size(1) is the current length of the sequence  
+                tokens = tokens[:, -model.config.max_seq_len:]                                          # tokens retains only the last max_seq_len tokens
             
             output, _ = model(tokens)
-            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)
+            next_token = torch.argmax(output[:, -1, :], dim=-1).unsqueeze(1)                            # Get the index of the most probable next token and add a batch dimension
             
-            # Update both collections
-            tokens = torch.cat((tokens, next_token), dim=1)                     # tokens is the sliding window of context size dimension
-            all_tokens = torch.cat((all_tokens, next_token), dim=1)             # all_tokens is the whole sequence of tokens generated so far (prompt + all generated tokens)
+            # Update both token collections 
+            tokens = torch.cat((tokens, next_token), dim=1)                                             # concatenation of newly generated token to the "sliding window" of most recent tokens (max_seq_len tokens)
+            all_tokens = torch.cat((all_tokens, next_token), dim=1)                                     # all_tokens is the whole sequence of tokens generated so far (prompt + all generated tokens)
             
-            # Decode from all tokens for consistency
-            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())             # new_text is equivalent to all_text (prompt + all generated tokens)
-            new_piece = new_text[len(generated_text):]                           # new piece is equivalent to new_text[-1] -> so isn't it the last generated token ??
-            if "\\" in new_piece:                               # if the last generated token is a special token, then we replace it with a space    
+            # Decode the tokens and yield the last generated one
+            new_text = bpe_tokenizer.decode(all_tokens[0].tolist())                                     # Decode the entire sequence of tokens generated so far (prompt + all generated tokens)
+            new_piece = new_text[len(generated_text):]                                                  # new piece is the last generated token, which is the difference between the new text and the previously generated text
+            if "\\" in new_piece:                                                                       # token rendering fix: if the last generated token is a special token, then we replace it with a space    
                 new_piece = " "
-            generated_text = new_text
+            generated_text = new_text                                                                   # Update the generated text with the new text
             yield new_piece
 
 
