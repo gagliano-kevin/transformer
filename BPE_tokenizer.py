@@ -134,7 +134,7 @@ class CustomBPETokenizer:
         """
         Function to encode a given text into tokens.
         The function takes a string of text and returns a list of tokens (list of integers) representing the bytes of the text.
-        The function first encodes the text into bytes, then iterates through the bytes and merges the most frequent pairs until no more merges are possible.
+        The function first encodes the text into bytes, then iterates through the bytes and merges until no more merges are possible.
         Arguments:
         text: string of text to encode
         Returns:
@@ -191,22 +191,7 @@ class CustomBPETokenizer:
                 # if it is a control character, replace it with its unicode code point (represetented as a 4 digit hexadecimal number)
                 chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digits hexadecimal zero left padding (format: \uXXXX)
         return "".join(chars)
-
-    """
-    def render_token(self, token_byte):
-        
-        #Function to render a token as a string.
-        #The function takes a token (bytes obj) and returns a string representation of the token.
-        #The function first decodes the token into a string using utf-8 encoding, then replaces control characters with their unicode code points.
-        #Arguments:
-        #token_byte: token (bytes) to render
-        #Returns:
-        #token_string: string representation of the token
-        
-        token_string = token_byte.decode("utf-8", errors="replace")
-        token_string = self.replace_control_characters(token_string)
-        return token_string
-    """
+    
 
     def render_token_all_chars(self, token_byte):
         """
@@ -291,7 +276,6 @@ class CustomBPETokenizer:
         vocab_dict = {}
         for token_id, token_bytes in self.vocab.items():
             # Convert bytes to string representation
-            #token_string = self.render_token(token_bytes)
             token_string = self.render_token_all_chars(token_bytes)
             vocab_dict[token_string] = token_id
 
@@ -304,14 +288,12 @@ class CustomBPETokenizer:
             f.write(f"# Total merges: {len(self.merges)}\n")
             
             for (id1, id2), new_id in self.merges.items():
-                # Get string representations of the token pair (integers -> bytes -> strings)
-                # (id1, id2) is a tuple of integers
-                # self.vocab[id1] and self.vocab[id2] are bytes
-                # self.render_token(self.vocab[id1]) and self.render_token(self.vocab[id2]) are strings
+                """Get string representations of the token pair (integers -> bytes -> strings)
+                (id1, id2) is a tuple of integers
+                self.vocab[id1] and self.vocab[id2] are bytes
+                self.render_token_all_chars(self.vocab[id1]) and self.render_token_all_chars(self.vocab[id2]) are strings"""
                 
-                #s1 = self.render_token(self.vocab[id1])
                 s1 = self.render_token_all_chars(self.vocab[id1])
-                #s2 = self.render_token(self.vocab[id2])
                 s2 = self.render_token_all_chars(self.vocab[id2])
                 
                 # Write to file string representations of the token pair and the new token id

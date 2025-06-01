@@ -15,7 +15,7 @@ class transformerConfig:
     embedding_dim: int = 512                                # Embedding dimension of the model
     feed_forward_dim: int = 2048                            # Feed forward dimension of the model
     max_seq_len: int = 512                                  # Maximum length of the input sequence
-    vocab_size: int = 50257                                 # Number of tokens: 50,000 BPE merges + 256 bytes tokens + 1 <|endoftext|> token
+    vocab_size: int = 10256                                 # Number of tokens: 10,000 BPE merges + 256 bytes tokens 
     dropout: float = 0.1                                    # Dropout rate
 
 
@@ -28,11 +28,9 @@ class mlp(nn.Module):
         self.linear1 = nn.Linear(config.embedding_dim, config.feed_forward_dim)             # First linear layer
         self.linear2 = nn.Linear(config.feed_forward_dim, config.embedding_dim)             # Second linear layer
         self.linear2.SCALE = True                                                           # Flag to scale the weights of the second linear layer
-        #self.dropout = nn.Dropout(config.dropout)  
 
     def forward(self, x):   
         x = F.gelu(self.linear1(x))                                                         # Apply GELU activation to the first linear layer
-        #x = self.dropout(x)
         x = self.linear2(x)                                                             
         return x
 
@@ -116,11 +114,7 @@ class transformer(nn.Module):
                 torch.nn.init.constant_(module.bias, 0)                                       # Initialize the bias of the linear layer with constant value 0
         elif isinstance(module, nn.Embedding):
             torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)                          # Initialize the weights of the embedding layer with normal distribution
-        """
-        elif isinstance(module, nn.LayerNorm):
-            torch.nn.init.constant_(module.bias, 0)                                           # Initialize the bias of the layer normalization layer with constant value 0
-            torch.nn.init.constant_(module.weight, 1)                                         # Initialize the weights of the layer normalization layer with constant
-        """
+
 
     def forward(self, x, targets=None):
         batch_size, seq_len = x.size()                                                                                  # Get the batch size and sequence length
@@ -140,8 +134,8 @@ class transformer(nn.Module):
 
     def init_optimizers(self, weight_decay, learning_rate, device):
         parameter_dict = {param_name : param for param_name, param in self.named_parameters() if param.requires_grad}   # Get the parameters that require gradients
-        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() >= 2]                   # Get the parameters that require weight decay (only for bidiemensional tensors)
-        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() < 2]                 # Get the parameters that do not require weight decay
+        weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() >= 2]                 # Get the parameters that require weight decay (only for bidiemensional tensors)
+        no_weight_decay_parameters = [param for name, param in parameter_dict.items() if param.dim() < 2]               # Get the parameters that do not require weight decay
         optim_param_group = [
             {"params": weight_decay_parameters, "weight_decay": weight_decay},
             {"params": no_weight_decay_parameters, "weight_decay": 0.0}
