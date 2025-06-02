@@ -3,7 +3,7 @@ import os
 import sys
 import gradio as gr
 
-from tests.kevin_tests.train import init_tokenizer, load_model, stream_text
+from train import init_tokenizer, load_model, stream_text
 from nano_transformer_class import transformerConfig
 
 

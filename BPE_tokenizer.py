@@ -27,7 +27,7 @@ class CustomBPETokenizer:
         self.pattern = ""
         self.special_tokens = {}
 
-        self.tokenizer_params_dir = "tests/tokenizer_params"
+        self.tokenizer_params_dir = "tokenizers"
 
         self.log = log
     
