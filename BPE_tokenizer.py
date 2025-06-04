@@ -190,21 +190,6 @@ class CustomBPETokenizer:
                 chars.append(f"\\u{ord(ch):04x}")   # unicode code point 4 digits hexadecimal zero left padding (format: \uXXXX)
         return "".join(chars)
 
-    """
-    def render_token(self, token_byte):
-        
-        #Function to render a token as a string.
-        #The function takes a token (bytes obj) and returns a string representation of the token.
-        #The function first decodes the token into a string using utf-8 encoding, then replaces control characters with their unicode code points.
-        #Arguments:
-        #token_byte: token (bytes) to render
-        #Returns:
-        #token_string: string representation of the token
-        
-        token_string = token_byte.decode("utf-8", errors="replace")
-        token_string = self.replace_control_characters(token_string)
-        return token_string
-    """
 
     def render_token_all_chars(self, token_byte):
         """
