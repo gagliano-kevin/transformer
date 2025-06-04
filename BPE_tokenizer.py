@@ -24,8 +24,6 @@ class CustomBPETokenizer:
         self.num_merges = vocab_size - 256
         self.vocab = {}
         self.merges = {}
-        self.pattern = ""
-        self.special_tokens = {}
 
         self.tokenizer_params_dir = "tests/tokenizer_params"
 
